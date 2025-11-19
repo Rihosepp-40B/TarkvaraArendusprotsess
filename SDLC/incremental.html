@@ -32,7 +32,7 @@
         ära tähtsamateks ja vähemtähtsateks. Tähtsamad nõuded on tavaliselt need, mis kliendile <br/>
         rohkem väärtust toob. Siin määratakse ära ka kuidas arendustöö toimima hakkab, ehk millistes<br/>
         inkrementides klient oma toodet saama hakkab - ehk kui pika aja tagant.<br/>
-        Iga inkrement peab tarnima kliendile mingisuguse toimiva toote osakese.<br/>
+        Iga inkrement peab tarnima kliendile mingisuguse toimiva toote osakese.<br/><br/>
         <h3>Süsteemi arendus</h3>
         Kui nõuded on olemas, ning ära jagatud prioriteetide järgi hakatakse toodet tarnima peale nüüd<br/>
         teostatavat arendusprotsessi. Siin arendatakse välja vastavalt nõuetele programmiosa.<br/>
@@ -88,9 +88,12 @@
                             keset arendust tagasisidet, et vajadusel muuta oma nõudeid, ja seega arenduse<br/>
                             suunda. Klient näeb ka kui palju on tehtud.<br/>
                             </td>
-                            <td>Süsteemi tagasiside on kohene - olemasolevale arendustööle saab meeskond<br/>
-                            keset arendust tagasisidet, et vajadusel muuta oma nõudeid, ja seega arenduse<br/>
-                            suunda. Klient näeb ka kui palju on tehtud<br/></td>     
+                            <td>Süsteemi struktuuri aja jooksul degreerub - Kuna arendatakse juurde<br/>
+                            pidevalt uusi osi, ning ka selliseid osi mida alguses planeeritud ei olnud<br/>
+                            siis kipub arendatava toote sisemine süsteem spagetistuma. Selle välistamiseks<br/>
+                            kulutatakse lisaressursse koodi refaktoreerimisele, et sisemine struktuur<br/>
+                            korras hoida. Kui korrashoidu ei teostata, on hilisem muudatuste ja uute<br/>
+                            valmisosade integratsioon tunduvalt keerulisem.</td>   
                         </tr>
                         <tr>
                             <td>
@@ -98,12 +101,7 @@
                                 arendustöö lõppu kasutusele võtta, ning klient saab sellest varem kasu<br/>
                                 kui näiteks tarkvaratootega, mida arendatakse jäiga mudeliga.
                             </td>
-                            <td>Süsteemi struktuuri aja jooksul degreerub - Kuna arendatakse juurde<br/>
-                                pidevalt uusi osi, ning ka selliseid osi mida alguses planeeritud ei olnud<br/>
-                                siis kipub arendatava toote sisemine süsteem spagetistuma. Selle välistamiseks<br/>
-                                kulutatakse lisaressursse koodi refaktoreerimisele, et sisemine struktuur<br/>
-                                korras hoida. Kui korrashoidu ei teostata, on hilisem muudatuste ja uute<br/>
-                                valmisosade integratsioon tunduvalt keerulisem.</td>
+                            <td></td>
                         </tr>
                     </tbody>
             </table><br/><br/>
@@ -117,7 +115,7 @@
                     <li><h3>Inkrementaalne arendus</h3> - on tarkvaratoote arendus kus iga inkremendi<br/>
                     raames valmib toimiv tarkvara osa. Valmissaadud tarkvaraosake integreeritakse<br/>
                     muu süsteemiga mis eelnevalt arendatud.</li>
-                    <li><h3>Iteratiivne arendus</h3> on muutmisstrateegia kus parandatakse või tehakse<br/>
+                    <li><h3>Iteratiivne arendus</h3> - on muutmisstrateegia kus parandatakse või tehakse<br/>
                     ringi juba olemasolev süsteemm, et seda siis täiustada, ehk olemasolev süsteem<br/>
                     saab uue ja parema variandi - ehk iteratsiooni.</li>
                 </ul>
