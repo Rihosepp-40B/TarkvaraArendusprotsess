@@ -14,6 +14,7 @@
                 color: #d4af37;
                 font-size: x-large;
                 font-family: monospace;
+                max-width: 100ch;
             }
             a {
                 color: #e5be8a;
@@ -22,5 +23,108 @@
 </head>
 <body>
     <a href="../UML/index.html">Tagasi UML</a>
+    <h1>Olemidiagramm</h1>
+    <p>
+        <h2>Mis on olemidiagramm?</h2>
+        Olemidiagramm ehk olemi-suhte diagramm (Entity Relation Diagram või ERD) on kõige laiemalt levinud metoodika
+        andmemudelite koostamiseks ja kirjeldamiseks. Tegemist on pool-formaalse mudeliga, kus on ühendatud: 
+        <ul>
+            <li>andmemudeli graafiline esitus - olemid (entity), vaated (views) ja nende vahelised seosed
+                (relationships)</li>
+            <li>tabelite sisemise struktuuri formaalsed kirjeldused (olemite atribuudid, atribuutide andmetüübid,
+                piirangud, indeksid)</li>
+            <li>vaadete formaalsed kirjeldused (kuidas vaated olemite kaudu kirjelduvad)</li>
+            <li>olemite ja vaadete vaheliste seoste formaalsed kirjeldused (seoste väljade kirjeldused, seose tugevuse
+                kirjeldused)</li>
+            <li>mudeli komponentide verbaalsed kirjeldused (olemite, atribuutide, seoste, protseduuride jm. semantika
+                vabatekstiline kirjeldus)</li>
+        </ul>
+    </p><br/>
+    <p>
+        <h2>Kus neid kasutatakse?</h2>
+        Olemidiagramme kasutatakse kõige sagedamini andmebaaside kujundamiseks või silumiseks tarkvaratehnika,
+        äriinfosüsteemide, hariduse ja teadustöö valdkonnas.
+    </p><br/>
+    <p>
+        <h2>Olemitabel</h2>
+        Olemidiagrammi algne esitlus võib olla lihtsustatud, olemi ristküülikus ainult semantiline nimetus, seda
+        kutsutakse infoloogiliseks mudeliks.<br/><br/>
+        <img src="../pildid/Olemi_semantiline_näide.svg" alt=""><br/><br/>
+        
+        Pärast selle koostamist viiakse diagramm andmeloogilisele tasemele. Selle käigus projekteeritakse olemite
+        sisemine struktuur, mis koosneb olemi omadustest (ERD mudelis väljendatakse atribuutidega).<br/><br/>
+        <img src="../pildid/Olemi_andmeloogiline_näide.svg" alt=""><br/><br/>
+        Selleks, et andmeloogilise mudeli alusel luua reaalselt eksisteeriv andmebaas, tuleb andmeloogilise kirjelduse
+        alusel viia läbi füüsiline modelleerimine.<br/>
+        Füüsilise modelleerimise käigus lisatakse andmeloogilise andmemudelile (minimaalselt) järgmised kirjeldused:
+        <ul>
+            <li>olemitele tabelite nimed, mille all olemite kirjelduse järgi luuakse andmebaasi tabelid</li>
+            <li>olemitele seoste võtmete kirjeldused (primaarvõtmed ja välisvõtmed)</li>
+            <li>olemitele indeksite kirjeldused</li>
+            <li>olemite atribuutidele veergude nimed, mille all olemite kirjelduse järgi luuakse andmebaasi tabelite
+                veerud</li>
+            <li>olemite atribuutidele andmetüübid, pikkused ja NULL NOT NULL piirangud</li>
+        </ul><br/>
+        <img src="../pildid/Olemi_füüsiline_näide.svg" alt=""><br/><br/>
+        Siin joonisel on näha, et kõikidele atribuutidele on lisatud andmetüübid, pikkused ja NULL/NOT NULL piirang,
+        mis määrab, kas antud atribuut võib olla mõnes kirjes tühi (NULL) või mitte (NOT NULL).
+    </p><br/>
+    <p>
+        <h2>Diagrammi elemendid</h2>
+        Olemidiagrammil on mitmeid kujutamis versioone, siin räägime hetkel kõige enim kasutusel oleva meetodist mida
+        tuntakse IE (Information Engineering) all.<br/><br/>
+        Olemi vahelised seosed esitatakse joontega mille otstel on kindla tähendusega kujutised: <br/><br/>
+        <img src="../pildid/Olemi_otsad.svg" alt=""><br/>
+        Neid kujutis saab omavahel kombineerida, et saada eritähenduslike kombinatsioone.
+        <br/><br/>
+        Suurem osa (99%) seostest olemite vahel on "Üks-Mitmesed" seosed (üks - null, üks, mitu):<br/><br/>
+        <img src="../pildid/Olemi_näide_1.svg" alt="">
+    </p><br/>
+    <p>
+        <h2>Olemi seosete näited</h2>
+        <ul>
+            <li><img src="../pildid/Olemi_näide_2.svg" alt=""><br/>
+            Seos: üks - üks või mitu<br/>
+            Skeemil on kirjeldatud inimene (inimesed), kellele kohta on teada igal juhul vähemalt üks aadress, aga tema
+            kohta võib olla teada ka mitu. Ei ole võimalik, et aadress eksisteerib iseseisvalt - ilma et ta oleks
+            seostatud isikuga. Ei ole võimalik, et eksisteerib isik, kelle kohta pole teada ühtegi aadressi.</li><br/>
+            <li><img src="../pildid/Olemi_näide_3.svg" alt=""><br/>
+            Seos: üks - null, üks või mitu<br/>
+            Skeemil on kirjeldatud inimene (inimesed), kes võib eksisteerida nii, et tema kohta pole teada ühtegi
+            aadressi. Me võime tema kohta siiski teada ühte või enamat aadressi. Ei ole võimalik, et aadress
+            eksisteerib iseseisvalt - ilma et ta oleks seostatud isikuga.</li><br/>
+            <li><img src="../pildid/Olemi_näide_4.svg" alt=""><br/>
+            Seos: null või üks - üks või mitu<br/>
+            Skeemil on kirjeldatud inimene (inimesed), kellele kohta on teada igal juhul vähemalt üks aadress, aga tema
+            kohta võib neid olla teada ka mitu. On võimalik, et aadress eksisteerib iseseisvalt - ilma et ta oleks
+            seostatud ühegi isikuga</li><br/>
+            <li><img src="../pildid/Olemi_näide_5.svg" alt=""><br/>
+            Seos: null või üks - null, üks, või mitu<br/>
+            Skeemil on kirjeldatud inimene (inimesed), kes võib eksisteerida nii, et tema kohta pole teada ühtegi
+            aadressi. Me võime tema kohta siiski teada ühte või enamat aadressi. Aadress võib eksisteerida ka
+            iseseisvalt - ilma et ta oleks seostatud isikuga.</li>
+        </ul>
+    </p><br/><br/>
+    <p>
+        <h2>Võtmed</h2>
+        <b>Primaarvõti (Primary Key)</b> on olemi tabeli unikaalne tunnus, mille järgi teda tuvastada.<br/>
+        Kui kaks tabelit on andmebaasis omavahel seotud, siis viiakse suhte "üks" otsas oleva tabeli primaarvõti üle
+        suhte "mitu" poolses olevasse tabelisse. Enda tabelis on _ID unikaalne, siis kõrval tabelis mitte. Näiteks
+        üleval toodud füüsilise mudeli joonisel tabelis "Isik" on isik_ID unikaalne, siis tabelis "Vara omamine" see
+        enam ei ole.<br/>
+        Teise tabelisse ülekantud tunnus on seal nö <b>välisvõti (Foreign Key)</b>. Selle abil tuvastatakse kahe tabeli
+        vaheline suhe.<br/>
+        <b>Lihtvõti (Simple Key) </b> - kui võti sisaldab ühte atribuuti, siis nimetatakse seda lihtvõtmeks.<br/>
+        <b>Liitvõti (Composite Key)</b> - kui võti sisaldab mitu atribuuti, siis nimetatakse seda liitvõtmeks.
+    </p><br/><br/>
+    <p>
+        Viited infole:<br/>
+        <ul>
+            <li><a href="https://enos.itcollege.ee/~priit/1.%20Andmebaasid/2.%20Loengumaterjalid/04.%20Andmemudelid%20ja%20ERD.pdf">Andmemudelid ja ERD</a></li>
+            <li><a href="https://www.lucidchart.com/pages/er-diagrams">What is an ER diagram?</a></li>
+            <li><a href="https://online.visual-paradigm.com/knowledge/visual-modeling/conceptual-vs-logical-vs-physical-data-model">Data Modeling: Conceptual vs Logical vs Physical Data Model</a></li>
+            <li><a href="https://et.wikipedia.org/wiki/Andmebaas">Andmebaas</a></li>
+        </ul>
+    </p>
 </body>
 </html>
