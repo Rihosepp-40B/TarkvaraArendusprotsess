@@ -4,8 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoin kalkulaator</title>
+    <style>
+        table, th, td {
+            border: 3px solid #d4af37;
+            border-collapse: collapse;
+        }
+        body {
+            background-color: black;
+            color: #d4af37;
+            font-size: x-large;
+            font-family: monospace;
+            text-align: justify;
+            max-width: 200ch;
+            min-height: 200vh; /* Just to show scrolling */
+            margin: 0 auto;     /* center horizontally */
+            padding: 1rem;      /* spacing on small screens */
+            line-height: 1.6;
+        }
+
+        /* Top fade bar */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 1),
+                rgba(0, 0, 0, 0)
+            );
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            pointer-events: none; /* allows clicks through except button */
+        }
+
+        /* Bottom fade bar */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(
+            to top,
+                rgba(0, 0, 0, 1),
+                rgba(0, 0, 0, 0)
+            );
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        /* Button on top bar */
+        .top-bar a {
+            pointer-events: auto; /* re-enable clicking */
+            text-decoration: none;
+            color: #d4af37;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .top-bar a:hover {
+            background: rgba(255, 255, 255, 0.35);
+        }
+        a {
+            color: #e5be8a;
+        }
+        img, svg {
+            filter: none !important;
+        }
+    </style>
 </head>
 <body>
+    <div class="top-bar">
+        <a href="../index.html">Tagasi</a>
+    </div>
+    
+    <div class="bottom-bar"></div>
+    
+    <main style="padding: 5% 25%;"> 
     <!--Tunnis tehtud bitcoin kalkulaatori programmi kohta tehke oma ainemappi eralid saidi osa "BTC" kus on "Index.html"
     Kirjeldus programmi kohta
     Vooskeem
@@ -18,5 +100,6 @@
         Programm küsib kasutajalt palju coine on ning mis valuutas väärtus väljastada. Peale seda teeb see päringu <br/>
         bitcoin API lehelt <a href="https://developers.coindesk.com/">COINDESK</a> kust see saab coini hetke väärtused.<br/>
     <img src="../pildid/" alt=""></p>
-        </body>
+    </main>
+</body>
 </html>
