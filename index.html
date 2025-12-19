@@ -5,12 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minu Tarkvara Arendusprotsessi Ainemapp</title>
     <style>
-        table, th, td {
-            border: 3px solid #d4af37;
-            border-collapse: collapse;
+        .dropdown {
+            position: relative;
+            display: inline-block;
         }
+
+        /* Dropdown button styling */
+        .dropdown button {
+            background-color: #241e03;
+            color: #e5be8a;
+            padding: 10px 20px;
+            font-size: x-large;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #241e03;
+            min-width:max-content;
+            box-shadow: 0px 20px 100px rgba(212, 175, 55, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+            /* Links inside the dropdown */
+        .dropdown-content a {
+            color: #e5be8a;
+            padding: 1ch;
+            text-decoration: none;
+            display: block;
+        }
+
+            /* Hover effect on links */
+        .dropdown-content a:hover {
+            background-color: #0c0a00;
+        }
+
+        /* Show the dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Optional: change button color on hover */
+        .dropdown:hover button {
+            background-color: #e5be8a;
+            color: #0c0a00;
+        }
+
+        table, td {
+            border: 3px solid #241e03;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
+        }
+
+        th {
+            border: 3px solid #241e03;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
+            background-color: #241e03;
+        }
+
         body {
-            background-color: black;
+            background-color: #0c0a00;
             color: #d4af37;
             font-size: x-large;
             font-family: monospace;
@@ -28,11 +91,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             display: flex;
@@ -47,11 +110,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
             to top,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             pointer-events: none;
@@ -75,46 +138,69 @@
         a {
             color: #e5be8a;
         }
-        img, svg {
-            filter: none !important;
+       
+        h1, h2 {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+        h3 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .scroll-image {
+            position: absolute;
+            bottom: 10px;
+            right: -1500px;          /* start off-screen */
+            height: 60px;           /* adjust as needed */
+            opacity: 0.3;
+            transition: transform 0.05s linear;
+            pointer-events: none;   /* decorative only */
         }
     </style>
 </head>
-<body>
-    <div class="top-bar">
+<body>            
+    <div class="bottom-bar">
+    <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
     </div>
     
-    <div class="bottom-bar"></div>
-    
-    <main style="padding: 5% 25%;">
+    <main style="padding: 5% 25%;"> 
+    <div class="top-bar">
+    </div>
     <h1>Tarkvara Arendusprotsessi tunni raames koostatud ainemapp</h1>
-    <br/>
     <p>
             Tarkvara Arendusprotsessi aines tehtud ainemapp kus on selle aine ja teiste ainete ülesanded ja muud saavutused kuvatud.
     </p>
     <h2>Tarkvara Arendusprotsess:</h2>
-    <h3>Teooria:</h3>
-    <a href="./SDLC/sdlc.html">Üldiselt - mis see on.</a><br/>
-    <a href="./CASE/index.html">CASE-vahend.</a><br/>
-    <a href="./UML/index.html">Unified Modeling Language.</a><br/>
-    <a href="./DOCS/index.html">dokumentatsioon</a>
-    <h3>Praktilised rakendused:</h3>
-    <a href="./BTC/index.html">Bitcoin Calculator.</a><br/>
-    <a href="./PMC/index.html">Tooted ja Kategooriad</a><br/>
+    <div class="dropdown">
+        <button>Teooria:</button>
+        <div class="dropdown-content">
+            <a href="./SDLC/sdlc.html">Üldiselt - mis see on</a>
+            <a href="./CASE/index.html">CASE-vahend</a>
+            <a href="./UML/index.html">Unified Modeling Language</a>
+            <a href="./DOCS/index.html">Dokumentatsioon</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button>Praktilised rakendused:</button>
+        <div class="dropdown-content">
+            <a href="./BTC/index.html">Bitcoin Calculator</a>
+            <a href="./PMC/index.html">Tooted ja Kategooriad</a>
+        </div>
+    </div><br/>
     -------------------------------------------------------
     <h2>Kes ma olen:</h2>
     <table>
         <tr>
-                <td>Minu nimi</td>
-                <td>Mida ma teen:</td>
-                <td>Kust ma tulen:</td>
-                <td>Pilt</td>
+            <th>Minu nimi</th>
+            <th>Mida ma teen:</th>
+            <th>Kust ma tulen:</th>
+            <th>Pilt</th>
         </tr>
         <tr>
-                <td>Riho Sepp</td>
-                <td>Olen õpilane TTHK's</td>
-                <td>Tallinnast</td>
-                <td> <img height="120" src="./pildid/profiil.png"/> </td>
+            <td>Riho Sepp</td>
+            <td>Olen õpilane TTHK's</td>
+            <td>Tallinnast</td>
+            <td> <img height="120" src="./pildid/profiil.png"/> </td>
         </tr>
         <tr>
             <td colspan="4">
@@ -123,5 +209,21 @@
         </tr>
     </table>
     </main>
+    <script>
+        const img = document.querySelector('.scroll-image');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+            // Normalize scroll (0 → 1)
+            const progress = scrollTop / maxScroll;
+
+            // Move from right → left
+            const moveX = progress * (window.innerWidth * 0.7);
+
+            img.style.transform = `translateX(-${moveX}px)`;
+        });
+    </script>
 </body>
 </html>

@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spiraalmudel</title>
     <style>
-        table, th, td {
-            border: 3px solid #d4af37;
+        table, td {
+            border: 3px solid #241e03;
             border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
         }
+
+        th {
+            border: 3px solid #241e03;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
+            background-color: #241e03;
+        }
+
         body {
-            background-color: black;
+            background-color: #0c0a00;
             color: #d4af37;
             font-size: x-large;
             font-family: monospace;
@@ -28,11 +39,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             display: flex;
@@ -47,11 +58,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
             to top,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             pointer-events: none;
@@ -75,51 +86,85 @@
         a {
             color: #e5be8a;
         }
-        img, svg {
-            filter: none !important;
+       
+        h1, h2 {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+        h3 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .scroll-image {
+            position: absolute;
+            bottom: 10px;
+            right: -1500px;          /* start off-screen */
+            height: 60px;           /* adjust as needed */
+            opacity: 0.3;
+            transition: transform 0.05s linear;
+            pointer-events: none;   /* decorative only */
         }
     </style>
 </head>
-<body>
+<body>            
+    <div class="bottom-bar">
+    <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+    </div>
+    
+    <main style="padding: 5% 25%;"> 
     <div class="top-bar">
         <a href="./sdlc.html">Tagasi SDLC</a>
     </div>
-    
-    <div class="bottom-bar"></div>
-    
-    <main style="padding: 5% 25%;">
-    <h1>Spiraalmudel</h1><br/>
+    <h1>Spiraalmudel</h1>
+    <h2>Mis on spiraalmudel?</h2>
     <p>
-        Spiraalmudel on iteratiivne arendusmudel. Selles mudelis kujutatakse tööprotsessi spiraalina, mis <br/>
-        teeb kordusi erinevate arendamise etappides. Mitu kordust on enamasti seotud tarkvara realiseerimisega, <br/>
-        kus tema ehitamine toimub inkrementaalselt. Graafiliselt kujutatakse etappe sektoritena läbi mille siis <br/>
-        töökulgeb. Iga kordus jaotatakse 3 kuni 6 sektorisse (erinevad autorid jagavad erinevalt) ja algab <br/>
-        lähema eesmärgi kavandamise, riskide hindamisega ning lõpeb nö kliendiga - ehk eesmärk peab saama <br/>
-        täidetud ja kontrollitud.<br/>
-        <p><br/>
-        <h2>Boehm'i neli sektorit</h2><br/>
-        Barry Boehm kirjeldas spiraalmudelit esimest korda artiklis aastal 1986. Tema järgi on sektoreid neli: <br/>
-        Eesmärkide seadmine, Riskide hindamine ja maandamine, Arendus ja valideerimine, ja Planeerimine.<br/><br/>
-        <H3>1. Eesmärkide seadmine (Objective setting)</H3>
-        Määratakse faasi või korduse eesmärgid, piirangud protsessis, tulemused, juhtimisplaan, võimalikud riskid <br/>
-        ning alternatiivsed strateegiad lähtudes riskidest.<br/>
-        <H3>2. Riskide hindamine ja maandamine (Risk assessment and reduction)</H3>
-        Iga leitud riski jaoks tehakse analüüs, võetakse midagi ette riskide maandamiseks (nt risk, et nõudmised <br/>
-        pole adekvaatsed: tehakse prototüüp).<br/>
-        <H3>3. Arendus ja valideerimine (Develpoment and valitation)</H3>
-        Valitakse arendusmudel, mis lähtub hinnatud riskidest (mudel peab olema selline, mis riske vähendada <br/>
-        aitab). Nt kui kasutajaliides on suurim risk, siis võib aidata prototüüpide tegemine.<br/>
-        <H3>4. Planeerimine (Planning)</H3>
-        Projekt vaadatakse üle ja tehakse otsus, kas jätkata järgmisel kordusel, kui otsustatakse jätkata, tehakse <br/>
-        järgmise faasi jaoks plaan.<br/><br/>
-        <H3>Spiraalmudeli joonis</H3>
+        Spiraalmudel on iteratiivne arendusmudel. Selles mudelis kujutatakse tööprotsessi spiraalina, mis teeb kordusi
+        erinevate arendamise etappides. Mitu kordust on enamasti seotud tarkvara realiseerimisega, kus tema ehitamine
+        toimub inkrementaalselt. Graafiliselt kujutatakse etappe sektoritena läbi mille siis töökulgeb. Iga kordus
+        jaotatakse 3 kuni 6 sektorisse (erinevad autorid jagavad erinevalt) ja algab lähema eesmärgi kavandamise,
+        riskide hindamisega ning lõpeb nö kliendiga - ehk eesmärk peab saama täidetud ja kontrollitud.
+    </p>
+    <h2>Boehm'i neli sektorit</h2>
+    <p>        
+        Barry Boehm kirjeldas spiraalmudelit esimest korda artiklis aastal 1986. Tema järgi on sektoreid neli:
+        Eesmärkide seadmine, Riskide hindamine ja maandamine, Arendus ja valideerimine, ja Planeerimine.
+        <h3>1. Eesmärkide seadmine (Objective setting)</h3>
+        Määratakse faasi või korduse eesmärgid, piirangud protsessis, tulemused, juhtimisplaan, võimalikud riskid ning
+        alternatiivsed strateegiad lähtudes riskidest.
+        <h3>2. Riskide hindamine ja maandamine (Risk assessment and reduction)</h3>
+        Iga leitud riski jaoks tehakse analüüs, võetakse midagi ette riskide maandamiseks (nt risk, et nõudmised pole
+        adekvaatsed: tehakse prototüüp).
+        <h3>3. Arendus ja valideerimine (Develpoment and valitation)</h3>
+        Valitakse arendusmudel, mis lähtub hinnatud riskidest (mudel peab olema selline, mis riske vähendada aitab). Nt
+        kui kasutajaliides on suurim risk, siis võib aidata prototüüpide tegemine.
+        <h3>4. Planeerimine (Planning)</h3>
+        Projekt vaadatakse üle ja tehakse otsus, kas jätkata järgmisel kordusel, kui otsustatakse jätkata, tehakse
+        järgmise faasi jaoks plaan.
+    </p>
+    <h2>Spiraalmudeli joonis</h2>
+    <p>
         <img height="600" src="../pildid/Spiraalmudel.jpg">
-        </p>
-    </p><br/><br/>
+    </p><br/>
     <p>
         Viited infole:
         <a href="https://eopearhiiv.edu.ee/e-kursused/eucip/arendus/1223_spiraalmudel.html">Spiraalmudel</a>
     </p>
     </main>
+    <script>
+        const img = document.querySelector('.scroll-image');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+            // Normalize scroll (0 → 1)
+            const progress = scrollTop / maxScroll;
+
+            // Move from right → left
+            const moveX = progress * (window.innerWidth * 0.7);
+
+            img.style.transform = `translateX(-${moveX}px)`;
+        });
+    </script>
 </body>
 </html>

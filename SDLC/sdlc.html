@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarkvaraarenduse Elutsükkel</title>
     <style>
-        table, th, td {
-            border: 3px solid #d4af37;
+        table, td {
+            border: 3px solid #241e03;
             border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
         }
+
+        th {
+            border: 3px solid #241e03;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
+            background-color: #241e03;
+        }
+
         body {
-            background-color: black;
+            background-color: #0c0a00;
             color: #d4af37;
             font-size: x-large;
             font-family: monospace;
@@ -28,11 +39,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             display: flex;
@@ -47,11 +58,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
             to top,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             pointer-events: none;
@@ -75,53 +86,66 @@
         a {
             color: #e5be8a;
         }
-        img, svg {
-            filter: none !important;
+       
+        h1, h2 {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+        h3 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .scroll-image {
+            position: absolute;
+            bottom: 10px;
+            right: -1500px;          /* start off-screen */
+            height: 60px;           /* adjust as needed */
+            opacity: 0.3;
+            transition: transform 0.05s linear;
+            pointer-events: none;   /* decorative only */
         }
     </style>
 </head>
-<body>
+<body>            
+    <div class="bottom-bar">
+    <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+    </div>
+    
+    <main style="padding: 5% 25%;"> 
     <div class="top-bar">
         <a href="../index.html">Tagasi</a>
     </div>
-    
-    <div class="bottom-bar"></div>
-    
-    <main style="padding: 5% 25%;"> 
-    <h1>Mis on Tarkvaraarenduse elutsükkel (SDLC - Software Develpoment Life Cycle)</h1>
-    <br/>
+    <h1>Tarkvaraarenduse elutsükkel (SDLC - Software Develpoment Life Cycle)</h1>
+    <h2>Mis on Tarkvaraarenduse elutsükkel?</h2>
     <p>
-            Tarkvaraarenduse elutsükkel on protsess mille käigus tehakse mingisugune tarkvaratoode<br/>
-        Saab ka muuta juba olemasolevat tarkvaratoodet.
-    </p><br/><br/>
+        Tarkvaraarenduse elutsükkel on protsess mille käigus tehakse mingisugune tarkvaratoode, saab ka muuta
+        juba olemasolevat tarkvaratoodet.
+    </p>
     <h2>Mis on tarkvaratoode?</h2>
     <p>
-            Tarkvara toode on midagi, mis saavutatakse Tarkvaraarenduse elutsükli käigus selle tulemina<br/>
-         ning mida klient või lõppkasutaja saab kasutada millegi tegemiseks. Tarkvaratoode võib olla kas <br/>
-        installeeritav programm, serveritarkvara, driver, või ükskõik muu rakendus mis kasutaja jaoks<br/>
-        midagi teeb.<br/><br/>
+        Tarkvara toode on midagi, mis saavutatakse Tarkvaraarenduse elutsükli käigus selle tulemina ning mida
+        klient või lõppkasutaja saab kasutada millegi tegemiseks. Tarkvaratoode võib olla kas installeeritav
+        programm, serveritarkvara, driver, või ükskõik muu rakendus mis kasutaja jaoks midagi teeb.
     </p>
-    <h1>Mis on Tarkvaraarenduse elutsükli eesmärk?</h1>
-    <br/>
-    <P>
-            Elutsükli eesmärk on tagada, et valmistatakse kvaliteetne toode, mis vastab kliendi nõuetele<br/>
-        ning kasutaja vajadustele ning ootustele. Olgu need ootused siis funktsionaalsed või mittefunktsionaalsed.<br/>
-        Ideaalis on eesmärk ka tagada seda, et toode valmiks õigeaegselt, jääb oma eelarve piiridesse, töötab<br/>
-        kasutaja jaoks efektiivselt, on võimeline integreerima kasutaja IT taristuga ja ei ole kulukas hooldada,<br/>
-        ega vajadusel täiendada.<br/><br/> 
-    </P>
-    <br/>
-    <h1>Milline näeb välja tüüpiline tarkvaraarenduse elutsükkel?</h1><br/>
-    <P>
-            Tarkvaraarenduse elutsükkel on oma sisemuselt jaotatud etappideks. Olenevalt mudelist need erinevad<br/>
-        Aga üldiselt on igas mudelis olemas need 4 üldist etappi mingil kujul, kui otsene analoog olenevalt mudelist<br/>
-        puudub. on olemas Analüüs, projekteerimine ja/või kavandamine, teostus ning hooldus.
-        </P><br/><br/>
-    <h2>Mida nendes etappides tehakse?</h2><br/>
-    <h3>Analüüsi etapp</h3>
-    <P>
-            Siin toimub tarkvaraprojektile vajalike nõuete selgitamine. Selgitatakse välja mida tahab klient, ning<br/>
-        mis lõppkasutajatel vaja on, mida nad sellest ootavad. Selgitatakse välja funktsionaalsed nõuded ja ka <br/>
+    <h2>Mis on Tarkvaraarenduse elutsükli eesmärk?</h2>
+    <p>
+        Elutsükli eesmärk on tagada, et valmistatakse kvaliteetne toode, mis vastab kliendi nõuetele
+        ning kasutaja vajadustele ning ootustele. Olgu need ootused siis funktsionaalsed või mittefunktsionaalsed.
+        Ideaalis on eesmärk ka tagada seda, et toode valmiks õigeaegselt, jääb oma eelarve piiridesse, töötab
+        kasutaja jaoks efektiivselt, on võimeline integreerima kasutaja IT taristuga ja ei ole kulukas hooldada,
+        ega vajadusel täiendada.
+    </p>
+    <h2>Milline näeb välja tüüpiline tarkvaraarenduse elutsükkel?</h2>
+    <p>
+        Tarkvaraarenduse elutsükkel on oma sisemuselt jaotatud etappideks. Olenevalt mudelist need erinevad, aga
+        üldiselt on igas mudelis olemas need 4 üldist etappi mingil kujul, kui otsene analoog olenevalt mudelist
+        puudub. On olemas Analüüs, projekteerimine ja/või kavandamine, teostus ning hooldus.
+        </P>
+    <h2>Mida nendes etappides tehakse?</h2>
+    <p>
+        <h3>Analüüsi etapp</h3>
+        Siin toimub tarkvaraprojektile vajalike nõuete selgitamine. Selgitatakse välja mida tahab klient, ning mis
+        lõppkasutajatel vaja on, mida nad sellest ootavad. Selgitatakse välja funktsionaalsed nõuded ja ka
         mittefunktsionaalsed nõuded. Näiteks oleks kalorikalkulaatoril sellised nõuded:
         <table>
             <tr>
@@ -129,82 +153,83 @@
                 <th>Mittefunktsionaalsed nõuded</th>
             </tr>
             <tr>
-                <td>Programm lubab kasutajal <br/>
-                    arvutada oma päevast tarbimist</td>
-                <td>Kasutajal on lihtne ja mugav <br/>
-                    programmiaknas navigeerida</td>
+                <td>Programm lubab kasutajal arvutada oma päevast tarbimist</td>
+                <td>Kasutajal on lihtne ja mugav programmiaknas navigeerida</td>
             </tr>
             <tr>
-                <td>Programm laseb kasutajal valida<br/> 
-                    olemasolevaid tooteid</td>
-                <td>Programm toetab vaegnägijate <br/>
-                    programmi kasutust</td>
+                <td>Programm laseb kasutajal valida olemasolevaid tooteid</td>
+                <td>Programm toetab vaegnägijate programmi kasutust</td>
             </tr>
             <tr>
-                <td>Kasutaja saab arvutada kaloreid <br/>
-                    kodus tehtud söögi kohta</td>
-                <td>Programm ei hõiva ebaloogiliselt <br/>
-                    palju kasutaja süsteemiressursse</td>
+                <td>Kasutaja saab arvutada kaloreid kodus tehtud söögi kohta</td>
+                <td>Programm ei hõiva ebaloogiliselt palju kasutaja süsteemiressursse</td>
             </tr>
             <tr>
-                <td>Programm saadab märguandeid <br/>
-                    telefonile hoiatuste ja eesmärkide <br/>
-                    saavutuste kohta</td>
-                <td>Programm ei salvest kasutaja <br/>
-                    isiklikku infot serveris</td>
+                <td>Programm saadab märguandeid telefonile hoiatuste ja eesmärkide saavutuste kohta</td>
+                <td>Programm ei salvest kasutaja isiklikku infot serveris</td>
             </tr>
         </table>
-    </P><br/>
-    <h3>Projekteerimise etapp</h3>
-    <P>
-            Siin määratakse ära, süsteemi sisemine arhitektuur, osised, liidesed ja muud omadused.<br/>
-        Selle töö tulemusena tekib arendatavale tarkvaraprojektile kavand. Selles etapis analüüsitakse<br/>
-        Eelnevas etapis paika pandud nõudeid ja kirjeldatakse selle abil struktuuri. Projekti kavand ongi <br/>
-        aluseks kuidas järgmises etapis projekti teostama hakatakse.<br/>
-            Mõnikord aga jaotatakse kavandamisetapp kaheks, kus üleüldine struktuur selgitatakse välja<br/>
-        detailidest eraldi. need jaotatakse siis omakorda eraldi kaheks alametapiks:
+        <h3>Projekteerimise etapp</h3>
+        Siin määratakse ära, süsteemi sisemine arhitektuur, osised, liidesed ja muud omadused. Selle töö tulemusena
+        tekib arendatavale tarkvaraprojektile kavand. Selles etapis analüüsitakse eelnevas etapis paika pandud
+        nõudeid ja kirjeldatakse selle abil struktuuri. Projekti kavand ongi aluseks kuidas järgmises etapis projekti
+        teostama hakatakse.<br/>
+        Mõnikord aga jaotatakse kavandamisetapp kaheks, kus üleüldine struktuur selgitatakse välja detailidest
+        eraldi. need jaotatakse siis omakorda eraldi kaheks alametapiks:
         <ul>
             <li>Arhitektuuri kavandamisetapp</li>
             <li>Detailne kavandamisetapp</li>
-        </ul><br/>
-        Arhitektuuri kavandamises keskendutakse siis üleüldisele struktuurile: määratakse ära erinevad kõrgema<br/>
-        taseme komponendid, seoses teiste tarkvara osade vahel jms. Detailses kavandamisetapis aga keskendutakse<br/>
-        juba individuaalselt komponentidele, funktsioonidele, objektidele, algoritmidele jms.<br/>
-    </P><br/>
-    <h3>Teostusetapp</h3><br/>
-    <p>
-            Selles etapis põhinedes eelnevalt saadud kavandile, algabki arendustöö mille käigus reaalselt nüüd<br/>
-            tarkvaratoode valmis saadaksegi. Kuna eelnevalt kirjeldati ka süsteemi pisidetailid, saab siin rakendada<br/>
-            tervet arendusmeeskonda, kus iga liige või iga alamgrupp arendab ühte kirjeldatud detaili. Kogu projekt<br/>
-            on eri osade kaudu paralleelselt arenduses. Siin toimub ka testimine, otsitakse vigu, nii koodis kui ka<br/>
-            kasutaja vaatepunktist, ja tagatakse et valmistatav tarkvaratoode on üleüldiselt vigade vaba.
-    </p><br/>
-    <h3>Hooldusetapp</h3><br/>
-    <p>
-            Pärast lõpetatud teostusetappi antakse toode kliendile ja kasutajale üle, ning kõik mis toimub pärast<br/>
-            üleandmist on hooldus. Hoolduse all saab teostada edasisi parandusi, toote optimeerimist ja monitooringut<br/>
-            mille abil tagatakse et tarkvaratoode jätkab tööd tõrgeteta.<br/>
-            Hooldusetapi raames saab klient ka esitada uusi nõudeid, mida projektile juurde arendada. See aitab<br/>
-            tootel püsida konkurentsivõimelisena.<br/>
-            Hooldusel on tähtis, et hooldav arendaja või meeskond oskaks lugeda ja aru saada eelnevate arendajate<br/>
-            koodist. See aitab kaasa projekti haldamisel kulude kokkuhoiule, lubab teostada hooldust kiiremini ja<br/>
-            aitab lihtsamini muuta.<br/>
-    </p><br/>
-    <p>Tarkvaraarenduse elutsüklis on kõik eeltoodud etapid mingil kujul olemas.</p><br/><br/>
-    <h1>Erinevad tarkvaraarenduse elutsüklid:</h1>
+        </ul>
+        Arhitektuuri kavandamises keskendutakse siis üleüldisele struktuurile: määratakse ära erinevad kõrgema taseme
+        komponendid, seoses teiste tarkvara osade vahel jms. Detailses kavandamisetapis aga keskendutakse juba
+        individuaalselt komponentidele, funktsioonidele, objektidele, algoritmidele jms.
+        <h3>Teostusetapp</h3>
+        Selles etapis põhinedes eelnevalt saadud kavandile, algabki arendustöö mille käigus reaalselt nüüd
+        tarkvaratoode valmis saadaksegi. Kuna eelnevalt kirjeldati ka süsteemi pisidetailid, saab siin rakendada tervet
+        arendusmeeskonda, kus iga liige või iga alamgrupp arendab ühte kirjeldatud detaili. Kogu projekt on eri osade
+        kaudu paralleelselt arenduses. Siin toimub ka testimine, otsitakse vigu, nii koodis kui ka kasutaja
+        vaatepunktist, ja tagatakse et valmistatav tarkvaratoode on üleüldiselt vigade vaba.
+        <h3>Hooldusetapp</h3>
+        Pärast lõpetatud teostusetappi antakse toode kliendile ja kasutajale üle, ning kõik mis toimub pärast üleandmist
+        on hooldus. Hoolduse all saab teostada edasisi parandusi, toote optimeerimist ja monitooringut mille abil
+        tagatakse et tarkvaratoode jätkab tööd tõrgeteta.<br/>
+        Hooldusetapi raames saab klient ka esitada uusi nõudeid, mida projektile juurde arendada. See aitab tootel
+        püsida konkurentsivõimelisena.<br/>
+        Hooldusel on tähtis, et hooldav arendaja või meeskond oskaks lugeda ja aru saada eelnevate arendajate koodist.
+        See aitab kaasa projekti haldamisel kulude kokkuhoiule, lubab teostada hooldust kiiremini ja aitab lihtsamini
+        muuta.
+    </p>
+    <p>Tarkvaraarenduse elutsüklis on kõik eeltoodud etapid mingil kujul olemas.</p>
+    <h2>Erinevad tarkvaraarenduse elutsüklid:</h2>
     <p>
         Alljärgnev nimekiri on näidetest erinevatest elutsüklimudelitest:
         <ul>
             <li><a href="./waterfall.html">Waterfall</a></li>
-            <Li><a href="./incremental.html">Inkrementaalne</a></Li>
-            <Li><a href="./spiral.html">Spiraalmudel</a></Li>
-            <Li><a href="./prototyping.html">Prototüüpimine</a></Li> 
+            <li><a href="./incremental.html">Inkrementaalne</a></li>
+            <li><a href="./spiral.html">Spiraalmudel</a></Li>
+            <li><a href="./prototyping.html">Prototüüpimine</a></li> 
         </ul>
-    </p><br/><br/>
+    </p><br/>
     <p>
         Viited infole:
         <a href="https://eopearhiiv.edu.ee/e-kursused/eucip/arendus/121_elutskli_faasid.html">Elutsükli faasid</a>
     </p>
     </main>
+    <script>
+        const img = document.querySelector('.scroll-image');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+            // Normalize scroll (0 → 1)
+            const progress = scrollTop / maxScroll;
+
+            // Move from right → left
+            const moveX = progress * (window.innerWidth * 0.7);
+
+            img.style.transform = `translateX(-${moveX}px)`;
+        });
+    </script>
 </body>
 </html>

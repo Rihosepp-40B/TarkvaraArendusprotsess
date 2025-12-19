@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olemidiagramm</title>
     <style>
-        table, th, td {
-            border: 3px solid #d4af37;
+        table, td {
+            border: 3px solid #241e03;
             border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
         }
+
+        th {
+            border: 3px solid #241e03;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
+            background-color: #241e03;
+        }
+
         body {
-            background-color: black;
+            background-color: #0c0a00;
             color: #d4af37;
             font-size: x-large;
             font-family: monospace;
@@ -28,11 +39,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             display: flex;
@@ -47,11 +58,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
             to top,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             pointer-events: none;
@@ -75,22 +86,38 @@
         a {
             color: #e5be8a;
         }
-        img, svg {
-            filter: none !important;
+       
+        h1, h2 {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+        h3 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .scroll-image {
+            position: absolute;
+            bottom: 10px;
+            right: -1500px;          /* start off-screen */
+            height: 60px;           /* adjust as needed */
+            opacity: 0.3;
+            transition: transform 0.05s linear;
+            pointer-events: none;   /* decorative only */
         }
     </style>
 </head>
-<body>
-    <div class="top-bar">
-        <a href="../UML/index.html">Tagasi UML</a>
+<body>            
+    <div class="bottom-bar">
+    <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
     </div>
     
-    <div class="bottom-bar"></div>
-    
-    <main style="padding: 5% 25%;">
+    <main style="padding: 5% 25%;"> 
+    <div class="top-bar">
+        <a href="./sdlc.html">Tagasi SDLC</a>
+    </div>
     <h1>Olemidiagramm</h1>
-    <p>
-        <h2>Mis on olemidiagramm?</h2>
+    <h2>Mis on olemidiagramm?</h2>
+    <p>        
         Olemidiagramm ehk olemi-suhte diagramm (Entity Relation Diagram või ERD) on kõige laiemalt levinud metoodika
         andmemudelite koostamiseks ja kirjeldamiseks. Tegemist on pool-formaalse mudeliga, kus on ühendatud: 
         <ul>
@@ -104,18 +131,17 @@
             <li>mudeli komponentide verbaalsed kirjeldused (olemite, atribuutide, seoste, protseduuride jm. semantika
                 vabatekstiline kirjeldus)</li>
         </ul>
-    </p><br/>
-    <p>
-        <h2>Kus neid kasutatakse?</h2>
+    </p>
+    <h2>Kus neid kasutatakse?</h2>
+    <p>        
         Olemidiagramme kasutatakse kõige sagedamini andmebaaside kujundamiseks või silumiseks tarkvaratehnika,
         äriinfosüsteemide, hariduse ja teadustöö valdkonnas.
-    </p><br/>
-    <p>
-        <h2>Olemitabel</h2>
+    </p>
+    <h2>Olemitabel</h2>
+    <p>        
         Olemidiagrammi algne esitus võib olla lihtsustatud, olemi ristkülikus ainult semantiline nimetus, seda
         kutsutakse infoloogiliseks mudeliks.<br/><br/>
         <img src="../pildid/Olemi_semantiline_näide.svg" alt=""><br/><br/>
-        
         Pärast selle koostamist viiakse diagramm andmeloogilisele tasemele. Selle käigus projekteeritakse olemite
         sisemine struktuur, mis koosneb olemi omadustest (ERD mudelis väljendatakse atribuutidega).<br/><br/>
         <img src="../pildid/Olemi_andmeloogiline_näide.svg" alt=""><br/><br/>
@@ -129,13 +155,13 @@
             <li>olemite atribuutidele veergude nimed, mille all olemite kirjelduse järgi luuakse andmebaasi tabelite
                 veerud</li>
             <li>olemite atribuutidele andmetüübid, pikkused ja NULL NOT NULL piirangud</li>
-        </ul><br/>
+        </ul>
         <img src="../pildid/Olemi_füüsiline_näide.svg" alt=""><br/><br/>
         Siin joonisel on näha, et kõikidele atribuutidele on lisatud andmetüübid, pikkused ja NULL/NOT NULL piirang,
         mis määrab, kas antud atribuut võib olla mõnes kirjes tühi (NULL) või mitte (NOT NULL).
-    </p><br/>
-    <p>
-        <h2>Diagrammi elemendid</h2>
+    </p>
+    <h2>Diagrammi elemendid</h2>
+    <p>        
         Olemidiagrammil on mitmeid kujutamis versioone, siin räägime hetkel kõige enim kasutusel oleva meetodist mida
         tuntakse IE (Information Engineering) all.<br/><br/>
         Olemi vahelised seosed esitatakse joontega mille otstel on kindla tähendusega kujutised: <br/><br/>
@@ -144,44 +170,44 @@
         <br/><br/>
         Suurem osa (99%) seostest olemite vahel on "Üks-Mitmesed" seosed (üks - null, üks, mitu):<br/><br/>
         <img src="../pildid/Olemi_näide_1.svg" alt="">
-    </p><br/>
-    <p>
-        <h2>Olemi seosete näited</h2>
+    </p>
+    <h2>Olemi seosete näited</h2>
+    <p>        
         <ul>
             <li><img src="../pildid/Olemi_näide_2.svg" alt=""><br/>
             Seos: üks - üks või mitu<br/>
             Skeemil on kirjeldatud inimene (inimesed), kellele kohta on teada igal juhul vähemalt üks aadress, aga tema
             kohta võib olla teada ka mitu. Ei ole võimalik, et aadress eksisteerib iseseisvalt - ilma et ta oleks
-            seostatud isikuga. Ei ole võimalik, et eksisteerib isik, kelle kohta pole teada ühtegi aadressi.</li><br/>
+            seostatud isikuga. Ei ole võimalik, et eksisteerib isik, kelle kohta pole teada ühtegi aadressi.</li>
             <li><img src="../pildid/Olemi_näide_3.svg" alt=""><br/>
             Seos: üks - null, üks või mitu<br/>
             Skeemil on kirjeldatud inimene (inimesed), kes võib eksisteerida nii, et tema kohta pole teada ühtegi
             aadressi. Me võime tema kohta siiski teada ühte või enamat aadressi. Ei ole võimalik, et aadress
-            eksisteerib iseseisvalt - ilma et ta oleks seostatud isikuga.</li><br/>
+            eksisteerib iseseisvalt - ilma et ta oleks seostatud isikuga.</li>
             <li><img src="../pildid/Olemi_näide_4.svg" alt=""><br/>
             Seos: null või üks - üks või mitu<br/>
             Skeemil on kirjeldatud inimene (inimesed), kellele kohta on teada igal juhul vähemalt üks aadress, aga tema
             kohta võib neid olla teada ka mitu. On võimalik, et aadress eksisteerib iseseisvalt - ilma et ta oleks
-            seostatud ühegi isikuga</li><br/>
+            seostatud ühegi isikuga</li>
             <li><img src="../pildid/Olemi_näide_5.svg" alt=""><br/>
             Seos: null või üks - null, üks, või mitu<br/>
             Skeemil on kirjeldatud inimene (inimesed), kes võib eksisteerida nii, et tema kohta pole teada ühtegi
             aadressi. Me võime tema kohta siiski teada ühte või enamat aadressi. Aadress võib eksisteerida ka
             iseseisvalt - ilma et ta oleks seostatud isikuga.</li>
         </ul>
-    </p><br/><br/>
+    </p>
+    <h2>Võtmed</h2>
     <p>
-        <h2>Võtmed</h2>
-        <b>Primaarvõti (Primary Key)</b> on olemi tabeli unikaalne tunnus, mille järgi teda tuvastada.<br/>
+        <u>Primaarvõti (Primary Key)</u> on olemi tabeli unikaalne tunnus (_ID), mille järgi teda tuvastada.<br/><br/>
         Kui kaks tabelit on andmebaasis omavahel seotud, siis viiakse suhte "üks" otsas oleva tabeli primaarvõti üle
         suhte "mitu" poolses olevasse tabelisse. Enda tabelis on _ID unikaalne, siis kõrval tabelis mitte. Näiteks
-        üleval toodud füüsilise mudeli joonisel tabelis "Isik" on isik_ID unikaalne, siis tabelis "Vara omamine" see
-        enam ei ole.<br/>
-        Teise tabelisse ülekantud tunnus on seal nö <b>välisvõti (Foreign Key)</b>. Selle abil tuvastatakse kahe tabeli
-        vaheline suhe.<br/>
-        <b>Lihtvõti (Simple Key) </b> - kui võti sisaldab ühte atribuuti, siis nimetatakse seda lihtvõtmeks.<br/>
-        <b>Liitvõti (Composite Key)</b> - kui võti sisaldab mitu atribuuti, siis nimetatakse seda liitvõtmeks.
-    </p><br/><br/>
+        üleval toodud füüsilise mudeli joonise tabelis "Isik" on isik_ID unikaalne, siis tabelis "Vara omamine" see
+        enam ei ole.<br/><br/>
+        Teise tabelisse ülekantud tunnus on seal nö <u>välisvõti (Foreign Key)</u>. Selle abil tuvastatakse kahe tabeli
+        vaheline suhe.<br/><br/>
+        <u>Lihtvõti (Simple Key) </u> - kui võti sisaldab ühte atribuuti, siis nimetatakse seda lihtvõtmeks.<br/><br/>
+        <u>Liitvõti (Composite Key)</u> - kui võti sisaldab mitu atribuuti, siis nimetatakse seda liitvõtmeks.
+    </p><br/>
     <p>
         Viited infole:<br/>
         <ul>
@@ -192,5 +218,21 @@
         </ul>
     </p>
     </main>
+    <script>
+        const img = document.querySelector('.scroll-image');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+            // Normalize scroll (0 → 1)
+            const progress = scrollTop / maxScroll;
+
+            // Move from right → left
+            const moveX = progress * (window.innerWidth * 0.7);
+
+            img.style.transform = `translateX(-${moveX}px)`;
+        });
+    </script>
 </body>
 </html>

@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vooskeem</title>
     <style>
-        table, th, td {
-            border: 3px solid #d4af37;
+        table, td {
+            border: 3px solid #241e03;
             border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
         }
+
+        th {
+            border: 3px solid #241e03;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
+            background-color: #241e03;
+        }
+
         body {
-            background-color: black;
+            background-color: #0c0a00;
             color: #d4af37;
             font-size: x-large;
             font-family: monospace;
@@ -28,11 +39,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             display: flex;
@@ -47,11 +58,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
             to top,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             pointer-events: none;
@@ -75,33 +86,49 @@
         a {
             color: #e5be8a;
         }
-        img, svg {
-            filter: none !important;
+       
+        h1, h2 {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+        h3 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .scroll-image {
+            position: absolute;
+            bottom: 10px;
+            right: -1500px;          /* start off-screen */
+            height: 60px;           /* adjust as needed */
+            opacity: 0.3;
+            transition: transform 0.05s linear;
+            pointer-events: none;   /* decorative only */
         }
     </style>
 </head>
-<body>
-    <div class="top-bar">
-        <a href="../UML/index.html">Tagasi UML</a>
+<body>            
+    <div class="bottom-bar">
+    <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
     </div>
     
-    <div class="bottom-bar"></div>
-    
-    <main style="padding: 5% 25%;">
+    <main style="padding: 5% 25%;"> 
+    <div class="top-bar">
+        <a href="./sdlc.html">Tagasi SDLC</a>
+    </div>
     <h1>Vooskeem</h1>
-    <p>
-        <h2>Mis on vooskeem (Flowchart)?</h2>
+    <h2>Mis on vooskeem (Flowchart)?</h2>
+    <p>        
         Vooskeem on diagramm (voodiagramm), mis kujutab töövoogu või protsessi. Vooskeemi võib defineerida ka algoritmi
         skemaatilise esitusena, mis näitab etapiviisilist lähenemist ülesande lahendamisele. Vooskeemil kujutatakse
         protsessi või etapiviisilise lahenduse osi geomeetriliste kujunditega, mis on ühendatud voojoontega.
-    </p><br/>
-    <p>
-        <h2>Kus kasutatakse vooskeeme?</h2>
+    </p>
+    <h2>Kus kasutatakse vooskeeme?</h2>
+    <p>        
         Vooskeeme kasutatakse erinevates valdkondades protsessi või programmi analüüsimiseks, disainimiseks,
         dokumenteerimiseks või haldamiseks.
-    </p><br/>
-    <p>
-        <h2>Vooskeemi elemendid</h2>
+    </p>
+    <h2>Vooskeemi elemendid</h2>
+    <p>        
         <table>
             <tr>
                 <th>ANSIO/ISO kujund</th>
@@ -160,17 +187,33 @@
             </tr>
         </table>
     </p>
-    <p><br/>
-        <h2>Vooskeemi näidis</h2>
+    <h2>Vooskeemi näidis</h2>
+    <p>        
         <img src="../pildid/voodiagramm_bitcoin.svg" alt="">
     </p>
-    <p>
-        Viited infole:<br/>
+    <p><br/>
+        Viited infole:
         <ul>
             <li><a href="https://et.wikipedia.org/wiki/Vooskeem">Vooskeem</a></li>
             <li><a href="https://en.wikipedia.org/wiki/Flowchart">Flowchart</a></li>
         </ul>
     </p>
     </main>
+    <script>
+        const img = document.querySelector('.scroll-image');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+            // Normalize scroll (0 → 1)
+            const progress = scrollTop / maxScroll;
+
+            // Move from right → left
+            const moveX = progress * (window.innerWidth * 0.7);
+
+            img.style.transform = `translateX(-${moveX}px)`;
+        });
+    </script>
 </body>
 </html>

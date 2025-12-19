@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prototüüpimine</title>
     <style>
-        table, th, td {
-            border: 3px solid #d4af37;
+        table, td {
+            border: 3px solid #241e03;
             border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
         }
+
+        th {
+            border: 3px solid #241e03;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
+            background-color: #241e03;
+        }
+
         body {
-            background-color: black;
+            background-color: #0c0a00;
             color: #d4af37;
             font-size: x-large;
             font-family: monospace;
@@ -28,11 +39,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             display: flex;
@@ -47,11 +58,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
             to top,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             pointer-events: none;
@@ -75,54 +86,89 @@
         a {
             color: #e5be8a;
         }
-        img, svg {
-            filter: none !important;
+       
+        h1, h2 {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+        h3 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .scroll-image {
+            position: absolute;
+            bottom: 10px;
+            right: -1500px;          /* start off-screen */
+            height: 60px;           /* adjust as needed */
+            opacity: 0.3;
+            transition: transform 0.05s linear;
+            pointer-events: none;   /* decorative only */
         }
     </style>
 </head>
-<body>
+<body>            
+    <div class="bottom-bar">
+    <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+    </div>
+    
+    <main style="padding: 5% 25%;"> 
     <div class="top-bar">
         <a href="./sdlc.html">Tagasi SDLC</a>
     </div>
-    
-    <div class="bottom-bar"></div>
-    
-    <main style="padding: 5% 25%;">
-    <h1>Prototüüpimine</h1><br/>
+    <h1>Prototüüpimine</h1>
+    <h2>Mis on prototüüpimine</h2>
     <p>
-       Prototüüpimine on algse toote kasutamine erinevates arendus faasides eesmärgiga katsetada ja analüüsida <br/>
-       erinevaid lahendusi, disaine jms. Kasu sellest on: parem süsteemi kasutusmugavus, täpsem ühildumine <br/>
-       kliendi tegelike vajadustega; parem kvaliteet ja hooldatavus ning väiksem vaev arendamisel.<br/>
-       Arendamisel on oluline, et prototüüp saaks kiiresti loodud, kasutades selleks abivahendeid (kiire <br/>
-       prototüüpimise keeled ja tööriistad). Prototüüp on suunatud funktsionaalsetele nõuetele ehk ei pea <br/>
-       sisaldama kogu funktsionaalsust vaid keskendub sellele millest ei ole hästi aru saadud.<br/><br/>
+       Prototüüpimine on algse toote kasutamine erinevates arendus faasides eesmärgiga katsetada ja analüüsida
+       erinevaid lahendusi, disaine jms. Kasu sellest on: parem süsteemi kasutusmugavus, täpsem ühildumine
+       kliendi tegelike vajadustega; parem kvaliteet ja hooldatavus ning väiksem vaev arendamisel.
+       Arendamisel on oluline, et prototüüp saaks kiiresti loodud, kasutades selleks abivahendeid (kiire
+       prototüüpimise keeled ja tööriistad). Prototüüp on suunatud funktsionaalsetele nõuetele ehk ei pea
+       sisaldama kogu funktsionaalsust vaid keskendub sellele millest ei ole hästi aru saadud.
        <h3>Prototüübi loomise protsessi joonis</h3>
        <img src="../pildid/prototyypimine.jpeg">
-       <br/>
-       <P>
-       <h2>Prototüüpimise etapid</h2>
+    </p>
+    <h2>Prototüüpimise etapid</h2>
+    <p>       
        <ul>
-            <li>Nõuete kogumine - seda tehakse üldisemal tasemel ja samas ka fikseeritakse, mida on kindasti vaja <br/>
+            <li>Nõuete kogumine - seda tehakse üldisemal tasemel ja samas ka fikseeritakse, mida on kindasti vaja
             edaspidi täpsustama hakata.</li>
-            <li>Kiire kavandamine - keskendub nähtavale osale (sisend, väljund, vormid jne) ja selle tulemuseks on <br/>
+            <li>Kiire kavandamine - keskendub nähtavale osale (sisend, väljund, vormid jne) ja selle tulemuseks on
             prototüüp. Klient hindab prototüüpi ja oskab selle alusel ka oma soove täpsustada.</li>
-            <Li>Prototüübi parandamine - seda kuni rahuldab klienti. Samal ajal saab arendaja uusi teadmisi kliendi <br/>
+            <Li>Prototüübi parandamine - seda kuni rahuldab klienti. Samal ajal saab arendaja uusi teadmisi kliendi
             soovide kohta.</Li>
        </ul>
-       <h2>Prototüüpimine erinevatel põhimõtetel</h2>
+    </p>
+    <h2>Prototüüpimine erinevatel põhimõtetel</h2>
+    <p>
        <ul>
             <li>Ühekordne prototüüpimine (Throw away prototyping)</li>
             <li>Evolutsiooniline prototüüpimine (Evolutionary prototyping)</li>
-            <Li>Lisanduv prototüüpimine (Incremental prototyping)</Li><br/>
+            <Li>Lisanduv prototüüpimine (Incremental prototyping)</Li>
         </ul>
-        Ühekordsed prototüübid tuleb peale loomist likvideerida, sest nad ei ole heaks baasiks tegelikule <br/>
-        süsteemile - näiteks ei pruugi nende alusel täita mittefunktsionaalseid nõudeid, selle struktuur ei sobi <br/>
-        edasiseks arenduseks ega vasta ka muudele kvaliteedinõuetele.<br/>
-    </p></p><br/><br/>
+        Ühekordsed prototüübid tuleb peale loomist likvideerida, sest nad ei ole heaks baasiks tegelikule
+        süsteemile - näiteks ei pruugi nende alusel täita mittefunktsionaalseid nõudeid, selle struktuur ei sobi
+        edasiseks arenduseks ega vasta ka muudele kvaliteedinõuetele.
+    </p><br/>
     <p>
         Viited infole:
         <a href="https://eopearhiiv.edu.ee/e-kursused/eucip/arendus/1224_prototpimine.html">Prototüüpimine</a>
     </p>
     </main>
+    <script>
+        const img = document.querySelector('.scroll-image');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+            // Normalize scroll (0 → 1)
+            const progress = scrollTop / maxScroll;
+
+            // Move from right → left
+            const moveX = progress * (window.innerWidth * 0.7);
+
+            img.style.transform = `translateX(-${moveX}px)`;
+        });
+    </script>
 </body>
 </html>

@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inkrementaalne arendusmudel</title>
     <style>
-        table, th, td {
-            border: 3px solid #d4af37;
+        table, td {
+            border: 3px solid #241e03;
             border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
         }
+
+        th {
+            border: 3px solid #241e03;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
+            background-color: #241e03;
+        }
+
         body {
-            background-color: black;
+            background-color: #0c0a00;
             color: #d4af37;
             font-size: x-large;
             font-family: monospace;
@@ -28,11 +39,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             display: flex;
@@ -47,11 +58,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
             to top,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             pointer-events: none;
@@ -75,70 +86,88 @@
         a {
             color: #e5be8a;
         }
-        img, svg {
-            filter: none !important;
+       
+        h1, h2 {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+        h3 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .scroll-image {
+            position: absolute;
+            bottom: 10px;
+            right: -1500px;          /* start off-screen */
+            height: 60px;           /* adjust as needed */
+            opacity: 0.3;
+            transition: transform 0.05s linear;
+            pointer-events: none;   /* decorative only */
         }
     </style>
 </head>
-<body>
+<body>            
+    <div class="bottom-bar">
+    <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+    </div>
+    
+    <main style="padding: 5% 25%;"> 
     <div class="top-bar">
         <a href="./sdlc.html">Tagasi SDLC</a>
     </div>
-    
-    <div class="bottom-bar"></div>
-    
-    <main style="padding: 5% 25%;">
-    <h1>Inkrementaalne arendusmudel</h1><br/>
+    <h1>Inkrementaalne arendusmudel</h1>
+    <h2>Mis on inkrementaalne arendusmudel?</h2>
     <p>
-            Inkrementaalne arendusmudel on üks viis kuidas lahendada kosemudeli jäika tsüklit. See aitab<br/>
-        Arendusmeeskonnal toime tulla muudatustega paremini. Muudatused võivad tulla kas äritegevusest,<br/>
-        kliendi soovidest, turu olukorra muutumisest, tehnoloogiate muutumisest, seaduse muutumisest või <br/>
-        lõppkasutaja tagasisidest. Kuna kosemudelis keset arendustööd on muudatustega toimetulek<br/>
-        keeruline, on kosemudeli kasutamise puhul muudatuste sisseviimine üsna kulukas, siinkohal tulebki<br/>
-        appi inkrementaalne arendusmudel. Mudel ise on siis ajagraafikupõhine ja ei tugine erinevalt<br/>
-        kosemudelist täielikult valmis kirjutatud kavandile. Selles mudelis saab arendada erinevaid<br/>
+            Inkrementaalne arendusmudel on üks viis kuidas lahendada kosemudeli jäika tsüklit. See aitab
+        Arendusmeeskonnal toime tulla muudatustega paremini. Muudatused võivad tulla kas äritegevusest,
+        kliendi soovidest, turu olukorra muutumisest, tehnoloogiate muutumisest, seaduse muutumisest või
+        lõppkasutaja tagasisidest. Kuna kosemudelis keset arendustööd on muudatustega toimetulek
+        keeruline, on kosemudeli kasutamise puhul muudatuste sisseviimine üsna kulukas, siinkohal tulebki
+        appi inkrementaalne arendusmudel. Mudel ise on siis ajagraafikupõhine ja ei tugine erinevalt
+        kosemudelist täielikult valmis kirjutatud kavandile. Selles mudelis saab arendada erinevaid
         programmiosi samaaegselt või erinevatel aegadel.<br/>
-        Inkrementaalses arendusmudelis aitab samaaegset arendustööd teha kindlad tegevused mida<br/>
-        kosemudelis ei ole. Nende tegevuste abil on võimalik kliendile kuvada programmile keskse<br/>
-        tähtsusega osi, enne kui neid täielikult arendama hakatakse. Tehakse näiteks, kas mingisugune<br/>
-        kasutajaliidese prototüüp, või programeeritakse vähese testimise läbinud MVP (minimum viable<br/>
-        product) mis omab ainult programmi nõuetes kirjeldatud keskset funktsiooni. Näiteks kui<br/>
-        tegemist on failikonverteriga, siis ei oma ta suurt kasutaja liidese kujundust, ega isegi <br/>
-        kõiki formaate mis lõpp-programm teisendama peab, vaid ainult demonstreerib seda <br/>
-        funktsionaalsust osaliselt.<br/>
-    <p><br/>
-    <h2>Kuidas on inkrementaalses arenduses tegevuste käik?</h2><br/>
+        Inkrementaalses arendusmudelis aitab samaaegset arendustööd teha kindlad tegevused mida
+        kosemudelis ei ole. Nende tegevuste abil on võimalik kliendile kuvada programmile keskse
+        tähtsusega osi, enne kui neid täielikult arendama hakatakse. Tehakse näiteks, kas mingisugune
+        kasutajaliidese prototüüp, või programeeritakse vähese testimise läbinud MVP (minimum viable
+        product) mis omab ainult programmi nõuetes kirjeldatud keskset funktsiooni. Näiteks kui
+        tegemist on failikonverteriga, siis ei oma ta suurt kasutaja liidese kujundust, ega isegi
+        kõiki formaate mis lõpp-programm teisendama peab, vaid ainult demonstreerib seda
+        funktsionaalsust osaliselt.
+    </p>
+    <h2>Kuidas on inkrementaalses arenduses tegevuste käik?</h2>
+    <p>
         <H3>Nõuete kirjeldus</H3>
-        Kirjeldatakse ära üldjoontes mida valminud tarkvaratoode tegema peab. Nõuded jaotatakse ka <br/>
-        ära tähtsamateks ja vähemtähtsamateks. Tähtsamad nõuded on tavaliselt need, mis kliendile <br/>
-        rohkem väärtust toob. Siin määratakse ära ka kuidas arendustöö toimima hakkab, ehk millistes<br/>
+        Kirjeldatakse ära üldjoontes mida valminud tarkvaratoode tegema peab. Nõuded jaotatakse ka
+        ära tähtsamateks ja vähemtähtsamateks. Tähtsamad nõuded on tavaliselt need, mis kliendile
+        rohkem väärtust toob. Siin määratakse ära ka kuidas arendustöö toimima hakkab, ehk millistes
         inkrementides klient oma toodet saama hakkab - ehk kui pika aja tagant.<br/>
-        Iga inkrement peab tarnima kliendile mingisuguse toimiva toote osakese.<br/><br/>
+        Iga inkrement peab tarnima kliendile mingisuguse toimiva toote osakese.<br/>
         <h3>Süsteemi arendus</h3>
-        Kui nõuded on olemas, ning ära jagatud prioriteetide järgi hakatakse toodet tarnima peale nüüd<br/>
-        teostatavat arendusprotsessi. Siin arendatakse välja vastavalt nõuetele programmiosa.<br/>
+        Kui nõuded on olemas, ning ära jagatud prioriteetide järgi hakatakse toodet tarnima peale nüüd
+        teostatavat arendusprotsessi. Siin arendatakse välja vastavalt nõuetele programmiosa.
         Iga inkrementi saab arendada kasutades erinevaid eksisteerivaid arendusmudeleid.<br/>
-        Näiteks kui on programmi osa, mis väga palju muutmist ei vaja - näiteks faili arvutist<br/>
-        lugemist, või sinna kirjutamist - siis on seda programmiosa (või funktsiooni) võimalik <br/>
-        arendada ka näiteks jäiga mudeli (kosemudeliga) või agiilse mudeliga. See milline arendus-<br/>
-        mudel kõige paremini sobib, on arendusmeeskonna otsustada, vastavalt sellele milline <br/>
-        programmiosa parasjagu arendusel on.<br/><br/>
+        Näiteks kui on programmi osa, mis väga palju muutmist ei vaja - näiteks faili arvutist
+        lugemist, või sinna kirjutamist - siis on seda programmiosa (või funktsiooni) võimalik
+        arendada ka näiteks jäiga mudeli (kosemudeliga) või agiilse mudeliga. See milline arendusmudel
+        kõige paremini sobib, on arendusmeeskonna otsustada, vastavalt sellele milline programmiosa
+        parasjagu arendusel on.<br/>
         <h3>Arendusega samaaegne nõuete täiendus</h3>
-        Kui arendatava programmiosa nõuded on külmutatud (ehk neid ei saa hetkel muuta), siis muude<br/>
-        mitte arenduses olevate osade nõudeid on võimalik muuta, ning nüüd kui mingisugune programmiosa<br/>
-        läbib parasjagu arendustsüklit on võimalik muuta muid nõudeid, mille vastav inkrement kas<br/>
-        hetkel arenduses enam ei ole või veel ei ole. Kõik muud nõuded on lahtised. See tähendab<br/>
-        ka ühtlasi seda, et üks programmi osa on nõuete väljaselgitamise lõpetanud, saab seda<br/>
-        arendama asuda, enne kui nõuded täielikult valmis on.<br/><br/>
+        Kui arendatava programmiosa nõuded on külmutatud (ehk neid ei saa hetkel muuta), siis muude
+        mitte arenduses olevate osade nõudeid on võimalik muuta, ning nüüd kui mingisugune programmiosa
+        läbib parasjagu arendustsüklit on võimalik muuta muid nõudeid, mille vastav inkrement kas
+        hetkel arenduses enam ei ole või veel ei ole. Kõik muud nõuded on lahtised. See tähendab
+        ka ühtlasi seda, et üks programmi osa on nõuete väljaselgitamise lõpetanud, saab seda
+        arendama asuda, enne kui nõuded täielikult valmis on.<br/>
         <h3>Tarne ja integratsioon</h3>
-        Nõuetele vastava programmiosa valmimisel tarnitakse programmiosa - ehk inkrement - kliendile.<br/>
-        Klient saab siis selle koheselt kasutusse võtta - või omapoolselt läbi testida - ja <br/>
-        täpsustada edasisi projekti nõudeid ja anda tagasisidet valminud programmi osa kohta.<br/>
-        Selle põhjal võidakse tuletada juba valminud osale uusi nõudeid. Klient saab siis ka<br/>
-        valminud osa koheselt integreerida muu olemasoleva keskkonna või eelnevalt arendatud toote<br/>
-        süsteemidega.<br/><br/>
-    </p><br/><br/>
-    <h2>Inkrementaalse arenduse head ning halvad küljed</h2><br/>
+        Nõuetele vastava programmiosa valmimisel tarnitakse programmiosa - ehk inkrement - kliendile.
+        Klient saab siis selle koheselt kasutusse võtta - või omapoolselt läbi testida - ja
+        täpsustada edasisi projekti nõudeid ja anda tagasisidet valminud programmi osa kohta.
+        Selle põhjal võidakse tuletada juba valminud osale uusi nõudeid. Klient saab siis ka
+        valminud osa koheselt integreerida muu olemasoleva keskkonna või eelnevalt arendatud toote
+        süsteemidega.
+    </p>
+    <h2>Inkrementaalse arenduse head ning halvad küljed</h2>
     <p>
             <table class="table">
                     <thead>
@@ -149,63 +178,80 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Kulutused on väiksemad - kuna kasutaja nõuded on muutuvad, aga muudatusi<br/>
-                            saab sisse viia arendustsükli käigus, on nende muudatuste kulud väiksemad<br/>
-                            kuna arendustsükkel ise ei ole vaja lõpuni viia, enne muudatuste sisse-<br/>
-                            viimist.
+                            <td>Kulutused on väiksemad - kuna kasutaja nõuded on muutuvad, aga muudatusi
+                            saab sisse viia arendustsükli käigus, on nende muudatuste kulud väiksemad
+                            kuna arendustsükkel ise ei ole vaja lõpuni viia, enne muudatuste sisseviimist.
                             </td>
-                            <td>Progressi jälgimine on keerukas - Arendustöö progressi ei jälgita enam<br/>
-                            arendatud nõuete järgi, kuna need ei ole arendustöö alguses valmis, vaid<br/>
-                            progressi jälgitakse arenduskiirusepõhiselt - kui palju igas ajavahemikus<br/>
-                            nõuetest arendada on võimalik. See tekitab siis halduritele nõude, et nad<br/>
-                            vajavad pidevalt dokumentatsiooni arendustöö hetke kulgemise kohta. Kui<br/>
-                            Arendustöö on ka kiire, siis vahest on ka selle dokumentatsiooni hankimine<br/>
-                            keeruline, kuna iga väikese versiooni kohta ei ole mõtet seda lihtsalt<br/>
-                            tekitadagi                            
+                            <td>Progressi jälgimine on keerukas - Arendustöö progressi ei jälgita enam
+                            arendatud nõuete järgi, kuna need ei ole arendustöö alguses valmis, vaid
+                            progressi jälgitakse arenduskiirusepõhiselt - kui palju igas ajavahemikus
+                            nõuetest arendada on võimalik. See tekitab siis halduritele nõude, et nad
+                            vajavad pidevalt dokumentatsiooni arendustöö hetke kulgemise kohta. Kui
+                            Arendustöö on ka kiire, siis vahest on ka selle dokumentatsiooni hankimine
+                            keeruline, kuna iga väikese versiooni kohta ei ole mõtet seda lihtsalt
+                            tekitadagi.
                             </td>
                         </tr>
                         <tr>
-                            <td>Kliendi tagasiside on kohene - olemasolevale arendustööle saab meeskond<br/>
-                            keset arendust tagasisidet, et vajadusel muuta oma nõudeid, ja seega arenduse<br/>
-                            suunda. Klient näeb ka kui palju on tehtud.<br/>
+                            <td>Kliendi tagasiside on kohene - olemasolevale arendustööle saab meeskond
+                            keset arendust tagasisidet, et vajadusel muuta oma nõudeid, ja seega arenduse
+                            suunda. Klient näeb ka kui palju on tehtud.
                             </td>
-                            <td>Süsteemi struktuuri aja jooksul degradeerub - Kuna arendatakse juurde<br/>
-                            pidevalt uusi osi, ning ka selliseid osi mida alguses planeeritud ei olnud<br/>
-                            siis kipub arendatava toote sisemine süsteem spagetistuma. Selle välistamiseks<br/>
-                            kulutatakse lisaressursse koodi refaktoreerimisele, et sisemine struktuur<br/>
-                            korras hoida. Kui korrashoidu ei teostata, on hilisem muudatuste ja uute<br/>
+                            <td>Süsteemi struktuuri aja jooksul degradeerub - Kuna arendatakse juurde
+                            pidevalt uusi osi, ning ka selliseid osi mida alguses planeeritud ei olnud
+                            siis kipub arendatava toote sisemine süsteem spagetistuma. Selle välistamiseks
+                            kulutatakse lisaressursse koodi refaktoreerimisele, et sisemine struktuur
+                            korras hoida. Kui korrashoidu ei teostata, on hilisem muudatuste ja uute
                             valmisosade integratsioon tunduvalt keerulisem.</td>   
                         </tr>
                         <tr>
                             <td>
-                                Tarne on kiirem - klient saab juba funktsioneerivad osad kohe pärast<br/>
-                                arendustöö lõppu kasutusele võtta, ning klient saab sellest varem kasu<br/>
+                                Tarne on kiirem - klient saab juba funktsioneerivad osad kohe pärast
+                                arendustöö lõppu kasutusele võtta, ning klient saab sellest varem kasu
                                 kui näiteks tarkvaratootega, mida arendatakse jäiga mudeliga.
                             </td>
                             <td></td>
                         </tr>
                     </tbody>
-            </table><br/><br/>
-            <h2>Arendusmudeli joonis</h2><br/>
-            <img src="../pildid/Inkrementaal.png"/><br/><br/>
-            <h2>Mis vahe on inkrementaalsel SDLCl ja iteratiivsel SDLCl</h2>
-            <p>
-                Kuna inkrementaalne arendus ja iteratiivne arendus on lihtsalt sarnased sõnad<br/>
-                kipuvad nad inimestel sassi minema, aga nad siiski tähendavad erinevaid asju.
-                <ul>
-                    <li><h3>Inkrementaalne arendus</h3> - on tarkvaratoote arendus kus iga inkremendi<br/>
-                    raames valmib toimiv tarkvara osa. Valmis saadud tarkvara osake integreeritakse<br/>
-                    muu süsteemiga mis eelnevalt arendatud.</li>
-                    <li><h3>Iteratiivne arendus</h3> - on muutmis strateegia kus parandatakse või tehakse<br/>
-                    ringi juba olemasolev süsteem, et seda siis täiustada, ehk olemasolev süsteem<br/>
-                    saab uue ja parema variandi - ehk iteratsiooni.</li>
-                </ul>
-            </p>
+            </table>
+    </p>
+    <h2>Arendusmudeli joonis</h2>
+    <p>
+        <img src="../pildid/Inkrementaal.png"/>
+    </p>
+    <h2>Mis vahe on inkrementaalsel SDLCl ja iteratiivsel SDLCl</h2>
+    <p>
+        Kuna inkrementaalne arendus ja iteratiivne arendus on lihtsalt sarnased sõnad
+        kipuvad nad inimestel sassi minema, aga nad siiski tähendavad erinevaid asju.
+        <ul>
+            <li><h3>Inkrementaalne arendus</h3> - on tarkvaratoote arendus kus iga inkremendi
+                raames valmib toimiv tarkvara osa. Valmis saadud tarkvara osake integreeritakse
+                muu süsteemiga mis eelnevalt arendatud.</li>
+            <li><h3>Iteratiivne arendus</h3> - on muutmis strateegia kus parandatakse või tehakse
+                ringi juba olemasolev süsteem, et seda siis täiustada, ehk olemasolev süsteem
+                saab uue ja parema variandi - ehk iteratsiooni.</li>
+        </ul>
     </p>
     <p><br/>
         Viited infole:
         <a href="https://eopearhiiv.edu.ee/e-kursused/eucip/arendus/1222_inkrementaalne_arendusmudel.html">Inkrementaalne arendusmudel</a>
     </p>    
     </main>
+    <script>
+        const img = document.querySelector('.scroll-image');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+            // Normalize scroll (0 → 1)
+            const progress = scrollTop / maxScroll;
+
+            // Move from right → left
+            const moveX = progress * (window.innerWidth * 0.7);
+
+            img.style.transform = `translateX(-${moveX}px)`;
+        });
+    </script>
 </body>
 </html>

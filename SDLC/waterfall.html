@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kosemudel</title>
     <style>
-        table, th, td {
-            border: 3px solid #d4af37;
+        table, td {
+            border: 3px solid #241e03;
             border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
         }
+
+        th {
+            border: 3px solid #241e03;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
+            background-color: #241e03;
+        }
+
         body {
-            background-color: black;
+            background-color: #0c0a00;
             color: #d4af37;
             font-size: x-large;
             font-family: monospace;
@@ -28,11 +39,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             display: flex;
@@ -47,11 +58,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
             to top,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             pointer-events: none;
@@ -75,97 +86,126 @@
         a {
             color: #e5be8a;
         }
-        img, svg {
-            filter: none !important;
+       
+        h1, h2 {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+        h3 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .scroll-image {
+            position: absolute;
+            bottom: 10px;
+            right: -1500px;          /* start off-screen */
+            height: 60px;           /* adjust as needed */
+            opacity: 0.3;
+            transition: transform 0.05s linear;
+            pointer-events: none;   /* decorative only */
         }
     </style>
 </head>
-<body>
+<body>            
+    <div class="bottom-bar">
+    <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+    </div>
+    
+    <main style="padding: 5% 25%;"> 
     <div class="top-bar">
         <a href="./sdlc.html">Tagasi SDLC</a>
     </div>
-    
-    <div class="bottom-bar"></div>
-    
-    <main style="padding: 5% 25%;">
-    <h1>Kosemudel</h1><br/>
+    <h1>Kosemudel</h1>
+    <h2>Mis on kosemudel?</h2>
     <p>
-        Kosemudel (ehk waterfall) on üks esimesi tarkvaraarenduse elutsükli mudeleid. Ta põhineb tavalise <br/>
-        tootmisprotsessi eeskujul, kus iga etapp eelneb järgmisel. Tagasipööramine eelmisesse etappi on <br/>
-        keeruline ning kui eelnevas etapis avastatakse viga, tähendab see seda, et vea juurde saab tagasi<br/>
-        tulla alles siis kui tarkvara on kasutusse läinud.<br/>
+        Kosemudel (ehk waterfall) on üks esimesi tarkvaraarenduse elutsükli mudeleid. Ta põhineb tavalise
+        tootmisprotsessi eeskujul, kus iga etapp eelneb järgmisel. Tagasipööramine eelmisesse etappi on keeruline ning
+        kui eelnevas etapis avastatakse viga, tähendab see seda, et vea juurde saab tagasi tulla alles siis kui tarkvara
+        on kasutusse läinud.
     </p>
-    <h2>Kosemudeli etapid:</h2><br/>
+    <h2>Kosemudeli etapid:</h2>
     <p>
-        Kosemudel koosneb viiest etapist, mis rahuldab kõik üldise tarkvaraarenduse elutsükli etappe.<br/>
-    Nendeks on: Nõuete määratlemine, Süsteemi ja Tarkvara kavandamine, Teostus ning moodulite testimine, <br/>
-    Integratsioon ja süsteemi testimine, ning kasutamine ja hooldus.<br/><br/>
-    </p>
-    <h3>1. Etapp - Nõuete Määratlemine</h3><br/>
-    <p>
-            Siin etapis dokumenteeritakse arendatava toote või süsteemi nõuded, käitumine, sihtriistvara jms.<br/>
-    Vahest jaotatakse see etapp kaheks - Süsteemi analüüs ja nõuete analüüs.<br/><br/>
-    </p>
-    <h3>2. Etapp - Süsteemi ja Tarkvara kavandamine</h3><br/>
-    <p>
-            Teises etapis kavandatakse arendusele mineva tarkvaratoote süsteem ja struktuur, keskendudes selle<br/>
-        funktsionaalsetele omadustele. Need võivad olla erinevad andmestruktuurid, toote enda arhitektuur, erinevad<br/>
-        liidesed, nende liideste omadused ja muud algorütmilised detailid. Kavandamise tulemused dokumenteeritakse,<br/>
-        ning mille järgi hiljem teostuses hinnatakse projekti kvaliteeti - Mida rohkem kavandist on tehtud, seda<br/>
-        rohkem on projektist valminud.<br/><br/>
-    </p>
-    <h3>3. Etapp - Teostus ning moodulite testimine</h3><br/>
-    <p>
-            Eelnevalt valminud kavandi järgi toimub selles etapis tootearendus. Arendustöö käigus arendatakse<br/>
-            programm moodul haaval või moodulite kogumina. peale arendustööd testitakse valminud mooduleid ja<br/>
-            mooduli kogumikke. Olenevalt eelnevalt dokumenteeritud kavandi detailsusest tuleneb nüüd selles etapis<br/>
-            projekti arendus lihtsus. Mida rohkem on detaile kavandatud, seda lihtsam on arendustöö.<br/><br/>
-    </p>
-    <h3>4. Etapp - Integratsioon ja süsteemi testimine</h3><br/>
-    <p>
-            Toimub kogu valmis saadud tarkvarasüsteemi testimine. Peale testimist tarnitakse toode kliendile ja/või<br/>
-            sihtrühmale. Testitakse sellest vaatepunktist, kas süsteem teeb seda mis eelnevalt dokumenteeritud ning<br/>
-            testitakse ka et süsteemis olevad erinevad detailid on loogilised.<br/><br/>
-    </p>
-    <h3>5. Etapp - Kasutamine ja hooldus</h3><br/>
-    <p>
-            Tegu on kõige pikema tarkvara elutsüklis oleva etapiga. Siin toimub vigade parandus, funktsionaalsuse<br/>
-            muutmine (kas siis kliendi, turu, keskkonna või sihtrühma sisendi tagajärjel või vajadusena) ja koodi<br/>
-            enda refaktoreerimine. Arendustööde teostamiseks korratakse kõiki eelmiseid etappe kuid siis ainult<br/>
-            süsteemi muutmise tarbeks mitte enam nullist millegi uue arendamise jaoks.<br/><br/>
-    </p><br/>
-    <p>
-        Iga etapi tulemusena tekib dokument või dokumentatsioon (üks või mitu) mis kirjeldab vastavas etapis<br/>
-        saavutatud tulemit. Kõik dokumendid kinnitatakse. Järgmine etapp ei tohi olla samaaegselt töös kui<br/>
-        eelmine pole lõpetatud. Kuigi ülekate mingisugune siiski on, ning info edastatakse ühest etapist järgmisesse<br/>
-        edasi.<br/><br/>
+        Kosemudel koosneb viiest etapist, mis rahuldab kõik üldise tarkvaraarenduse elutsükli etappe. Nendeks on: Nõuete
+        määratlemine, Süsteemi ja Tarkvara kavandamine, Teostus ning moodulite testimine, Integratsioon ja süsteemi
+        testimine, ning kasutamine ja hooldus.
+        
+        <h3>1. Etapp - Nõuete Määratlemine</h3>
+        Siin etapis dokumenteeritakse arendatava toote või süsteemi nõuded, käitumine, sihtriistvara jms. Vahest
+        jaotatakse see etapp kaheks - Süsteemi analüüs ja nõuete analüüs.
+
+        <h3>2. Etapp - Süsteemi ja Tarkvara kavandamine</h3>
+        Teises etapis kavandatakse arendusele mineva tarkvaratoote süsteem ja struktuur, keskendudes selle
+        funktsionaalsetele omadustele. Need võivad olla erinevad andmestruktuurid, toote enda arhitektuur, erinevad
+        liidesed, nende liideste omadused ja muud algorütmilised detailid. Kavandamise tulemused dokumenteeritakse,
+        ning mille järgi hiljem teostuses hinnatakse projekti kvaliteeti - Mida rohkem kavandist on tehtud, seda rohkem
+        on projektist valminud.
+
+        <h3>3. Etapp - Teostus ning moodulite testimine</h3>
+        Eelnevalt valminud kavandi järgi toimub selles etapis tootearendus. Arendustöö käigus arendatakse programm
+        moodul haaval või moodulite kogumina. peale arendustööd testitakse valminud mooduleid ja mooduli kogumikke.
+        Olenevalt eelnevalt dokumenteeritud kavandi detailsusest tuleneb nüüd selles etapis projekti arendus lihtsus.
+        Mida rohkem on detaile kavandatud, seda lihtsam on arendustöö.
+
+        <h3>4. Etapp - Integratsioon ja süsteemi testimine</h3>
+        Toimub kogu valmis saadud tarkvarasüsteemi testimine. Peale testimist tarnitakse toode kliendile ja/või
+        sihtrühmale. Testitakse sellest vaatepunktist, kas süsteem teeb seda mis eelnevalt dokumenteeritud ning
+        testitakse ka et süsteemis olevad erinevad detailid on loogilised.
+
+        <h3>5. Etapp - Kasutamine ja hooldus</h3>
+        Tegu on kõige pikema tarkvara elutsüklis oleva etapiga. Siin toimub vigade parandus, funktsionaalsuse muutmine
+        (kas siis kliendi, turu, keskkonna või sihtrühma sisendi tagajärjel või vajadusena) ja koodi enda
+        refaktoreerimine. Arendustööde teostamiseks korratakse kõiki eelmiseid etappe kuid siis ainult süsteemi muutmise
+        tarbeks mitte enam nullist millegi uue arendamise jaoks.<br/>
+        <br/>
+        Iga etapi tulemusena tekib dokument või dokumentatsioon (üks või mitu) mis kirjeldab vastavas etapis saavutatud
+        tulemit. Kõik dokumendid kinnitatakse. Järgmine etapp ei tohi olla samaaegselt töös kui eelmine pole lõpetatud.
+        Kuigi ülekate mingisugune siiski on, ning info edastatakse ühest etapist järgmisesse edasi.
     </p>
     <h2>Arendusmudeli joonis:</h2>
-    <img src="../pildid/kosemudel.jpeg"/>
-    <br/><br/>
+    <p>
+        <img src="../pildid/kosemudel.jpeg"/>
+    </p>
     <h2>Arendusmudeli head ja vead:</h2>
-    <table>
-        <tr>
-            <th>mis on HEAD</th>
-            <th>mis on VEAD</th>
-        </tr>
-        <tr>
-            <td>Süstemaatiline</td>
-            <td>Tagasipööramine eelmisesse etappi keeruline</td>
-        </tr>
-        <tr>
-            <td>Ette kirjutatud kavand, mille järgi hinnatakse toote valmidust</td>
-            <td>Projekti teostamine ei ole väga paindlik</td>
-        </tr>
-        <tr>
-            <td>Iga etapi tulemuste dokumentatsioon</td>
-            <td>Järgmine etapp ei tohi samaaegselt olla töös</td>
-        </tr>
-    </table>
-    <p><br/>
+    <p>
+        <table>
+            <tr>
+                <th>mis on HEAD</th>
+                <th>mis on VEAD</th>
+            </tr>
+            <tr>
+                <td>Süstemaatiline</td>
+                <td>Tagasipööramine eelmisesse etappi keeruline</td>
+            </tr>
+            <tr>
+                <td>Ette kirjutatud kavand, mille järgi hinnatakse toote valmidust</td>
+                <td>Projekti teostamine ei ole väga paindlik</td>
+            </tr>
+            <tr>
+                <td>Iga etapi tulemuste dokumentatsioon</td>
+                <td>Järgmine etapp ei tohi samaaegselt olla töös</td>
+            </tr>
+        </table>
+    </p><br/>
+    <p>
         Viited infole:
         <a href="https://eopearhiiv.edu.ee/e-kursused/eucip/arendus/1221_koskmudel.html">Koskmudel</a>
     </p>
     </main>
+    <script>
+        const img = document.querySelector('.scroll-image');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+            // Normalize scroll (0 → 1)
+            const progress = scrollTop / maxScroll;
+
+            // Move from right → left
+            const moveX = progress * (window.innerWidth * 0.7);
+
+            img.style.transform = `translateX(-${moveX}px)`;
+        });
+    </script>
 </body>
 </html>

@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UML diagrammikeel</title>
     <style>
-        table, th, td {
-            border: 3px solid #d4af37;
+        table, td {
+            border: 3px solid #241e03;
             border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
         }
+
+        th {
+            border: 3px solid #241e03;
+            border-collapse: collapse;
+            vertical-align: top;
+            padding: 1ch;
+            background-color: #241e03;
+        }
+
         body {
-            background-color: black;
+            background-color: #0c0a00;
             color: #d4af37;
             font-size: x-large;
             font-family: monospace;
@@ -28,11 +39,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             display: flex;
@@ -47,11 +58,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 100px;
             background: linear-gradient(
             to top,
-                rgba(0, 0, 0, 1),
-                rgba(0, 0, 0, 0)
+                rgba(12, 10, 0, 1),
+                rgba(12, 10, 0, 0)
             );
             z-index: 1000;
             pointer-events: none;
@@ -75,21 +86,38 @@
         a {
             color: #e5be8a;
         }
-        img, svg {
-            filter: none !important;
+       
+        h1, h2 {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+        h3 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .scroll-image {
+            position: absolute;
+            bottom: 10px;
+            right: -1500px;          /* start off-screen */
+            height: 60px;           /* adjust as needed */
+            opacity: 0.3;
+            transition: transform 0.05s linear;
+            pointer-events: none;   /* decorative only */
         }
     </style>
 </head>
-<body>
+<body>            
+    <div class="bottom-bar">
+    <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+    </div>
+    
+    <main style="padding: 5% 25%;"> 
     <div class="top-bar">
         <a href="../index.html">Tagasi</a>
     </div>
-    
-    <div class="bottom-bar"></div>
-    
-    <main style="padding: 5% 25%;">  
-    <h1>UML diagrammikeel</h1><br/><br/>
-    <h1>Mis on UML?</h1><br/>
+</head>
+    <h1>UML diagrammikeel</h1>
+    <h2>Mis on UML?</h2>
     <p>
         UML on visuaalne modelleerimiskeel, mis aitab tarkvaraarenduses nii kliendile, arendajaile endile kui
         ka erinevatele muudele isikutele protsessi juures kuvada täpsemalt, milline arendatava toote sisemine
@@ -99,15 +127,15 @@
         kirjeldusele. Tarkvaratoote käitumise kirjeldamiseks on näiteks käitumisdiagramm, Andmestruktuuri 
         kirjeldamiseks olemidiagramm (ERD). Ja nii erinevate aspektide kohta. EMLe kasutatakse nii uue 
         arendustöö kirjeldamiseks, kui ka olemasoleva dokumenteerimiseks.
-    </p><br/><br/>
-    <h1>Kuidas UML tekkis?</h1><br/>
+    </p>
+    <h2>Kuidas UML tekkis?</h2>
     <p>
         UML tekkis vajadusest kujutada objektorienteeritud programmeerimise jaoks ühtset keelt, mis kuvaks
         protsessi, ilma koodita. Algselt tekkis see kui Grady Booch ja James Rumbaugh ühendasid oma
         diagrammikeeled kuhu siis aja jooksul tekkiski teisi harusid juurde. UML ise on akronüüm inglise keelsest
-        terminist "unified Modeling Language".<br/>
-    </p><br/><br/>
-    <h1>Mida saab kujutada UMLiga - ehk kui palju diagrammide liike olemas on</h1><br/>
+        terminist "unified Modeling Language".
+    </p>
+    <h2>Mida saab kujutada UMLiga - ehk kui palju diagrammide liike olemas on</h2>
     <p>
         Erinevaid UML liike on palju, näiteks:
         <ul>
@@ -127,96 +155,115 @@
             <li>Paketiskeem (Package Diagram)</li>
             <li>Profiilidiagramm (Profile Diagram)</li>
         </ul>
-    </p><br/><br/>
-    <h1>Mõningaid UML liike</h1><br/>
-    <h2>Kasutuslooskeem</h2><br/>
-    <!--https://www.smartdraw.com/use-case-diagram/ --> 
-    <p><!-- kirjuta kodus skeemi/diagrammi -->
-        Käitumist näitav diagramm, mis annab visuaalse ülevaate süsteemi funktsioonidest ning osapooltest (ka
-        funktsioonid) kes mingi süsteemi osaga suhtleb.<br/>
-        Skeem koosneb ristkülikust (süsteem), ovaalidest (funktsioonid) ja kriipsujukudest ("näitleja" ehk
-        kasutaja) ning osutavatest joontest (suhte nooled).<br/><br/>
-        Skeemi näidis:<br/>
-        <img height="400" src="../pildid/use-case.png" alt="">
-    </p><br/>
-    <h2>Klassidiagramm</h2><br/> 
-    <p> <!-- kirjuta kodus skeemi/diagrammi -->
-        Klassidiagramm on levinud objektorienteeritud meetod, mida kasutatakse süsteemi kirjeldamiseks. Skeem
-        kirjeldab süsteemis olevate objektide tüüpe ja nende vahel eksisteerivaid erinevaid staatilisi seoseid.<br/>
-        Skeemil kujutatakse objekte ristkülikuna mis sisaldab endas: klassi nime, atribuute ning operatsioone.
-        Objektide vahel kujutatakse seoseid erinevate joonte/noolte abil. Kolm peamist seost on järgnevad:        
-        <ul>
-            <li>Ühendus (association) - Näitab klasside vahelist seost.</li>
-            <li>Pärimine (Inheritance) - Näitab mis klassist pärineb. Alam klass pärib teise klassi omadused ja
-                käitumised.</li>
-            <li>Koondamine (Aggregation) - Näitab tugevamat suhet, kus üks klass(tervik) sisaldab teist klassi
-                või koosneb sellest.</li>   
-            <img height="300" src="../pildid/relationship.webp" alt="">
-        </ul>
-        Skeemi näidis:<br/>
-        <img height="400" src="../pildid/Class-Diagram-example.webp" alt="">
-    </p><br/>
-    <h2>Jadaskeem</h2><br/>
-    <p> <!-- kirjuta kodus skeemi/diagrammi -->
-        Skeem kus visuaalselt esitletakse objektide või osade vahelist koostööd süsteemis aja jooksul.<br/>
-        Jadaskeem võib koosneda järgnevatest osadest:<br/>
-        <ul>
-            <li>Näitleja (Actor) - Süsteemi kasutav isik (süsteemi väline).</li>
-            <li>Elujoon (Lifeline) - Süsteemi olulised osad.</li>
-            <li>Sõnumid (Messages) - Pidevjoonega nool millel "sõnum" või tegevus, esindab objektide või osade
-                vahelist suhtlust</li>
-            <li>Loo sõnum (Create message) - Katkendjoonega nooled koos sõnumiga "Create", mõeldud millegi uue
-                loomiseks.</li>
-            <li>Kustuta sõnum (Delete Message) - Pidevjoonega nool, mis lõpeb X-ga. Mõeldud juhuks kui objektilt
-                vabastatakse mälu või see süsteemis hävitatakse.</li>
-            <li>Sõnum endale (Self Message) - Tagasipöörav nool, juhtudeks, kus objekt peab endale ise sõnumi
-                saatma.</li>
-            <li>Vastus sõnum (Reply Message) - Punktiirjoone avatud noolepeaga, kasutatakse et näidata vastuse
-                saatmist vastuvõtjalt küsimuse saatjale.</li>
-            <li>Leitud sõnum (Found Message) - Pidevjoonega nool lõpp-punktist (täidetud ring), kasutatakse
-                juhuks kus tundmatu allikas saadab sõnumi.</li>
-            <li>Kadunud sõnum (Lost Message) - Pidevjoonega nool osutab lõpp-punkti, kasutatakse juhul kui sõnumi
-                saaja ei ole süsteemile teada.</li>
-            <li>Kaitsmed (Guards) - Tingimus tekst nooltel. Kasutatakse, et näidata, piiranguid.</li>
-        </ul>
-        Skeemi näidis:<br/>
-        <img height="600" src="../pildid/14-sequence-diagram.webp" alt="">s
-    </p><br/>
-    <h2>Olekuskeem</h2><br/>
-    <!--https://www.geeksforgeeks.org/system-design/unified-modeling-language-uml-state-diagrams/ --> 
-    <p> <!-- kirjuta kodus skeemi/diagrammi -->
-        Diagrammitüüp süsteemide käitumise kirjeldamiseks. Olekuskeemidel on kujutatud lubatud olekuid ja
-        üleminekuid ning sündmusi, mis neid üleminekuid mõjutavad. See aitab visualiseerida objektide kogu
-        elutsüklit ja seega paremini mõista olekupõhiseid süsteeme.<br/>
-        Skeemi osad:<br/>
-        <ul>
-            <li>Algne olek (Initial state) - Must täpp</li>
-            <li>Üleminek (Transition) - Pidevjoonega nool</li>
-            <li>Olek (State) - Ristkülik, olek kahe ülemineku vahel</li>
-            <Li>Lõppolek (Final state) - Rõnga sees must täpp</Li>
-        </ul>
-        Skeemi näidis:<br/>
-        <img height="400" src="../pildid/13-state-machine-diagram.webp" alt="">s</p><br/>
-    <h2>Tegevusdiagramm</h2><br/>
+    </p>
+    <h2>Mõningaid UML liike</h2>
     <p>
-        <!-- kirjuta kodus skeemi/diagrammi -->
-        Skeem näitab graafiliselt samm-sammult tegevuste ja toimingute töövoogu. See on mõeldud nii arvutuslike
-        kui ka organisatsiooniliste protsesside modelleerimiseks.<br/>
-        Skeemi osad:<br/>
-        <ul>
-            <li>Algne olek (Initial state) - Must täpp</li>
-            <Li>Tegevus (Action) - Ristkülik</Li>
-            <Li>Voolu kontroll (Control Flow) - Romb</Li>
-            <Li>Lõppolek (Final state) - Rõnga sees must täpp</Li>
-        </ul>
-        Skeemi näidis:<br/>
-        <img height="400" src="../pildid/12-activity-diagram.webp" alt="">s</p><br/>
-    </p><br/><br/>
+        <h3>Kasutuslooskeem</h3>
+        <!--https://www.smartdraw.com/use-case-diagram/ --> 
+        <p><!-- kirjuta kodus skeemi/diagrammi -->
+            Käitumist näitav diagramm, mis annab visuaalse ülevaate süsteemi funktsioonidest ning osapooltest (ka
+            funktsioonid) kes mingi süsteemi osaga suhtleb.<br/>
+            Skeem koosneb ristkülikust (süsteem), ovaalidest (funktsioonid) ja kriipsujukudest ("näitleja" ehk
+            kasutaja) ning osutavatest joontest (suhte nooled).<br/>
+            Skeemi näidis:<br/>
+            <img height="400" src="../pildid/Use-Case-diagram-of-an-Online-Shopping-System.webp" alt="">
+        </p>
+        <h3>Klassidiagramm</h3>
+        <p> <!-- kirjuta kodus skeemi/diagrammi -->
+            Klassidiagramm on levinud objektorienteeritud meetod, mida kasutatakse süsteemi kirjeldamiseks. Skeem
+            kirjeldab süsteemis olevate objektide tüüpe ja nende vahel eksisteerivaid erinevaid staatilisi seoseid.<br/>
+            Skeemil kujutatakse objekte ristkülikuna mis sisaldab endas: klassi nime, atribuute ning operatsioone.
+            Objektide vahel kujutatakse seoseid erinevate joonte/noolte abil. Kolm peamist seost on järgnevad:        
+            <ul>
+                <li>Ühendus (association) - Näitab klasside vahelist seost.</li>
+                <li>Pärimine (Inheritance) - Näitab mis klassist pärineb. Alam klass pärib teise klassi omadused ja
+                    käitumised.</li>
+                <li>Koondamine (Aggregation) - Näitab tugevamat suhet, kus üks klass(tervik) sisaldab teist klassi
+                    või koosneb sellest.</li>   
+                <img height="300" src="../pildid/relationship.webp" alt="">
+            </ul>
+            Skeemi näidis:<br/>
+            <img height="400" src="../pildid/Class-Diagram-example.webp" alt="">
+        </p>
+        <h3>Jadaskeem</h3>
+        <p> <!-- kirjuta kodus skeemi/diagrammi -->
+            Skeem kus visuaalselt esitletakse objektide või osade vahelist koostööd süsteemis aja jooksul.<br/>
+            Jadaskeem võib koosneda järgnevatest osadest:<br/>
+            <ul>
+                <li>Näitleja (Actor) - Süsteemi kasutav isik (süsteemi väline).</li>
+                <li>Elujoon (Lifeline) - Süsteemi olulised osad.</li>
+                <li>Sõnumid (Messages) - Pidevjoonega nool millel "sõnum" või tegevus, esindab objektide või osade
+                    vahelist suhtlust</li>
+                <li>Loo sõnum (Create message) - Katkendjoonega nooled koos sõnumiga "Create", mõeldud millegi uue
+                    loomiseks.</li>
+                <li>Kustuta sõnum (Delete Message) - Pidevjoonega nool, mis lõpeb X-ga. Mõeldud juhuks kui objektilt
+                    vabastatakse mälu või see süsteemis hävitatakse.</li>
+                <li>Sõnum endale (Self Message) - Tagasipöörav nool, juhtudeks, kus objekt peab endale ise sõnumi
+                    saatma.</li>
+                <li>Vastus sõnum (Reply Message) - Punktiirjoone avatud noolepeaga, kasutatakse et näidata vastuse
+                    saatmist vastuvõtjalt küsimuse saatjale.</li>
+                <li>Leitud sõnum (Found Message) - Pidevjoonega nool lõpp-punktist (täidetud ring), kasutatakse
+                    juhuks kus tundmatu allikas saadab sõnumi.</li>
+                <li>Kadunud sõnum (Lost Message) - Pidevjoonega nool osutab lõpp-punkti, kasutatakse juhul kui sõnumi
+                    saaja ei ole süsteemile teada.</li>
+                <li>Kaitsmed (Guards) - Tingimus tekst nooltel. Kasutatakse, et näidata, piiranguid.</li>
+            </ul>
+            Skeemi näidis:<br/>
+            <img height="600" src="../pildid/14-sequence-diagram.webp" alt="">
+        </p><br/>
+        <h3>Olekuskeem</h3>
+        <!--https://www.geeksforgeeks.org/system-design/unified-modeling-language-uml-state-diagrams/ --> 
+            <p> <!-- kirjuta kodus skeemi/diagrammi -->
+                Diagrammitüüp süsteemide käitumise kirjeldamiseks. Olekuskeemidel on kujutatud lubatud olekuid ja
+                üleminekuid ning sündmusi, mis neid üleminekuid mõjutavad. See aitab visualiseerida objektide kogu
+                elutsüklit ja seega paremini mõista olekupõhiseid süsteeme.<br/>
+                Skeemi osad:<br/>
+                <ul>
+                    <li>Algne olek (Initial state) - Must täpp</li>
+                    <li>Üleminek (Transition) - Pidevjoonega nool</li>
+                    <li>Olek (State) - Ristkülik, olek kahe ülemineku vahel</li>
+                    <Li>Lõppolek (Final state) - Rõnga sees must täpp</Li>
+                </ul>
+                Skeemi näidis:<br/>
+                <img height="400" src="../pildid/13-state-machine-diagram.webp" alt="">
+            </p>
+        <h3>Tegevusdiagramm</h3>
+        <p>
+            <!-- kirjuta kodus skeemi/diagrammi -->
+            Skeem näitab graafiliselt samm-sammult tegevuste ja toimingute töövoogu. See on mõeldud nii arvutuslike
+            kui ka organisatsiooniliste protsesside modelleerimiseks.<br/>
+            Skeemi osad:<br/>
+            <ul>
+                <li>Algne olek (Initial state) - Must täpp</li>
+                <Li>Tegevus (Action) - Ristkülik</Li>
+                <Li>Voolu kontroll (Control Flow) - Romb</Li>
+                <Li>Lõppolek (Final state) - Rõnga sees must täpp</Li>
+            </ul>
+            Skeemi näidis:<br/>
+            <img height="400" src="../pildid/12-activity-diagram.webp" alt="">
+        </p>
+    </p><br/>
     <p>
         Viited infole:<br/>
         <a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/">What is Unified Modeling Language (UML)?</a><br/>
         <a href="https://www.geeksforgeeks.org/system-design/unified-modeling-language-uml-introduction/">Unified Modeling Language (UML) Diagrams</a>
     </p>
     </main>
+    <script>
+        const img = document.querySelector('.scroll-image');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+            // Normalize scroll (0 → 1)
+            const progress = scrollTop / maxScroll;
+
+            // Move from right → left
+            const moveX = progress * (window.innerWidth * 0.7);
+
+            img.style.transform = `translateX(-${moveX}px)`;
+        });
+    </script>
 </body>
 </html>
