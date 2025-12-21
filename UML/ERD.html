@@ -4,114 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olemidiagramm</title>
-    <style>
-        table, td {
-            border: 3px solid #241e03;
-            border-collapse: collapse;
-            vertical-align: top;
-            padding: 1ch;
-        }
-
-        th {
-            border: 3px solid #241e03;
-            border-collapse: collapse;
-            vertical-align: top;
-            padding: 1ch;
-            background-color: #241e03;
-        }
-
-        body {
-            background-color: #0c0a00;
-            color: #d4af37;
-            font-size: x-large;
-            font-family: monospace;
-            text-align: justify;
-            max-width: 85ch;
-            min-height: 200vh; /* Just to show scrolling */
-            margin: 0 auto;     /* center horizontally */
-            padding: 1rem;      /* spacing on small screens */
-            line-height: 1.6;
-        }
-
-        /* Top fade bar */
-        .top-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(
-                to bottom,
-                rgba(12, 10, 0, 1),
-                rgba(12, 10, 0, 0)
-            );
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding-left: 20px;
-            pointer-events: none; /* allows clicks through except button */
-        }
-
-        /* Bottom fade bar */
-        .bottom-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(
-            to top,
-                rgba(12, 10, 0, 1),
-                rgba(12, 10, 0, 0)
-            );
-            z-index: 1000;
-            pointer-events: none;
-        }
-
-        /* Button on top bar */
-        .top-bar a {
-            pointer-events: auto; /* re-enable clicking */
-            text-decoration: none;
-            color: #d4af37;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 16px;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-
-        .top-bar a:hover {
-            background: rgba(255, 255, 255, 0.35);
-        }
-        a {
-            color: #e5be8a;
-        }
-       
-        h1, h2 {
-            margin-top: 2em;
-            margin-bottom: 2em;
-        }
-        h3 {
-            margin-top: 2em;
-            margin-bottom: 1em;
-        }
-        .scroll-image {
-            position: absolute;
-            bottom: 10px;
-            right: -1500px;          /* start off-screen */
-            height: 60px;           /* adjust as needed */
-            opacity: 0.3;
-            transition: transform 0.05s linear;
-            pointer-events: none;   /* decorative only */
-        }
-    </style>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>            
     <div class="bottom-bar">
-    <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+        <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
     </div>
-    
-    <main> 
     <div class="top-bar">
         <a href="./index.html">Tagasi UML</a>
     </div>
@@ -216,23 +114,7 @@
             <li><a href="https://online.visual-paradigm.com/knowledge/visual-modeling/conceptual-vs-logical-vs-physical-data-model">Data Modeling: Conceptual vs Logical vs Physical Data Model</a></li>
             <li><a href="https://et.wikipedia.org/wiki/Andmebaas">Andmebaas</a></li>
         </ul>
-    </p>
-    </main>
-    <script>
-        const img = document.querySelector('.scroll-image');
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const maxScroll = document.body.scrollHeight - window.innerHeight;
-
-            // Normalize scroll (0 → 1)
-            const progress = scrollTop / maxScroll;
-
-            // Move from right → left
-            const moveX = progress * (window.innerWidth * 0.7);
-
-            img.style.transform = `translateX(-${moveX}px)`;
-        });
-    </script>
+    </p><br/><br/>
+    <script src="../moving_dragon.js"></script>
 </body>
 </html>
