@@ -1,10 +1,10 @@
-.dropdown {
+.dropdown, .button {
     position: relative;
     display: inline-block;
 }
 
 /* Dropdown button styling */
-.dropdown button {
+.dropdown button, .button a {
     background-color: #241e03;
     color: #e5be8a;
     padding: 10px 20px;
@@ -13,6 +13,7 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    text-decoration: none;
 }
 
 /* Dropdown content (hidden by default) */
@@ -45,7 +46,7 @@
 }
 
 /* Optional: change button color on hover */
-.dropdown:hover button {
+.dropdown:hover button, .button:hover a {
     background-color: #e5be8a;
     color: #0c0a00;
 }
