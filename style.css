@@ -1,15 +1,16 @@
-.dropdown, .button {
+.dropdown, .button, button {
     position: relative;
     display: inline-block;
 }
 
 /* Dropdown button styling */
-.dropdown button, .button a {
+.dropdown button, .button a, button {
     background-color: #241e03;
     color: #e5be8a;
     padding: 10px 20px;
     font-size: x-large;
     font-weight: bold;
+    font-family: monospace;
     border: none;
     cursor: pointer;
     border-radius: 5px;
@@ -46,7 +47,7 @@
 }
 
 /* Optional: change button color on hover */
-.dropdown:hover button, .button:hover a {
+.dropdown:hover button, .button:hover a, a:hover button {
     background-color: #e5be8a;
     color: #0c0a00;
 }
@@ -77,6 +78,20 @@ body {
     margin: 0 auto;     /* center horizontally */
     padding: 1rem;      /* spacing on small screens */
     line-height: 1.6;
+}
+
+hr {
+    border: 0px dashed rgba(212, 175, 55, 0.5);
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        rgba(212, 175, 55, 0),
+        rgba(212, 175, 55, 0.1),
+        rgba(212, 175, 55, 1),
+        rgba(212, 175, 55, 0.1),
+        rgba(212, 175, 55, 0)
+        );
 }
 
 /* Top fade bar */
@@ -135,11 +150,13 @@ a {
        
 h1, h2 {
     margin-top: 2em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    font-family: monospace;
 }
 h3 {
     margin-top: 2em;
-    margin-bottom: 1em;
+    margin-bottom: 0.75em;
+    font-family: monospace;
 }
 .scroll-image {
     position: absolute;
@@ -149,4 +166,52 @@ h3 {
     opacity: 0.3;
     transition: transform 0.05s linear;
     pointer-events: none;   /* decorative only */
+}
+h1::after {
+    content: "";
+    display: block;
+
+    height:1em;              /* total height for 3 lines */
+    margin-top: 0.25em;       /* close to heading */
+    width: 100%;
+
+    
+    background:
+        linear-gradient(
+            to right,
+            rgba(212,175,55,0),
+            rgba(212,175,55,1),
+            rgba(212,175,55,0)
+        ) 0 0 / 100% 2px no-repeat,
+
+        linear-gradient(
+            to right,
+            rgba(212,175,55,0),
+            rgba(212,175,55,0.5),
+            rgba(212,175,55,0)
+        ) 0 0.25em / 100% 2px no-repeat;
+}
+h2::after {
+    content: "";
+    display: block;
+
+    height:1em;              /* total height for 3 lines */
+    margin-top: 0.25em;       /* close to heading */
+    width: 100%;
+
+    
+    background:
+        linear-gradient(
+            to right,
+            rgba(212,175,55,0),
+            rgba(212,175,55,0.5),
+            rgba(212,175,55,0)
+        ) 0 0 / 100% 2px no-repeat,
+
+        linear-gradient(
+            to right,
+            rgba(212,175,55,0),
+            rgba(212,175,55,0.1),
+            rgba(212,175,55,0)
+        ) 0 0.25em / 100% 2px no-repeat;
 }

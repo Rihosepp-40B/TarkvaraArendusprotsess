@@ -5,36 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minu Tarkvara Arendusprotsessi Ainemapp</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./page_change.js"></script>
 </head>
-<body>        
+<body>
     <div class="bottom-bar">
         <img src="./pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
     </div>
     <div class="top-bar">
     </div>
+    <br/>
+    <br/>
+    <hr>
+    <hr>
+    <hr>
     <h1>Tarkvara Arendusprotsessi tunni raames koostatud ainemapp</h1>
     <p>
-            Tarkvara Arendusprotsessi aines tehtud ainemapp kus on selle aine ja teiste ainete ülesanded ja muud saavutused kuvatud.
+        Tarkvara Arendusprotsessi aines tehtud ainemapp kus on selle aine ja teiste ainete ülesanded ja muud saavutused kuvatud.
     </p>
-    <h2>Tarkvara Arendusprotsess:</h2>
-    <div class="dropdown">
-        <button>Teooria:</button>
-        <div class="dropdown-content">
-            <a href="./SDLC/sdlc.html">Üldiselt - mis see on</a>
-            <a href="./CASE/index.html">CASE-vahend</a>
-            <a href="./UML/index.html">Unified Modeling Language</a>
-            <a href="./DOCS/index.html">Dokumentatsioon</a>
-        </div>
+    <div style="text-align: center;">
+        <h2>
+            <div class="dropdown">
+                <button style="font-size: 2ch; width: 50ch;">AINEMAPP</button>
+                <div class="dropdown-content" style="text-align: center; width: 55ch;">
+                    <a href="#" onclick="return show('Page1','Page2','Page3');">Tarkvara Arendusprotsess</a>
+                    <a href="#" onclick="return show('Page2','Page1','Page3');">Programmeerimise Alused</a>
+                    <a href="#" onclick="return show('Page3','Page1','Page2');">Multimeedia</a>
+                    <hr>
+                </div>
+            </div>
+        </h2>
     </div>
-    <div class="dropdown">
-        <button>Praktilised rakendused:</button>
-        <div class="dropdown-content">
-            <a href="./BTC/index.html">Bitcoin kalkulaator</a>
-            <a href="./PMC/index.html">Tooted ja Kategooriad</a>
-            <a href="./PROJ/index.html">Projekt Project Libre'ga</a>
-        </div>
-    </div><br/>
-    -------------------------------------------------------
+    <div id="Page1">
+        <h2>Tarkvara Arendusprotsess:</h2>
+        <p>
+            <div class="dropdown">
+                <button>Teooria:</button>
+                <div class="dropdown-content">
+                    <a href="./SDLC/sdlc.html">Üldiselt - mis see on</a>
+                    <a href="./CASE/index.html">CASE-vahend</a>
+                    <a href="./UML/index.html">Unified Modeling Language</a>
+                    <a href="./DOCS/index.html">Dokumentatsioon</a>
+                    <hr>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button>Praktilised rakendused:</button>
+                <div class="dropdown-content">
+                    <a href="./BTC/index.html">Bitcoin kalkulaator</a>
+                    <a href="./PMC/index.html">Tooted ja Kategooriad</a>
+                    <a href="./PROJ/index.html">Projekt Project Libre'ga</a>
+                    <hr>
+                    <hr>
+                </div>
+            </div>
+        </p>
+    </div>
+    <div id="Page2" style="display:none">
+        <h2>Programmeerimise Alused:</h2>
+        <p>
+            <div class="dropdown">
+                <button>Teooria:</button>
+                <div class="dropdown-content">
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <hr>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button>Praktilised rakendused:</button>
+                <div class="dropdown-content">
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <hr>
+                    <hr>
+                </div>
+            </div>
+        </p>        
+    </div>
+    <div id="Page3" style="display:none">
+        <h2>Multimeedia:</h2>
+        <p>
+            <div class="dropdown">
+                <button>Kasutatud töövahendid:</button>
+                <div class="dropdown-content">
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <hr>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button>Tehtud tööd:</button>
+                <div class="dropdown-content">
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <hr>
+                    <hr>
+                </div>
+            </div>
+        </p>
+    </div>
+<br/><br/>
     <h2>Kes ma olen:</h2>
     <table>
         <tr>
@@ -53,10 +129,14 @@
             <td colspan="4">
                 <div class="button">
                     <a href="https://github.com/Rihosepp-40B">Minu githubi link</a>
-                </div>
             </td>
         </tr>
     </table>
     <script src="./moving_dragon.js"></script>
+    <br/>
+    <br/>
+    <hr>
+    <hr>
+    <hr>
 </body>
 </html>
