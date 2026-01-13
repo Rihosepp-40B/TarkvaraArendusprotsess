@@ -14,8 +14,167 @@
     <div class="top-bar">
         <a href="./sdlc.html">Tagasi SDLC</a>
     </div>
-    
-    <br/><br/>
+    <h1>Arendus käitus (Development operations ehk DevOps)</h1>
+    <h2>Mis on DevOps?</h2>
+    <p>
+        DevOps on tarkvaraarenduse kultuur, mille eesmärgiks on ühendada tarkvaraarendus (Dev) ja tarkvaraoperatsioonid (Ops).
+        Põhilisteks DevOps-i tunnusjoonteks on automatiseerimine ja jälgimine kõigil tarkvaraarenduse etappidel, alates
+        integratsioonist, testimisest ning avaldamisest kuni kasutuselevõtu ja taristu haldamiseni. DevOps pürgib lühemate
+        arendustsüklite, sagedasemate juurutamiste ning töökindlamate (kiirem rikete parandamine) ja rohkem ärinõuetega
+        kooskõlas olevate tarkvaraversioonide avalikustamise poole.
+    </p>
+    <h2>DevOps-i etapid</h2>
+    <p>
+        DevOpsi elutsükkel on loodud kvaliteetse tarkvara kiireks tarnimiseks. See koosneb iteratiivsetest ja automatiseeritud
+        töövoogudest, mis toimivad suuremas pidevas arendusprotsessis. Töövoogude nimed ja järjekord võivad organisatsiooniti
+        erineda, kuid tavaliselt sisaldab DevOpsi elutsükkel kaheksat põhietappi:
+        <ol>
+            <li>
+                <h3>Planeerimine</h3>
+                <p>
+                    Selles etapis määratlevad meeskonnad järgmise väljalaske uued funktsioonid ja täiendused. Sisendina
+                    kasutatakse kasutajate tagasisidet, juhtumianalüüse ning sisemiste sidusrühmade (platvormi- ja
+                    infrastruktuuritiimid, turve, vastavus, riskijuhtimine, ärivaldkonnad) panust.
+                </p>
+                <p>
+                    Eesmärk on luua backlog – prioriseeritud loend funktsioonidest, parandustest ja veaparandustest, mida
+                    lisatakse tootele aja jooksul.
+                </p>
+            </li>
+            <li>
+                <h3>Kodeerimine</h3>
+                <p>
+                    DevOpsi meeskond arendab backlog’is määratletud funktsioone. Levinud kodeerimispraktikad on:
+                    <ul>
+                        <li>Testipõhine arendus (Test driven development - TDD) – testid kirjutatakse enne koodi</li>
+                        <li>Paarisprogrammeerimine – kaks arendajat töötavad koos ühes tööjaamas</li>
+                        <li>Kaaslaste koodirevisjonid – arendajad kontrollivad üksteise koodi vigade ja paranduste osas</li>
+                    </ul>
+                </p>
+                <p>
+                    Tavaliselt kirjutavad arendajad koodi oma lokaalsetes keskkondades ning edastavad selle seejärel
+                    tarnimis/juurutamis torustikku.
+                </p>
+            </li>
+            <li>
+                <h3>Ehitamine</h3>
+                <p>
+                    Uus kood integreeritakse olemasolevasse koodibaasi, testitakse ning pakendatakse juurutamiseks. Sageli
+                    automatiseeritud tegevused hõlmavad:
+                    <ul>
+                        <li>koodimuudatuste ühendamist põhiharuga</li>
+                        <li>koodi salvestamist repositooriumisse</li>
+                        <li>koodi kompileerimist, testimist ja pakendamist</li>
+                    </ul>
+                </p>
+                <p>
+                    DevOpsis salvestatakse ehitusetapi väljund sageli binaarrepositooriumisse, kus hoitakse kompileeritud
+                    teeke ja käivitatavaid faile edasiseks kasutamiseks.
+                </p>
+            </li>
+            <li>
+                <h3>Testimine</h3>
+                <p>
+                    DevOpsi meeskonnad kasutavad enamasti automatiseeritud testimist, et tagada rakenduse vastavus standarditele
+                    ja kvaliteedinõuetele.
+                </p>
+                <p>
+                    Kuigi klassikalises DevOpsis on eraldi testimisfaas, viiakse tänapäeval testimist läbi kogu protsessi
+                    vältel. Näiteks:
+                    <ul>
+                        <li>üksustestid kodeerimise ajal</li>
+                        <li>staatiline koodianalüüs (linting) pärast integratsiooni</li>
+                    </ul>
+                </p>
+                <p>
+                    Pidev testimine toetab shift-left lähenemist, kus testimine tuuakse varasematesse arendusetappidesse, et
+                    probleemid avastataks kiiremini.
+                </p>
+            </li>
+            <li>
+                <h3>Avalikustamine</h3>
+                <p>
+                    See on viimane etapp enne kasutajatele kättesaadavaks tegemist. Tehakse lõplikud kvaliteedi-, turbe- ja
+                    vastavustestid.
+                </p>
+                <p>
+                    Kui leitakse vigu, saab meeskond need enne tootmiskeskkonda jõudmist parandada. Enamikus DevOpsi torustikes
+                    on see protsess suures osas automatiseeritud.
+                </p>
+                <p>
+                    Sageli hõlmab see etapp ka infrastruktuuri (serverid, andmebaasid, koormusjaoturid) loomist infrastruktuur
+                    koodina (Infrastructure as Code) põhimõttel.
+                </p>
+            </li>
+            <li>
+                <h3>Juurutamine</h3>
+                <p>
+                    Rakendus viiakse tootmiskeskkonda, kus kasutajad saavad seda kasutada. Sageli alustatakse juurutamist
+                    piiratud kasutajagrupile ning seejärel laiendatakse kõigile.
+                </p>
+            </li>
+            <li>
+                <h3>Käitamine</h3>
+                <p>
+                    Selles faasis jälgitakse, et uued funktsioonid töötaksid tõrgeteta. Kasutatakse automatiseeritud jälgimis-
+                    ja haldustööriistu, et tagada võrgu, salvestuse, platvormi, arvutusressursside ja turbe korrektne toimimine.
+                </p>
+            </li>
+            <li>
+                <h3>Monitoorimine</h3>
+                <p>
+                    Kogutakse kasutajate tagasisidet ja analüüsitakse varasemate etappide õppetunde. See info suunab järgmise
+                    väljalaske planeerimist ja arendust.
+                </p>
+            </li>
+        </ol>
+    </p>
+    <h3>DevOps joonis</h3>
+    <p>
+        <img src="../pildid/devops.webp"/>
+    </p>
+    <h2>Mis on DevOps tähtsaim omadus?</h2>
+    <p>
+        DevOps tähtsamad omadused on pidev koostöö ja automatiseerimine. Juhtimistasandil eeldab see pidevat suhtlust ja
+        vastutuse jagamist kõigi sidusrühmade vahel. Tehnilisel tasandil keskendub DevOps automatiseeritud tööriistadele,
+        mis kiirendavad arengut ja vähendavad vigu.
+    </p>
+    <h2>DevOps-i head ja vead</h2>
+    <table>
+        <tr>
+            <th>mis on Head</th>
+            <th>mis on Vead</th>
+        </tr>
+        <tr>
+            <td>kiirem arendus ja juurutus, pikemas perspektiivis kuluefektiivsem - automatiseerimine vähendab käsitööd ja vigu</td>
+            <td>algne juurutus on keeruline - kõik protsessid vajavad aega</td>
+        </tr>
+        <tr>
+            <td>parem, pidev koostöö kõikide osapoolte vahel</td>
+            <td>kultuurilised takistused - meeskonnad ei pruugi koostööd kohe omaks võtta</td>
+        </tr>
+        <tr>
+            <td>stabiilsem süsteem - väiksemaid ja sagedasemaid muudatusi on lihtsam hallata</td>
+            <td>tööriistade üleküllus - vale valik võib süsteemi liiga keeruliseks muuta</td>
+        </tr>
+        <tr>
+            <td>kiirem vigade avastamine</td>
+            <td>turvariskid valel rakendamisel - automatiseerimine ilma turvata on ohtlik</td>
+        </tr>
+        <tr>
+            <td>paindlikkus ja skaleeritavus - pilv ja konteinerid võimaldavad kiiremat kohanemist, reageerimist</td>
+            <td>ei sobi igale organisatsioonile - väga väikesed või rangelt reguleeritud keskkonnad</td>
+        </tr>
+    </table>
+    </p><br/>
+    <p>
+        Viited infole:
+        <ul>
+            <li><a href="https://www.algosoft.co/blogs/the-role-of-devops-in-custom-software-development/">The Role of DevOps in Custom Software Development</a></li>
+            <li><a href="https://et.wikipedia.org/wiki/DevOps">DevOps</a></li>
+            <li><a href="https://www.geeksforgeeks.org/devops/introduction-to-devops/">What is DevOps ?</a></li>
+            <li><a href="https://www.ibm.com/think/topics/devops">What is DevOps?</a></li>
+    </p><br/><br/>
     <script src="../moving_dragon.js"></script>
 </body>
 </html>
