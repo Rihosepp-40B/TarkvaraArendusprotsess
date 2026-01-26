@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Shape</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../pildid/Draakon-logo.svg" type="image/svg+xml">
+</head>
+<body>            
+    <div class="bottom-bar">
+        <img src="../../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+    </div>
+    <div class="top-bar">
+        <a href="./index.html">Tagasi</a>
+    </div>
+    <h1>V-mudel (V-Shape)</h1>
+    <h2>Mis on V-Shape?</h2>
+    <p>
+        V-mudel on tarkvaraarenduse mudel, milles on arendamine ja testimine omavahel seotud. Mudeli nimi tuleneb selle
+        V-tähele sarnanevast diagrammist, mille moodustavad arendus- ja testimisetpid. V-mudel on traditsioonilise kosemudeli
+        edasiarendus, kus on olulisel kohal testimise planeerimine juba arendusprotsessi alguses.
+    </p>  
+    <h2>V-mudeli etapid</h2>  
+    <p>
+        V-mudel koosneb kahest peamisest etapi harust, mis jagunevad täpsemateks etappideks:
+        <ol>
+            <li>
+                <h3>Arendusetappide haru</h3>
+                <p>
+                    Siin algab kogu protsess. Esimene samm on kliendi vajaduste kogumine ja mõistmine. Eesmärk on määratleda
+                    projekti ulatus selgelt, et kõik osapooled oleksid ühel arusaamal.
+                </p>
+                <ol>
+                    <li>
+                        <h4>Nõueteanalüüs</h4>
+                        <p>
+                            See on arendustsükli esimene etapp, kus tootenõuded kogutakse kliendi vaatenurgast. Faas
+                            hõlmab tihedat suhtlust kliendiga, et tema vajadusi mõista. 
+                        </p>
+                        <p>
+                            See etapp on äärmiselt oluline, kuna kliendid ei tea sageli täpselt, mida nad soovivad.
+                            Seetõttu koostatakse juba siin vastuvõtutestide kavand, mida kasutatakse hiljem testimisel.
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Süsteemi disain</h4>
+                        <p>
+                            Selles etapis kavandatakse tarkvara üldine struktuur. Meeskond koostab nii kõrgtaseme disaini
+                            (süsteemi üldine ülesehitus) kui ka detailse disaini (üksikute komponentide tööpõhimõtted).
+                        </p>
+                        <p>
+                            Süsteemi disain algab pärast seda, kui tootenõuded on selgelt mõistetud. See loob tugeva aluse
+                            edasiseks arendamiseks ja testjuhtumite ettevalmistamiseks.
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Arhitektuurne disain</h4>
+                        <p>
+                            Selles etapis määratletakse ja kavandatakse süsteemi arhitektuurilised spetsifikatsioonid.
+                            Tavaliselt pakutakse välja mitu tehnilist lahendust ning lõplik valik tehakse tehnilise ja
+                            majandusliku teostatavuse alusel.
+                        </p>
+                        <p>
+                            Süsteemi arhitektuur jaotatakse mooduliteks, millest igaüks täidab konkreetset funktsiooni.
+                            Seda etappi nimetatakse ka kõrgtaseme disainiks (HLD – High-Level Design).
+                        </p>
+                        <p>
+                            Siin määratletakse selgelt andmevahetus ja suhtlus nii sisemiste moodulite kui ka väliste
+                            süsteemide vahel. Nende andmete põhjal saab koostada ja dokumenteerida integratsioonitestid.
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Mooduli disain</h4>
+                        <p>
+                            See faas on tuntud kui madaltaseme disain (LLD – Low-Level Design). Siin kirjeldatakse iga
+                            süsteemimooduli üksikasjalik sisemine ülesehitus.
+                        </p>
+                        <p>
+                            Oluline on disaini ühilduvus teiste moodulite ja väliste süsteemidega. Üksustestid on
+                            arendusprotsessi kriitiline osa, kuna need aitavad varakult avastada ja kõrvaldada vead.
+                            Nende testide loomine toimub just selles faasis.
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Kodeerimine</h4>
+                        <p>
+                            Selles etapis ehitatakse tarkvara tegelikult valmis. Arendajad kirjutavad koodi vastavalt
+                            eelnevates faasides loodud disainile.
+                        </p>
+                        <p>
+                            Kasutatav programmeerimiskeel valitakse süsteemi- ja arhitektuurinõuete alusel. Kodeerimisel
+                            järgitakse kindlaid standardeid ja põhimõtteid ning enne lõpliku versiooni salvestamist
+                            repositooriumisse tehakse mitu koodirevisjoni ja jõudluse optimeerimist.
+                        </p>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <h3>Testimisetapide haru</h3> V-mudeli paremharu:
+                <p>
+                    Testimine hõlmab dünaamilisi analüüsimeetodeid (funktsionaalseid ja mittefunktsionaalseid teste), mis
+                    viiakse läbi koodi käivitamise teel. See on protsess, mille käigus hinnatakse arenduse lõpus, kas
+                    tarkvara vastab kliendi ootustele ja nõuetele.
+                </p>
+                <ol>
+                    <li>
+                        <h4>Üksustestimine</h4>
+                        <p>
+                            Üksustestide plaanid koostatakse mooduli disaini etapis ning neid kasutatakse vigade
+                            kõrvaldamiseks koodi või mooduli tasandil.
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Integratsioonitestimine</h4>
+                        <p>
+                            Pärast üksustestimise lõppu viiakse läbi integratsioonitestimine, kus moodulid ühendatakse ja
+                            testitakse nendevahelist suhtlust. See toimub arhitektuurse disaini etapi alusel.
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Süsteemitestimine</h4>
+                        <p>
+                            Süsteemitestimine kontrollib kogu rakendust tervikuna, sealhulgas funktsionaalsust, sõltuvusi ja
+                            suhtlust. Testitakse nii funktsionaalseid kui ka mittefunktsionaalseid nõudeid.
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Kasutaja vastuvõtutestimine</h4>
+                        <p>
+                            See viiakse läbi keskkonnas, mis sarnaneb tootmiskeskkonnale. Selle eesmärk on kinnitada, et
+                            süsteem vastab kasutaja nõuetele ja on valmis pärismaailmas kasutamiseks.
+                        </p>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </p>
+    <h3>V-mudeli joonis</h3>
+    <img width="100%" src="./pildid/V-model.webp"/>
+    <h2>Mis on V-mudeli tähtsaim omadus?</h2>
+    <p>
+        V-mudeli kõige tähtsamaks omaduseks on testimine! Antud mudeli kõige olulisemaks jooneks on pidev testimine peale
+        igat etappi. See võimaldab leida vead võimalikult vara, mis parandab oluliselt tarkvara kvaliteeti.
+    </p>
+    <h2>V-mudeli head ja vead</h2>
+    <p>
+        <table>
+            <tr>
+                <th>mis on HEAD</th>
+                <th>mis on VEAD</th>
+            </tr>
+            <tr>
+                <td>Selge struktuur ja kontroll</td>
+                <td>Vähe paindlikkust</td>
+            </tr>
+            <tr>
+                <td>Sobib väikestele ja selgete nõuetega projektile</td>
+                <td>Aeganõudev rohke dokumentatsiooni tõttu</td>
+            </tr>
+            <tr>
+                <td>Lihtne mõista ja rakendada</td>
+                <td>Kõrge risk ebaselgete nõuete korral</td>
+            </tr>
+            <tr>
+                <td>Varajane testimine tsüklis</td>
+                <td>Ei sobi keerukatele objektorienteeritud projektidele</td>
+            </tr>
+            <tr>
+                <td>Võimaldab täpselt jälgida projekti edenemist</td>
+                <td>Ei toeta iteratiivset arendust</td>
+            </tr>
+            <tr>
+                <td>Selge seos nõuete ja lõpptulemuse vahel</td>
+                <td>Liigne dokumentatsioon võib pidurdada arendust</td>
+            </tr>
+            <tr>
+                <td>Selge struktuur parandab suhtlust kliendi ja meeskonna vahel</td>
+            </tr>
+        </table>
+    </p><br/>
+    <p>
+        Viited infole:
+        <ul>
+            <li><a href="https://visuresolutions.com/et/almuse-juhend/v-mudelis%C3%BCsteemide-projekteerimine/">V mudel süsteemitehnikas</a></li>
+            <li><a href="https://vsevolodtsarev23.thkit.ee/wp/v-mudel-tarkvaraarenduses/">V-mudel tarkvaraarenduses</a></li>
+            <li><a href="https://www.geeksforgeeks.org/software-engineering/software-engineering-sdlc-v-model/">SDLC V-Model - Software Engineering</a></li>
+    </p><br/><br/>
+    <script src="../../js/moving_dragon.js"></script>
+</body>
+</html>

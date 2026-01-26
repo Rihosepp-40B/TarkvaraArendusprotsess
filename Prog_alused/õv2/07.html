@@ -1,0 +1,130 @@
+<h2>Sõne</h2>
+<h3>Mis on sõne (string)?</h3>
+<p>Sõne (<code>str</code>) on andmetüüp:</p>
+<ul>
+    <li>Sõne on andmete sümbolite jada mis edastatakse tekstilisel kujul</li>
+    <li>Sõne on muutumatu objekt (immutable)</li>
+    <ul>
+        <li>see tähendab, et sõne ei saa muuta</li>
+        <li>sõne operatsioonid tagastavad vajadusel uue sõne</li>
+    </ul>
+</ul>
+<h3>Sõne loomine</h3>
+<ul>
+    <li>Sõne loomiseks kasutatakse ülakomasid, jutumärke või kolmekordseid jutummärke </li>
+    <ul>
+        <li><code>'See on sõne'</code></li>
+        <li><code>"See on sõne"</code></li>
+        <li><code>"""See on sõne"""</code></li>
+    </ul>
+    <li>Kolmekordsed jutumärgid võimaldavad esitada mitmerealist teksti</li>
+    <ul>
+        <li>Kasutades /n reavahetuse kohal saab seda teha ka ülakomade ja jutumärkidega</li>
+        <li><code>print('See on esimene rida\nSee on teine rida')</code></li>
+        <li><code>print("""See on esimene rida<br/>
+            See on teine rida""")</code></li>
+    </ul>
+    <li>Ülakoma saab kasutada osa sõnena kui sõne tehakse jutumärkide või kolmekordsete jutumärkide vahele või siis
+        varjestatult <code>\'</code></li>
+    <li>Jutumärke saab kasutada kolmekordsete ja ülakomade vahel või varjestatult <code>\"</code></li>
+    <li>Sõnesid saab liita <code>+</code> märgiga: <code>text = "Hello " + "world" &nbsp;# Hello world</code></li>
+    <li>Sõnet saab korrata <code>*</code> märgiga: <code>text = "hi" * 3 &nbsp;# hihihi</code></li>
+</ul>
+<h3>Sõne operatsioonid</h3>
+<p>
+    Kuna sõne on sümbolite jada siis saame sellele rakendada järjenevaid operatsioone.
+</p>
+<p class="näide">
+    <code>
+        greeting = "Hello"<br/>
+        print(len(greeting)) &nbsp;# 5<br/>
+        print(greeting[1]) &nbsp;# e<br/><br/>
+
+        # slice [start:end], start inclusive, end exclusive<br/>
+        print(greeting[1:3]) &nbsp;# el
+    </code>
+</p>
+<ul>
+    <li>Kantsulgudega saab määrata, millist elementi küsime</li>
+    <li>Indeksid algavad 0-st</li>
+    <li>Lõik <code>[algus:lõpp]</code> - algus kaasa arvatud, lõpp mitte</li>
+</ul>
+<h4>Sõne lõiked</h4>
+<ul>
+    <li>Lõikes saab määrata alguse, lõpu ja sammu <code>[start:end:step]</code>:</li>
+    <li>Vaikeväärtused: <code>[0:len(text):1]</code></li>
+    <li><code>[-1]</code> negatiivne arv leiab tagantpoolt lugedes sellel kohal asuva sümboli (-0 pole olemas, seega -1 on
+        viimane sümbol)</li>
+    <li><code>[::-1]</code> negatiivne samm pöörab sõne tagurpidi</li>
+</ul>
+<p class="näide">
+    <code>
+        greeting = "Hello!"<br/>
+        print(greeting[-1]) &nbsp;# !<br/><br/>
+
+        print(greeting[-3:]) &nbsp;# lo!<br/>
+        print(greeting[:-2]) &nbsp;# Hell<br/><br/>
+
+        print(greeting[::-1]) &nbsp;# !olleH<br/>
+        print(greeting[-1:1:-2]) &nbsp;# !l<br/>
+    </code>
+</p>
+<h4>Veel sõne operatsioone</h4>
+<ul>
+    <li><code>.lower()</code> / <code>.upper()</code> esitab sõne väikeste / suurte tähtedega</li>
+    <li><code>.startswith()</code> annab tõeväärtuse sõne kohta vastavalt sisestatud tingimusele</li>
+    <li><code>.index()</code> annab sisestatud "otsitava" väärtuse asukoha sõnes</li>
+    <li><code>.count()</code> loeb kokku otsitava väärtuse kordumise sõnes</li>
+    <li><code>.replace()</code> asendab sõnes otsitava väärtuse uue väärtusega</li>
+</ul>
+<p>
+    Sõne operatsioonid loovad vajadusel uue sõne. Näiteks <code>.replace()</code> asendab tähe, aga teeb selle jaoks uue
+    sõne. Selleks, et algset muutujat "muuta", kirjutame loodud sõne algsesse muutujasse tagasi
+</p>
+<p class="näide">
+    <code>
+        greeting = "Hello!"<br/><br/>
+
+        greeting.replace("e", "a") &nbsp;# new string is created<br/>
+        print(greeting) &nbsp;# Hello!  <- the old one is unmodified<br/><br/>
+
+        # to "modify" the string, we need to replace the variable<br/>
+        greeting = greeting.replace("e", "a")<br/>
+        print(greeting) &nbsp;# Hallo!
+    </code>
+</p>
+<h3>Sõne vormindamine ehk f-sõne</h3>
+<p>Alates Python versioonist 3.6 saab kasutada f-sõne</p>
+<ul>
+    <li>Sõnele märgitakse <code>f</code> täht ette: <code>f"text"</code></li>
+    <li>f-sõne sees saab loogeliste sulgude vahel kasutada avaldisi</li>
+    <li><code>f"sum: {1 + 3}" => "sum: 4"</code></li>
+    <li>Loogeliste sulgude vahel võib kasutada ka muutujaid</li>
+    <li><code>f"name: {name}" => "name: Ago"</code></li>
+    <li>Varasemalt liites sõnale arvu, tuli see muuta sõneks, f-sõne teeb seda automaatselt</li>
+<h4>Vormindamine</h4>
+    <li>F-sõne saab kasutada vormindamiseks:</li>
+    <ul>
+        <li><code>f"{nr:04}" => "0012"</code></li>
+        <li><code>nr</code> on muutuja</li>
+        <li><code>0</code> näitab mida lisme muutuja ette</li>
+        <li><code>4</code> tähistab tulemuse pikkust</li>
+    </ul>
+</ul>
+<h4>Joondamine</h4>
+<p>
+    Joondamiseks kasutame peale koolonit joondamise suuna tähistamiseks: paremale <code>></code>, keskele <code>^</code>,
+    vasakule <code><</code>. Peale suunda märgitakse laius, mille ulatuses joondamine toimub:
+    <code>f"|{name:>10}|{students:^10}|{title:<10}|"</code>
+</p>
+<p class="näide">
+    Tulemus:
+    <code>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ago|&nbsp;&nbsp;&nbsp;&nbsp;35&nbsp;&nbsp;&nbsp;&nbsp;|Lecturer&nbsp;&nbsp;|</code>
+</p><br/>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/09_Sõne">Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/08.html')" href="#jump_to">Järgmine teema</a>
+</div>

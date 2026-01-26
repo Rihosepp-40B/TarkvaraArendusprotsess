@@ -1,0 +1,125 @@
+<h2>Tsükkel (kordused)</h2>
+<h3>Koodi kordamine</h3>
+<p>
+    Tihti on vaja koodis mingit tegevust korrata. Selle asemel, et kopeerida sama koodi mitu korda, kasutame kordust.
+    Tavapäraselt määratakse tsükliga korduste arv või lõpetamistingimus. Pythonis on kahte tüüpi kordust: <code>while</code>
+    ja <code>for</code>
+</p>
+<h3><code>while</code> tsükkel</h3>
+<p>
+    Tsükli päises kirjeldatakse ära tingimus. Kui tingimus on tõene, pannakse tsükli keha (sisu) käima. Kui tingimus pole
+    tõene, lõpetatakse tsükkel ära.
+</p>
+<p class="näide">
+    <code>
+        count = 0<br/><br/>
+
+        while count < 4:<br/>
+            <span>print(count)<br/>
+            count += 1</span>
+    </code>
+    Tulemus: <code>0 1 2 3</code>
+</p>
+<h3><code>for</code> tsükkel</h3>
+<p>
+    Tsükli päises kasutatakse hulka (näiteks list). Iga kordusega võetakse üks element hulgast. Antud element pannakse
+    määratud muutujasse. Kui elemendid saavad otsa, lõpetatakse tsükkel.
+</p>
+<p class="näide">
+    <code>
+        for element in [0, 1, 2, 3]:
+            <span>print(element)</span>
+    </code>
+    Tulemus: <code>0, 1, 2, 3</code>
+</p>
+<h3><code>range()</code> funktsioon</h3>
+<p>Kasutatakse arvude genereerimiseks.</p>
+<ul>
+    <li><code>range(10)</code> genereerib arvud 0-st 9-ni (kokku 10 arvu)</li>
+    <li>Funktsiooniga saab määrata alguse, lõpu ja sammu: <code>range(start, stop, step)</code></li>
+    <ul>
+        <li><code>start</code> on kaasa arvatud</li>
+        <li><code>stop</code> ei ole kaasa arvatud</li>
+    </ul>
+    <li>Ühe argumendiga määratakse lõpp (algus on vaikimisi 0)</li>
+</ul>
+<p>
+    Kuna <code>range()</code> arve ei hoita mälus, siis nende nägemiseks tuleks kasutada funktsiooni <code>list()</code>, et
+    luua nendest järjend.
+</p>
+<p class="näide">
+    <code>
+        list(range(3)) # => [0, 1, 2]
+    </code>
+</p>
+<p>
+    Funktsiooni <code>len()</code> abil saame kalkuleerida listi pikkust ning tsükli muutujaga koos saame listi indeksid.
+</p>
+<p class="näide">
+    <code>
+        names = ["Harry", "Hermione", "Ron"]<br/><br/>
+
+        for i in range(len(names)):
+            <span>print(f"Element at index {i} is {names[i]}")</span>
+    </code>
+</p>
+<h3><code>enumerate()</code> funktsioon</h3>
+<p>
+    võimaldab tsükli päises saada nii indeks kui ka element ise.
+</p>
+<p class="näide">
+    <code>
+        names = ["Harry", "Hermione", "Ron"]<br/><br/>
+
+        for i, name in enumerate(names):
+            <span>print(f"Element at index {i} is {name}")</span>
+    </code>
+</p>
+<h3>Tsükli katkestamine</h3>
+<p><code>break</code> lõpetab tsükli täitmise. Saab kasutada olukorras, kus edasi pole tsüklit mõtet jooksutada.</p>
+<p class="näide">
+    <code>
+        names = ["Frodo", "Merry", "Pippin", "Sam"]<br/><br/>
+
+        for name in names:
+            <span>print(f"Analyzing name {name}")
+            if name.startswith("M"):
+                <span>print(f"Found a name starting with M: {name}")<br/>
+                break</span></span>
+    </code>
+</p>
+<h3><code>else</code> tsüklis</h3>
+<p>
+    Tsükli lõpus <code>else</code> käivitub juhul, kui tsükli jooksul ei kasutatud <code>break</code>-i. <code>break</code>
+    puudumisel koodis, toimub <code>else</code> juhul kui tsükkel lõppu jõuab.
+</p>
+<h3>Tsükli jätkamine</h3>
+<p><code>continue</code>  täidab tsükli järgmise sammu.</p>
+<p>
+    <code>
+        numbers = [1, 2, 4, 5, 6, 9, 10]<br/><br/>
+
+        for nr in numbers:<br/>
+            <span>if nr % 2 == 0:
+                <span>continue</span>
+            print(f"Odd number: {nr}")</span>
+    </code>
+    Tulemus: Odd number: 1; Odd number: 5; Odd number: 9
+</p>
+<h3>Kokkuvõte</h3>
+<ul>
+    <li>Tsükliga on võimalik koodi korrata</li>
+    <li>Pythonis on kaks tsüklit: <code>while</code> ja <code>for</code></li>
+    <li><code>for</code> tsükliga saab võtta elemente andmehulgast (näiteks list)</li>
+    <li><code>while</code> tsükliga sõltub kordamine tingimusest</li>
+    <li><code>break</code> võimaldab tsükli keskel korduse lõpetada</li>
+    <li><code>range()</code> genereerib täisarve, hea kasutada for tsüklis</li>
+    <li><code>enumerate()</code> annab lisaks elemendile ka elemendi indeksi</li>
+</ul>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/08_Tsükkel_For_ja_While">Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/07.html')" href="#jump_to">Järgmine teema</a>
+</div>

@@ -1,0 +1,130 @@
+<h2>Järjend</h2>
+<h3>Mis on järjend?</h3>
+<p>
+    Järjend ( <code>list</code>) on andmetüüp, mis sisaldab elemente. Need võivad olla ükskõik mis andmetüüp, ka
+    <code>list</code>. Elementide järjekord on fikseeritud. Järjendiga saab: elemente lisada, elemetne eemaldada, elemetide
+    väärtust muuta.
+</p>
+<p>
+    Pythonis võib ühes listis olla erinevat tüüpi andmeid. Koodi puhtuse seisukohast pole see soovitatav. Üldiselt on
+    mõistlik listis hoida sama tüüpi elemente.
+</p>
+<h3>Järjendi loomine</h3>
+<p>
+    Järjendi loomiseks määrame muutuja nime ja omistame sellele loendi. Loenit kujutatakse kantsulgudega <code>[]</code>.
+</p>
+<p class="näide">
+    <code>
+        empty_list = []<br/>
+        numbers = [1, 2, 3, 4]<br/>
+        names = ["Ago", "Kati", "Toomas", "Jaana"]<br/>
+        mixed_elements = [1, "two", 3.14]
+        nested_list = [[1, 2, 3], [4, 5, 6]]
+    </code>
+</p>
+<h3>Ligipääs elementidele</h3>
+<p>
+    Sarnaselt sõnega kasutame lõiget, et saada kätte vajalikud elemendid. Indeksid algavad 0 ja viimane element on 1 võrra
+    väiksem kui järjendi pikkus.
+</p>
+<p class="näide">
+    <code>
+        numbers = [1, 2, 3]<br/>
+        print(numbers[0]) &nbsp;# 1<br/>
+        print(numbers[2]) &nbsp;# 3
+        print(numbers[3]) &nbsp;# IndexError<br/>
+    </code>
+</p>
+<p>
+    Kantsulgudes negatiivne number alustab otsimist järjendi tagumisest otsast. <code>-1</code> on viimane element.
+</p>
+<h4>Elemendi muutmine</h4>
+<p>
+    Selleks,et muuta järjendi elementi, pöördume konkreetse elemendi poole ja omistame sinna uue väärtuse.
+</p>
+<p class="näide">
+    <code>
+        numbers = [1, 2, 3]<br/><br/>
+
+        print(numbers[0]) &nbsp;# 1<br/><br/>
+
+        numbers[0] = 5<br/>
+        print(numbers[0]) &nbsp;# 5<br/>
+    </code>
+</p>
+<h3>Järjendi lõige</h3>
+<p>
+    Nii nagu sõne puhul saame kasutada lõiget järjendi puhul. Erinevalt sõnest saame selle abil järjendis elemente muuta.
+    Lõikes saab määrata alguse, lõpu ja sammu <code>[start:end:step]</code>. Indeksid algavad 0'st. Vaikimisi on lõike algus
+    0, lõpp loendi pikkus ja samm 1. Negatiivne arv otsib väärtust tagant poolt alates, sammu puhul esitab loendi tagurpidi.
+</p>
+<p class="näide">
+    <code>
+        # indices: 0  1  2  3  4<br/>
+        numbers = [1, 2, 3, 4, 5]<br/><br/>
+
+        print(numbers[0:3]) &nbsp;# [1, 2, 3]<br/>
+        print(numbers[:3]) &nbsp;# [1, 2, 3]<br/>
+        print(numbers[2:5]) &nbsp;# [3, 4, 5]<br/>
+        print(numbers[2:]) &nbsp;# [3, 4, 5]<br/>
+        print(numbers[:]) &nbsp;# [1, 2, 3, 4, 5]<br/>
+        print(numbers[-2:]) &nbsp;# [4, 5]<br/><br/>
+
+        print(numbers[0:3:2]) &nbsp;# [1, 3]<br/>
+        print(numbers[::3]) &nbsp;# [1, 4]<br/>
+        print(numbers[::-1]) &nbsp;# [5, 4, 3, 2, 1]<br/>
+        print(numbers[::-2]) &nbsp;# [5, 3, 1]<br/>
+        print(numbers[-1:0:-2]) &nbsp;# [5, 3]
+    </code>
+</p>
+<h4>Elementide muutmine lõiguga</h4>
+<p class="näide">
+    <code>
+        numbers = [1, 2, 3, 4]<br/>
+        numbers[1:3] = [10, 11]<br/>
+        print(numbers) &nbsp;# [1, 10, 11, 4]<br/><br/>
+
+        numbers[1:3] = [0]<br/>
+        print(numbers) &nbsp;# [1, 0, 4]<br/>
+    </code>
+</p>
+<h3>Indels mitmemõõtmelises järjendis</h3>
+<p class="näide">
+    <code>
+        matrix = [[1, 2, 3], [4, 5, 6]]<br/><br/>
+
+        print(matrix[0]) &nbsp;# [1, 2, 3]<br/>
+        print(matrix[0][0]) &nbsp;# 1<br/>
+        print(matrix[-1][-1]) &nbsp;# 6<br/>
+        print(matrix[0][:2]) &nbsp;# [1, 2]<br/>
+    </code>
+</p>
+<h3>Veel järjendi muutmise töövahendeid</h3>
+<ul>
+    <li><code>.insert(asukoht, väärtus)</code> lisab väärtuse määratud kohale järjendis</li>
+    <li><code>.remove(väärtus)</code> eemaldab järjendist esimese (vasakpoolse) määratud väärtusega elemendi</li>
+    <li><code>.pop(asukoht)</code> eemaldab ja tagastab väärtuse määratud asukohas</li>
+    <li><code>.append(element)</code> lisab elemendi järjendi lõppu</li>
+    <li><code>.extend(teine_järjend)</code> lisab järjendi lõppu teise järjendi</li>
+    <li><code>+</code> operaatori abil saab ühendada kaks järjendit</li>
+    <li><code>*</code> operaatori abil saab korrata järjendi sisu</li>
+</ul>
+<h3>Veel töövahendeid järjendi töötlemiseks</h3>
+<ul>
+    <li><code>.index(väärtus)</code> tagastab esimese (vasakpoolse) määratud väärtusega elemendi</li>
+    <li><code>.count(väärtus)</code> loendab mitu korda esineb loendis määratud väärtusega elemente ja tagastab arvu</li>
+    <li><code>in</code> abil saab kontrollida, kas element on järjendis tagastab tõeväärtuse <code>1 in numbers &nbsp;#
+        True / False</code></li>
+    <li><code>min(järjend)</code> tagastab kõige väiksema väärtuse järjendis</li>
+    <li><code>max(järjend)</code> tagastab kõige suurema väärtuse järjendis</li>
+    <li><code>sum(järjend)</code> tagastab järjendi elementide summa </li>
+    <li><code>sorted(järjend)</code> tagastab uue järjestatud järjendi</li>
+    <li><code>järjend.sort()</code> järjestab järjendi elemendid</li>
+</ul>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/10_Järjend">Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/09.html')" href="#jump_to">Järgmine teema</a>
+</div>

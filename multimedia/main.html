@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimeedia ainemapp</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../pildid/Draakon-logo.svg" type="image/svg+xml">
+    <script src="../js/page_load.js"></script>
+    <script src="../js/page_change.js"></script>
+    <script src="../js/pic_zoom.js"></script>
+</head>
+<body>            
+    <div class="bottom-bar">
+        <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+    </div> 
+    <div class="top-bar">
+        <a href="../index.html#main=.%2Fmultimedia%2Findex.html">Tagasi esilehele</a>
+    </div>
+    <div id="overlay" onclick="closeImg()">
+        <img id="overlayImg">
+    </div>
+    <h1 id="jump_to">Multimeedia ainemapp</h1>
+    <div class="sticky">
+        <div class="dropdown" style="width: 100%;">
+            <button style="font-size: 2ch; width: 100%;">SISUKORD</button>
+            <div class="dropdown-content" style="text-align: center; width: 100%;">
+                <a onclick="loadMain2('./video.html')" href="#jump_to">Video projekt</a>
+                <a onclick="loadMain2('./ps.html')" href="#jump_to">Adobe Photoshop</a>
+                <a onclick="loadMain2('./animate.html')" href="#jump_to">Adobe Animatsioon</a>
+                <a onclick="loadMain2('./illustrator.html')" href="#jump_to">Adobe Illustrator</a>
+                <hr>
+                <hr>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div id="content2"></div>
+<br><br>
+    <script src="../js/moving_dragon.js"></script>
+</body>
+</html>

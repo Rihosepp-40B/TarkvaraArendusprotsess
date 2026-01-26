@@ -1,0 +1,244 @@
+<h2>Positsioonilised arvusüsteemid</h2>
+<p>
+    Kasutame igapäevaselt arvude väljendamiseks kümnendsüsteemi (x<sub>10</sub>). See tähendab, et kõik arvud esitatakse
+    kümne erineva numbriga (0, 1, ..., 9).
+</p>
+<p>
+    Kahendsüsteemi (x<sub>2</sub>) ehk binaarsüsteem peamiseks kasutusalaks on arvutid. Kahendsüsteemis esitatakse arve
+    sarnaselt kümnendsüsteemiga. Vahe on selles, et kümne numbrimärgi asemel kasutatakse kahte: 0 ja 1. Kohakaalud on kahe
+    astmed (ehk siis kahendsüsteemi puhul on alus 2).
+</p>
+<p>
+    Kahendsüsteem on nii ölda masinkeel (1 ja 0, tõene ja väär). Neid arve võib kohati olla keeruline lugeda, selleks on
+    tehtud lihtsustamiseks kuueteistkümnend (x<sub>16</sub>) süsteem.
+</p>
+<h3>Süsteemide võrdlus</h3>
+    <a><button onclick="toggle('Võrdlus')">Näita tabelit</button></a>
+<div id="Võrdlus" class="section" style="display:none">
+    <table>
+        <tr>
+            <th>(x<sub>10</sub>)</th>
+            <th>(x<sub>2</sub>)</th>
+            <th>(x<sub>16</sub>)</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>10</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>11</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>100</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>101</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>110</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>111</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>1000</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>1001</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>1010</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>1011</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>1100</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>1101</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>1110</td>
+            <td>E</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>1111</td>
+            <td>F</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>10000</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td>...</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+        </tr>
+    </table>
+</div>
+<h3>Teisendamised: x<sub>10</sub> ⇋ x<sub>2</sub> ⇋ x<sub>16</sub></h3>
+<p>Kümnendarvu saamiseks binaar numbriks on kaks võimaliku meetodit:</p>
+<ol>
+    <li>Kümnend arvu jagamine kahega ilma komadeta.</li>
+    <p>
+        Osa mida ei saa jagada ilma komadeta on jääk. Jääk = 1, ilma jäägita = 0. Jäägita tulemus jagatakse uuesti kahega
+        ja nii edasi kuni jõutakse tehteni 1 jagada 2, mis annab jäägi 1. Seejärel pannakse numbrid kokku alustades
+        viimasest jäägist ning nii saadakse binaarnumber. <a><button onclick="toggle('Näide1')">Näide arv 376 teisendamine
+        binaar numbriks:</button></a>
+        </p>
+    <div id="Näide1" class="section" style="display:none">
+        <table>
+            <tr>
+                <th>Arv // 2 = tulemus</th>
+                <th>Arv % 2 = jääk</th>
+            </tr>
+            <tr>
+                <td>376 // 2 = 188</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>188 // 2 = 94</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>94 // 2 = 47</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>47 // 2 = 23</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>23 // 2 = 11</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>11 // 2 = 5</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>5 // 2 = 2</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2 // 2 = 1</td>
+                <td>0</td>
+            </tr>
+                <td>1 // 2 = 0</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p>Lugedes jääki alt üles saame binaarnumbri: 101111000</p>
+    </div>
+    <li>Tabelis visuaalse võrdluse järgi.</li>
+    <p>
+        See meetod vajab võrdlus tabelit. Tabeli võrdlus kohaks on kümnendarvud mis tähistavad binaarnumbri väärtust
+        antud kohal.
+    </p>
+    <p>
+        Kümnendarvu sisestatakse tabeli vasakust lahtrist. Kui number on võrdne või suurem siis antakse väärtus 1,
+        väiksema puhul 0. Kui number oli suurem või võrnde, siis lahutatakse numbrist tabelis olev arv ja jäägiga
+        liigutakse tabelis edasi. Väärtuse 0 puhul liigub kogu väärtus edasi.
+        <a><button onclick="toggle('Näide2')">Näide arv 376 teisendamine binaar numbriks tabeliga:</button></a>
+    </p>
+    <div id="Näide2" class="section" style="display:none">
+        <table>
+            <tr>
+                <th>binaar arvu koha väärtus</th>
+                <td>512</td>
+                <td>256</td>
+                <td>128</td>
+                <td>64</td>
+                <td>32</td>
+                <td>16</td>
+                <td>8</td>
+                <td>4</td>
+                <td>2</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th>Sisend -> 376</th>
+                <td>376</td>
+                <td>376</td>
+                <td>120</td>
+                <td>120</td>
+                <td>56</td>
+                <td>24</td>
+                <td>8</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th>kui suurem või =, siis 1</th>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </table>
+        <p>Lugedes tabeli alumist rida vasakult paremale saame binaarnumbri: 101111000 </p>
+    </div>
+</ol>
+<p>Kahendsüsteemi teisendamiseks kümnendsüteemi võetakse binaarnumbri iga number, mis korrutatakse kahega, mis on
+    astendatud tema positsiooniga (positsioonid algavad nullist) ning kõik need arvud liidetakse kokku</p>
+<p class="näide">
+    Näide: Meil on kahendsüsteemi arv 10111100<br/>
+    Arvutus: 1*2^8 + 0*2^7 + 1*2^6 + 1*2^5 + 1*2^4 + 1*2^3 + 0*2^2 + 0*2^1 + 0*2^0 = 256 + 0 + 64 + 32 + 16 + 8 + 0 + 0 +
+    0 = 376
+</p>
+<p>
+    Kuueteistkümnend süsteemi teisendamist tehakse sarnaselt nagu tehti seda kahendsüsteemiga, aga kaks asendatakse kuueteistkümnega.
+</p>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv1/04.html')" href="#jump_to">Järgmine teema</a>
+</div>

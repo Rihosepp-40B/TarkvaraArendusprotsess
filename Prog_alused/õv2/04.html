@@ -1,0 +1,180 @@
+
+<h2>Funktsioon</h2>
+<h3>Mis on funktsioon?</h3>
+<ul>
+    <li>Funktsiooniga saab kirjeldada alamprogrammi või alamülesannet</li>
+    <li>See on koodiosa, mis täidab mingit konkreetset ülesannet või arvutab midagi</li>
+    <li>Funktsioonil on (üldiselt) nimi</li>
+</ul>
+<h4>Funktsiooni kirjeldamine</h4>
+<p>Funktsiooni tähistatakse märkega <code>def</code> millele järgneb nimi sulud ja koolon.</p>
+<p class="näide">
+    <code>def hello():
+        <span>print("Hello world!")</span>
+    </code><br/>
+    Funktsiooni nimi on <code>hello</code>. Funktsiooni sisu on "Hello world!" printimine.
+</p>
+<p>Funktsiooni defineerides võib kirjeldada parameetrid, millega saab funktsiooni juhtida.</p>
+<p class="näide">
+    <code>
+        def hello_name(name):
+    <span>print(f"Hello {name}!")</span>
+    </code>
+</p>
+<p>
+    Parameeter <code>name</code>, mida saab funktsiooni sees kasutada muutujana. Funktsiooni sisu sõltub <code>name</code>
+    väärtusest.
+</p>
+<h4>Funktsiooni kasutamine</h4>
+<p>
+    Funktsiooni saab välja kutsuda (käivitada) nimega. Kui definitsioon eeldab argumente (deklareeritud parameetrid), tuleb
+    need kaasa anda.
+</p>
+<p>
+    <code>
+        hello()<br/>
+        hello_name("Guido")
+    </code>
+</p>
+<h4>Parameetrid ja argumendid</h4>
+<ul>
+    <li>Parameeter on muutuja funktsiooni kirjelduses</li>
+    <li>Argument on väärtus, mis funktsiooni saadetakse</li>
+    <li>Argumendi väärtus saab funktsioonis parameetri (muutuja) väärtuseks</li>
+</ul>    
+<p class="näide">
+    <code>
+        def hello_name(name):
+        <span>print(f"Hello {name}!")</span><br/>
+
+        hello_name("Marja-Liis")
+    </code>
+</p>
+<p>
+    <code>name</code> on parameeter, <code>"Marja-Liis</code> on argument
+</p>
+<h3>Tagastamine <code>return</code></h3>
+<p>
+    Pythonis funktsioon alati tagastab midagi. Tagastada saab <code>return</code> korraldusega. Kui <code>return</code>
+    korraldust pole, tagastab funktsioon <code>None</code>.
+</p>
+<p class="näide">
+    <code>
+        def triangle_area(a, h):
+        <span>return a * h / 2</span>
+    </code>
+</p>
+<p>Korraldus <code>return</code> lõpetab funktsiooni täitmise.</p>
+<h4><code>return</code> vs <code>print()</code></h4>
+<ul>
+    <li>return peatab funktsiooni ja väljastab väärtuse, mida saab kasutada teises funktsioonis</li>
+    <li>print() on lihtsalt üks korraldus (funktsioon), mida saab funktsioonis kasutada (ja ka mujal), mis kuvab ekraanile
+        väärtuse</li>
+</ul>
+<h3>Vaikeväärtused ja nimelised argumendid</h3>
+<ul>
+    <li>Funktsiooni kirjelduses võib parameetrile määrata vaikeväärtuse</li>
+    <ul>
+        <li>kui funktsiooni väljakutsumisel sinna väärtust ei määrata, kasutatakse vaikeväärtust</li>
+    </ul>
+</ul>
+<p class="näide">
+    <code>
+        def greet_animal(name, type="Human"):
+        <span>print(f"Greetings {name} of type {type}")</span><br/><br/>
+        greet_animal("Mari") &nbsp;# Greetings Mari of type Human<br/>
+        greet_animal("Mari", "Squirrel") &nbsp;# Greetings Mari of type Squirrel<br/>
+    </code>
+</p>
+<ul>
+    <li>Parameetrid, kuhu väärtust ei anta, kasutavad vaikeväärtusi</li>
+    <li>*args - võtab vastu suvalise arvu positsioonilisi argumente järjendina</li>
+    <li>**kwargs - võtab vastu suvalise arvu märksõnaga argumente sõnastikuna</li>
+</ul>
+<h3>Anonüümne funktsioon <code>lambda</code></h3>
+<p>
+    Lühikesed ja/või ühekordseks kasutamiseks mõeldud, nimeta funktsioonid. Mida kirjeldatakse kujul:
+    <code>lambda args: [tagastatav tulemus]</code>
+</p>
+<ul>
+    <li><code>lambda</code> funktsioonil <code>return</code> korraldust ei kirjutata</li>
+    <li>argumendid ei ole sulgudes</li>
+</ul>
+<p class="näide">
+    <code>
+        ta = lambda a, h: a * h / 2<br/>
+        print(ta(10, 10))
+    </code><br/><br/>
+    See on sama väärne kui:<br/><br/>
+    <code>
+        def sama_asi(a, h):
+        <span>return a * h / 2</span><br/>
+        print(sama_asi(10, 10))
+    </code>
+</p>
+<h3><code>filter()</code> ja <code>map()</code></h3>
+<ul>
+    <li><code>filter()</code> on filtreerimifunktsioon järjendile, väljastab tulemusesse elemendid mille puhul
+        sisendfunktsioon tagastab väärtuse <code>True</code></li>
+</ul>
+<p class="näide">
+    <code>
+        nums = [1, 3, 14, 27, 15, 100, 151, 9, 2]<br/>
+        num = lambda x: x % 3 == 0<br/>
+        filtered = filter(num, nums)<br/>
+        print(list(filtered)) &nbsp;# [3, 27, 15, 9]
+    </code>
+</p>
+<ul>
+    <li><code>map()</code> on rakendamisfunktsioon järjendile, väljastab tulemusse elementide ja sisendfunktsiooni tehte
+        tulemuse</li>
+</ul>
+<p class="näide">
+    <code>
+        nums = [1, 3, 14, 27, 15, 100, 151, 9, 2]<br/>
+        num = lambda x: x % 6<br/>
+        mapped = map(num, nums)<br/>
+        print(list(mapped)) &nbsp;# [1, 3, 2, 3, 3, 4, 1, 3, 2]
+    </code>
+</p>
+<h3>Tüübivihjed</h3>
+<p>
+    Kuigi Pythonis muutujatel pole andmetüüpe, saame funktsiooni definitsioonis anda vihjeid andmetüüpide kohta. See on
+    toetatud alates Python'i versioon 3.5'st. Tüübivihjet kasutab IDE, et anda märku võimalikest vigadest.
+</p>
+<p>
+    Iga parameetri järgi saame kooloniga määrata tüübi. Tagastatava tulemuse andmetüüp märgitakse <code>-></code> järele.
+</p>
+<p class="näide">
+    <code>
+        def greeting(name: str) -> str:
+        <span>return f'Hello {name}'</span>
+    </code><br/>
+    Parameeter on sõne, tagastatakse ka sõne.
+</p>
+<h3>Miks kasutada funktsioone?</h3>
+<ul>
+    <li>DRY - don't repeat yourself: ära korda koodi, kasuta funktsiooni</li>
+    <li>Abstraktsioon: programmi jagamine alamprogrammideks, mida võivad lahendada erinevad inimesed</li>
+    <li>Testimine: Igat alamprogrammi saab eraldi testida ja täpsemalt tuvastada vea asukohta</li>
+</ul>
+<h3>Soovitusi kasutamisel</h3>
+<ul>
+    <li>Funktsioon peaks tegema ühte konkreetset asja</li>
+    <li>Funktsioon peaks olema piisavalt lühike/lihtne, et nimega saab öelda ära, mida see teeb</li>
+    <li>Koodi on lihtsam kirjutada kui lugeda</li>
+    <li>Hea programmeerija mõtleb sellele, et tema kood oleks hiljem ka teiste poolt loetav</li>
+    <li>Funktsiooni pikkus võiks jääda 10-15 rea vahele</li>
+    <li>Enne, kui hakkad päriselt ülesannet lahendama (detailselt), proovi paika panna struktuur</li>
+    <li>Kui struktuur paigas, hakka alamülesandeid (funktsioone) lahendama</li>
+</ul>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/05_funktsiooni_mõiste_ja_selle_kasutamine/ex01_funktsiooni_mõiste">Harjutuste kaust GitHub repos</a>
+</div>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/06_funktsioon%2C_selle_argumendid_ning_parameetrid">Harjutuste kaust 2 GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/05.html')" href="#jump_to">Järgmine teema</a>
+</div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin kalkulaator</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../pildid/Draakon-logo.svg" type="image/svg+xml">
+</head>
+<body>            
+    <div class="bottom-bar">
+        <img src="../../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+    </div>
+    <div class="top-bar">
+        <a href="../../index.html#main=.%2FSD%2Findex.html">Tagasi esilehele</a>
+    </div>
+    <h1>Minu bitcoin kalkulaator</h1>
+    <h2>Mida teeb bitcoin kalkulaator?</h2>
+    <p>
+        <h3>Lõpptulemus</h3>
+        Bitcoin kalkulaatori käivitamisel väljastab see kasutaja poolt sisestatud coinide koguse valitud valuutas.
+        <h3>Kuidas see töötab?</h3>
+        
+        Programm kontrollib esiteks kas kõik vajalikud väljad, bitcoin kogus ja sihtvaluuta, on täidetud. Valikus on neli
+        väärtust: EUR, USD, GBP ja EEK. Probleemi korral väljastab veateate, et mingi sisend on jäänud andmata.<br/>
+        Kui kõik sisendid on olemas, siis kalkulaator esitab päringu bitcoin API lehele <a href="https://developers.
+        coindesk.com/">COINDESK</a> valuuta väärtuse kohta valitud valuutas, välja arvatud EEK. EEK puhul võetakse
+        API'ist EUR'i väärtus ja korrutatakse 15,6466'ga. Programm kalkuleerib kokku API andmed valuuta osas ning esitab
+        need akna all vasakus nurgas.
+    </p>
+    <h2>Bitcoin kalkulaatori vooskeem</h2>
+    <p>
+      <img src="../UML/pildid/Flow/voodiagramm_bitcoin.svg" alt="">  
+    </p>
+    <h2>Bitcoin repositoorium</h2>
+    <p>
+        <div class="button">
+            <a href="https://github.com/Rihosepp-40B/MyBTCCalculator">Minu bitcoin kalkulaatori repo</a>
+        </div>        
+    </p><br/><br/>
+    <script src="../../js/moving_dragon.js"></script>
+</body>
+</html>

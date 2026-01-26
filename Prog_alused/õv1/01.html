@@ -1,0 +1,75 @@
+<h2>Matemaatilise loogika elemendid ja tõeväärtused</h2>
+<h3>Lausearvutus</h3>
+<p>
+    Nii matemaatikas kui ka programmeerimises kasutatakse lausearvutust, kus laused moodustatakse lauseid tähistavatest
+    muutujatest ja tehtemärkidest. Lausete puhul ei huvita meid nende konkreetne sisu, vaid nende vastavus tegelikkusele.
+    Lause tõele vastavuse näitab lause tõeväärtus.
+</p>
+<h3>Tõeväärtused</h3>
+<p>
+    Tõeväärtus on loogikas väärtus, mis iseloomustab suhet tõesse. Klassikalises loogikas on kasutuses kaks tõeväärtust:
+    tõene ja väär. Sageli koostatakse lauseloogikas tõeväärtustabel, et näha, mis on loogilise tehte tulem sõltuvalt
+    argumentide tõeväärtustest. Ühtlasi kasutatakse tõeväärtusi ka lausearvutuses.
+</p>
+<p>
+    Loogilise tehtena võib tuua näite "a ja b", kus a ja b on muutujad. See lause on tõene ainult siis, kui nii a kui ka
+    b on mõlemad tõesed, vastasel juhul on see lause väär. Teise näitena võib tuua lause " a või b", kus lause on tõene
+    siis, kui vähemalt üks muutujatest on tõene. Vastasel juhul on lause väär. Lisaks eelnevatele tehetele on
+    lausearvutuses veel teisigi tehteid.
+</p>
+<h3>Loogikatehted</h3>
+<p>
+    Loogikatehetes on kasutusel järgnevad märgid:
+    <ul>
+        <li><code>and</code> - konjunktsioon ehk loogiline ja</li>
+        <li><code>or</code> - disjunktsioon ehk loogiline või</li>
+        <li><code>not</code> - loogiline eitus</li>
+    </ul>
+</p>
+<h3>Avaldised</h3>
+<p>
+    Avaldised moodustavad programmide koostamisel olulise osa. Vastavalt avaldises kasutatavatele ja tulemuseks
+    tekkivatele andmetüüpidele jaotatakse avaldisi:
+</p>
+<ul>
+    <li><a><button onclick="toggle('Avaldis1')">aritmeetikaavaldisteks</button></a></li>
+    <div id="Avaldis1" class="section" style="display:none">
+        <p class="näide">
+            Aritmeetikaavaldise tulemuseks on arvuline väärtus või ujukomaarv. Lihtsamalt öeldes on aritmeetikaavaldise
+            näol tegemist matemaatikast tuttava arvutuseeskirjaga.
+        </p>            
+    </div>
+    <li><a><button onclick="toggle('Avaldis2')">loogikaavaldisteks</button></a></li>
+    <div id="Avaldis2" class="section" style="display:none">
+        <div class="näide">
+            Loogikaavaldistel võib olla tulemuseks kaks võimalikku väärtust:
+            <ul>
+                <li><code>tõene true 1</code></li>
+                <li><code>väär false 0</code></li>
+            </ul>
+            <p>
+                Loogikaavaldised võivad koosneda:
+            </p>
+            <ul>
+                <li>aritmeetika- või stringavaldistest (mis esindavad väärtust)</li>
+                <li>võrdlusoperaatoritest ehk võrdlusmärkidest: <code>< <= > >= == !=</code></li>
+                <li>loogikatehte märkidest (<code>and or not</code>)</li>
+            </ul>
+        </div>
+    </div>
+    <li><a><button onclick="toggle('Avaldis3')">stringavaldisteks</button></a></li>
+    <div id="Avaldis3" class="section" style="display:none">
+        <p class="näide">
+            Stringavaldise operandideks on stringid (ehk tekstitüüpi väärtused, sõned). Sõnedele saab rakendada paari
+            tehet – liitmist ja täisarvuga korrutamist. Lisaks on olemas ka mitmeid erinevaid funktsioone.
+        </p>
+    </div>
+</ul>
+<p>
+    Avaldistes osalevad operandid ja operaatorid. Operaatorid on need, mis opereerivad, st enamasti tehtemärgid. Operandid
+    on väärtused ja nendega opereeritakse.
+</p>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv1/02.html')" href="#jump_to">Järgmine teema</a>
+</div>
