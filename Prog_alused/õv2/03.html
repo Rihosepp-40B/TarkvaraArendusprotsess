@@ -1,0 +1,146 @@
+<h2>Matemaatilised avaldised ehk tehted arvudega</h2>
+<h3>Andmetüübid</h3>
+<ul>
+    <li>Protsessor opereerib arvudega</li>
+    <li>Kõik andmetüübid esitatakse lõpuks arvudena</li>
+    <li>Lõpuks on kõik andmed esitatud 0 ja 1 jadana</li>
+    <li>Programm käitub täis- ja murdarvudega erinevalt</li>
+    <li>Pythonis on väärtusel andmetüüp</li>
+    <ul>
+        <li>Muutujal pole andmetüüpi</li>
+    </ul>
+    <li>Funktsioon <code>type()</code> tagastab väärtuse andmetüübi</li>
+</ul>
+<p class="näide">
+    <code>
+        print(type(3)) &nbsp;# &lt;class 'int'&gt;<br/>
+        print(type(3.14)) &nbsp;# &lt;class 'float'&gt;<br/>
+        print(type(3.0)) &nbsp;# &lt;class 'float'&gt;<br/>
+        number = -100<br/>
+        print(type(number)) &nbsp;# &lt;class 'int'&gt;<br/>
+        float_number = -3.14<br/>
+        print(type(float_number)) &nbsp;# &lt;class 'float'&gt;
+</code>
+</p>
+<p>
+    Kuigi <code>3.0</code> on matemaatiliselt sama nagu <code>3</code>, siis andmetüübid on neil erinevad.
+</p>
+<h3>Ujukomaarvud</h3>
+<p>
+    Ujukomaarvud (float) on ebatäpsed. Näiteks: <code>0.1 + 0.1 + 0.1</code> annab vastuseks <code>0.30000000000000004</code>.
+    Ehk <code>0.1 + 0.1 + 0.1 == 0.3</code> on <code>False</code>.
+</p>
+<p>
+    Võimalusel kasuta täisarve. Näiteks hindade esitlemisel kasuta <code>4.30 </code>(eurodes) asemel <code>430</code> (sentides).
+</p>
+<h3>Tehted arvudega</h3>
+<ul>
+    <li><code>+</code> liitmine</li>
+    <ul>
+        <li><code>7 + 3</code><i> = 10</i></li>
+    </ul>
+    <li><code>-</code> lahutamine</li>
+    <ul>
+        <li><code>7 - 3</code><i> = 4</i></li>
+    </ul>
+    <li><code>*</code> korrutamine</li>
+    <ul>
+        <li><code>7 * 3</code><i> = 21</i></li>
+    </ul>
+    <li><code>/</code> jagamine</li>
+    <ul>
+        <li><code>7 / 3</code><i> = 2.3333333333333335</i></li>
+    </ul>
+    <li><code>** </code>astendamine</li>
+    <ul>
+        <li><code>7 ** 3</code><i> = 343</i></li>
+    </ul>
+    <li><code>abs()</code> absoluutväärtus</li>
+    <ul>
+        <li><code>abs(-7)</code><i> = 7</i></li>
+    </ul>
+    <li><code>//</code> täisarvuline jagamine - näitab mitu korda üks arv (<code>b</code>) mahub teise arvu (<code>a</code>)</li>
+    <ul>
+        <li><code>7 // 3</code><i> = 2</i></li>
+    </ul>
+    <li><code>%</code> jääk - näitab palju jääb esimesest arvust alles täisarvulisel jagamisel</li>
+    <ul>
+        <li><code>7 % 3</code><i> = 1</i></li>
+    </ul>
+</ul>
+<h3>Teisendamine</h3>
+<p>
+    Kui avaldis sisaldab ujukomaarvu, teisendatakse kõik täisarvud ujukomaarvudeks: <code>5.0 * 2</code> puhul rakendatakse
+    <code>5.0 * 2.0</code>.
+</p>
+<p>
+    Ujukomaarvu teisendamiseks täisarvuks saab kasutada funktsiooni <code>int()</code>. Teisendamisel murdosa kaotatakse:
+    <code>int(4.9) => 4</code>
+</p>
+<p>
+    Täisarvu teisendamisel ujukomaarvuks saab kasutada funktsiooni <code>float()</code>: <code>float(4) => 4.0</code>
+</p>
+<p>
+    Arvuks teisendamist saab kasutada ka sõne puhul. See eeldab, et sõne sisu on korrektne arv.
+
+</p>
+<p class="näide">
+    <code>
+        int("12") => 12<br/>
+        float("12.3") => 12.3<br/>
+        float("12") => 12.0<br/>
+    </code>
+</p>
+<h3>Matemaatika moodul</h3>
+<p>
+    Lisaks põhioperatsioonidele pakub Python veel väga palju erinevaid matemaatilisi funktsioone
+</p>
+<ul>
+    <li>ruutjuur</li>
+    <li>trigonomeetrilised funktsioonid</li>
+    <li>logaritm</li>
+    <li>ümardamine üles/alla</li>
+</ul>
+<p>
+    Need funktsioonid paiknevad moodulis <code>math</code>. Kasutamiseks tuleb moodul importida: <code>import math</code>.
+</p>
+<p>
+    <code>import</code> reaga imporditakse math moodul. Koodis saab kasutada mooduli nime, et sellest muutujaid
+    (<code>math.pi</code>) ja funktsioone (<code>math.sqrt()</code>) välja kutsuda. Ilma importimata neid funktsioone
+    kasutada ei saa
+</p>
+<p class="näide">
+    <code>
+        import math<br/><br/>
+        print("Pi:", math.pi)<br/>
+        print("Square root of 17:", math.sqrt(17))
+    </code>
+</p>
+<h3>Tehete järjekord</h3>
+<p>Järgitakse matemaatikas tuntud tehete järjekorda:</p>
+<ul>
+    <li>Astendamine</li>
+    <li>Korrutamine, jagamine</li>
+    <li>Liitmine, lahutamine</li>
+</ul>
+<p>Vajadusel saab sulgudega määrata täpsema järjekorra:</p>
+<ul>
+    <li><code>2 + 3 * 4</code> annab tulemuseks <code>14</code></li>
+    <li><code>(2 + 3) * 4</code> annab tulemuseks <code>20</code></li>
+</ul>
+<h3>Kokkuvõte</h3>
+<ul>
+    <li>Väärtustel on andmetüüp</li>
+    <li>Sõltuvalt andmetüübist võivad operatsioonid anda erineva tulemuse</li>
+    <li>Peamised arvu andmetüübid on int täisarvude jaoks ja float ujukomaarvude jaoks</li>
+    <li>Vaatasime peamisi operatsioone (liitmine, lahutamine, korrutamine, jagamine, täisarvuline jagamine ja jääk)</li>
+    <li>Arvutüüpe saab teisendada <code>int()</code> ja <code>float()</code> funktsioonidega</li>
+    <li>Täiendavad funktsioonid on kirjeldatud matemaatika moodulis</li>
+</ul>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/04_matemaatilised_avaldised">Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/04.html')" href="#jump_to">Järgmine teema</a>
+</div>

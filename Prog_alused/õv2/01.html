@@ -1,0 +1,63 @@
+<h2>Programmi sisend ja väljund</h2>
+<p>Siin tutvusime python sisend ja väljund käsklustega.</p>
+<h3>Funktsioon <code>print()</code></h3>
+<p>
+    Kasutatakse andmete kuvamiseks ekraanile. <code>Print()</code> kasutamine:
+</p>
+<ul>
+    <li>Tekst (sõne) - ülakomade <code>' '</code>, jutumärkide <code>" "</code> või kolmekordsete jutumärkide
+    <code>""" """</code> vahel olev argument.</li>
+    <li>Mitu väärtust - eraldatakse komadega</li>
+    <li>Muutujad- see on parameeter millel väärtused (argumendid) kuvatakse.</li>
+    <li>Funktsionaalsed parameetrid - <code>end=""</code> kaks printi ilma reavahetuseta, <code>sep=""</code> lisab mitme
+    väärtuse vahele sisendi</li>
+    <li>Eritähised - <code>\n</code> sunnib reavahetuse, <code>\t</code> teeb taande</li>
+</ul>
+<p class="näide">
+    Näide:<br/>
+    <code>
+        tervitus = "Tere"<br/>
+        print(tervitus,"Jaak\nsiin on rea vahetus", end="--", sep="OOO")<br/>
+        print("Eelmisel vahetati","kahe osa vahe 'OOO'dega")
+    </code><br/>
+    Tulemus:<br/>
+    <i>
+        TereOOOJaak<br/>
+        siin on rea vahetus--Eelmisel vahetati kahe osa vahe 'OOO'dega
+    </i>
+</p>
+<h3>F-sõne</h3>
+<p>
+    F-sõne ehk f-string. Võimaldab paigaldada muutujad sõne sisse. Selleks paigutatakse jutumärkide ette <code>f</code>. Sõne
+    sees paigutatakse parameeter loogeliste sulgude vahele <code>{}</code>.
+</p>
+<p class="näide">
+    Näide:<br/>
+    <code>
+        nimi = "Jüri"<br/>
+        print(f"Tere {nimi}")
+    </code><br/>
+    Tulemus:<br/>
+    <i>
+        Tere Jüri
+    </i>
+</p>
+<h3>Funktsioon <code>input()</code></h3>
+<p>
+    Kasutaja poolse sisendi küsimine. Sulgude sisse saab panna sõne, mida kuvatakse ekraanile ja mille järgi oodatakse
+    kasutaja sisendit.
+</p>
+<p class="näide">
+    Näide:<br/>
+    <code>
+        nimi = input("Sisesta oma nimi: ")<br/>
+        print(f"Tere {nimi}")
+    </code><br/>
+    Tulemus:<br/>
+    <i>Sisesta oma nimi: </i> - ootab kasutaja sisendit: <i>Jaak</i><br/>
+    <i>Tere Jaak</i>
+</p>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a style="width: 100%;" onclick="loadMain2('./õv2/02.html')" href="#jump_to">Järgmine teema</a>
+</div>

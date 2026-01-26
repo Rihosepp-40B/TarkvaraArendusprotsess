@@ -1,0 +1,92 @@
+<h2>Tingimuslause</h2>
+<h3>Hargnemine koodis</h3>
+<p>
+    Tavapäraselt toimub koodi käivitamine järjest ridade haaval. Mõne osa koodist tahaks käivitada vaid teatud tingimusel. 
+</p>
+<p class="näide">
+    Näiteks: kui piim on otsas, telli uus piim. Või: kui muru on pikk ja on soe, tuleb muru niita.
+</p>
+<p>
+    Selleks kasutame tingimuslauset: <code>if</code>
+</p>
+<p class="näide">
+    <code>
+        print("start")<br/>
+        temperature = 24<br/>
+        if temperature > 18:<br/>
+            <span>print("Mow the lawn")</span>
+        print("done")
+    </code>
+</p>
+<p>
+    Kui temperatuur on üle 18 kraadi, toimub muru niitmine. Tingimuslausele järgnev taandega rida (<code>print</code>) täidetakse vaid juhul, kui tingimus on tõene.
+</p>
+<p>
+    Tingimuslause reale võib järgneda ka mitu tandega rida. Need moodustavad ploki, need täidetakse tervikuna järjekorras.
+</p>
+<p>
+    Osa taandeplokist võib olla tingimuslause.
+</p>
+<p class="näide">
+    <code>
+        print("start")<br/>
+        temperature = 24<br/>
+        if temperature > 18:<br/>
+            <span>
+                print("Mow the lawn")<br/>
+                print("Walk the dog")<br/>
+                if temperature > 21:<br/>
+                    <span>print("Go swimming")</span>
+            </span>
+        print("done")<br/>
+    </code>
+</p>
+<h4>Mitu valikut</h4>
+<p class="näide">
+    <code>
+        temperature = 24<br/>
+        if temperature > 21:<br/>
+            <span>print("Go swimming")</span>
+        elif temperature > 18:<br/>
+            <span>print("Walk the dog")<br/>
+            print("Mow the lawn")</span>
+        else:<br/>
+            <span>print("Make fire")</span>
+    </code>
+</p>
+<ul>
+    <li>Tingimusi kontrollitakse järjekorras (ülevalt alla)</li>
+    <li>Mitu sama taandega <code>if</code>'i', on üks haru, kõik käivitatakse kui tingimused on <code>True</code></li>
+    <li>Ühe <code>if</code>-lause ahelas (if, elif, else) vaid üks harudest pannakse käima </li>
+    <li>elif haru käivitub juhul kui eelnevad tingimuslaused said tulemuse <code>False</code></li>
+    <li>else haru käivitub, kui ükski muu haru eelnevalt pole käivitunud</li>
+    <li>else haru pole kohustuslik</li>
+    <li><code>if elif</code> tingimuste seadmisel tuleb jälgida nende järjekorda</li>
+</ul>
+<h3><code>if</code> tingimused</h3>
+<ul>
+    <li>Tingimusena saab kasutada avaldist, mis annab tulemuseks True või False</li>
+    <li>Sõnede võrdlemiseks kasutatakse <code>==</code></li>
+    <li>Saab luua muutujaid, milles hoitakse tõeväärtust: <code>is_warm = temperature > 18</code></li>
+</ul>
+<h4>Loogilised avaldised</h4>
+<p>Keerukamas olukorras on vaja kasutada mitut tingimust. Selleks kasutatakse loogilisi tehteid:</p>
+<ul>
+    <li><code>and</code>: tõene siis kui tingimuse mõlemad osad on tõesed (<code>is_warm and is_raining</code>)</li>
+    <li><code>or</code>: tõene siis kui üks tingimuse osadest on tõene (<code>is_cold or is_raining</code>)</li>
+    <li><code>not</code>: tõene siis kui tingimus on väär (<code>not is_raining</code>)</li>
+</ul>
+<h3>Tingimuslause</h3>
+<ul>
+    <li>Tingimuslausega saab valikuliselt koodikäivitamist kontrollida</li>
+    <li>Tingimuslausel võib olla mitu haru, millest maksimaalselt 1 täidetakse</li>
+    <li>Haru käivitamist saab kontrollida tingimusega</li>
+    <li>Tingimus võib olla keerukam loogika avaldis</li>
+</ul>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/07_Tõeväärtused_ja_tingimuslaused">Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/06.html')" href="#jump_to">Järgmine teema</a>
+</div>

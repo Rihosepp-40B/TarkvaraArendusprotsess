@@ -1,0 +1,62 @@
+<h2>Andmetüübid ja -struktuurid</h2>
+<h3>Andmetüüpidest (liht- ja liittüübid)</h3>
+<p>
+    Programmeerimisel jaotatakse andmetüübid laias laastus lihttüüpideks ja liittüüpideks. Lihtüübid tähistavad nö
+    “atomaarseid” või “jagamatuid” väärtusi – näiteks arvutüübid ja tõeväärtustüüp; liittüübid (näiteks list ja ennik)
+    aga tähistavad väärtusi, mida saaks veel mingiteks alamkomponentideks (nt. listi elementideks) jagada. Sõnega on
+    Pythoni puhul pisut segased lood – seda võib olenevalt vaatenurgast pidada nii lihttüübiks, kui ka liittüübiks.
+</p>
+<p>
+    Nagu öeldud, liittüüpi väärtused on kombineeritud kokku mingitest teistest väärtustest. Oluline on see, et need
+    komponendid moodustavad mingi kindla struktuuri. Näiteks järjendite puhul moodustub struktuur sellest, et iga komponent
+    (element) on teiste komponentidega võrreldes kas eespool või tagapool, teisisõnu – järjendi struktuur määrab elementide
+    järjestuse. Teistel Pythoni liitüüpidel on teistsugune struktuur – näiteks hulgatüübi struktuur määrab ära vaid selle,
+    millised elemendid hulka kuuluvad, elementide järjestus pole selles struktuuris oluline. Kuna struktuur on liittüüpide
+    puhul väga tähtis, siis nimetatakse neid vahel ka struktuurseteks tüüpideks või andmestruktuurideks.
+</p>
+<p>
+    Erinevatel andmestruktuuridel on erinevad kasutusviisid, mida nad toetavad – listi puhul saab elementi append-ida,
+    sõnastikus saab küsida elementi tema (suvalist tüüpi) võtme järgi jne, st. meid huvitab eelkõige mida mingi
+    andmestruktuur “teha oskab”. Reaalsetes programmides aga on tihti vaja teada ka ka seda kuidas seda tehakse. Seetõttu
+    on loodud näiteks erinevaid listitüüpe, millega saab teha samu asju, aga mis sisemas töötavad erinevalt ning seetõttu
+    sobivad eri situatsioonidesse paremini või halvemini (näiteks ühe tuntud listitüübi variatsiooni puhul toimib
+    indekseerimine väga kiiresti aga teise puhul saab väga kiiresti listi algusesse uut elementi lisada).
+</p>
+<p>
+    Erinevat andmetüüpi väärtusi on vaja erinevates olukordades, sest nendega on võimalik sooritada erinevaid tegevusi. Ka
+    näiliselt sama tegevus võib anda erinevaid andmetüüpe kasutades erinevaid tulemusi. Oluline on ka see, et erinevat
+    tüüpi väärtusi hoitakse arvuti mälus erinevalt – ka ruumi võtavad nad mälus erinevalt.
+</p>
+<h3>Olulisemad andmestruktuurid Pythonis</h3>
+<p>
+    Pythonis on erinevate andmete talletamiseks kasutusel erinevad andmestruktuurid. Andmestruktuuride mõiste on oluline,
+    kuna eri tüüpi andmetega saab teha erinevaid operatsioone. Meie jaoks on Pythonis kõige olulisemad järgmised
+    andmestruktuurid:
+</p>
+<ul>
+    <li>Täisarvud (integer <code>int</code>) - näiteks <code>3</code>, <code>0</code>, <code>-1</code></li>
+    <li>Ujukomaarvud (float <code>float</code>) - näiteks <code>3.3</code>, <code>-7.0</code></li>
+    <li>Sõne / tekst (string <code>str</code>) - näiteks <code>"koer"</code> (või <code>'koer'</code>), <code>"tipp ja täpp"</code> (või <code>'tipp ja täpp'</code>)</li>
+    <li>Tõeväärtused (boolean <code>bool</code>) - <code>True</code> või <code>False</code></li>
+</ul>
+<p>Lisaks nendele andmestruktuuridele on Pythonis veel teisigi, keerukamaid andmestruktuure (näiteks: järjend, sõnastik, ennik, hulk).</p>
+<h4>Arvud (<code>int</code> ja <code>float</code>)</h4>
+<p>
+    Pythonis on olemas eraldi kaks andmetüüpi täis- ja reaalarvude esitamiseks. Täiarvu tüübiks on <code>int</code> (lühend sõnast
+    integer) ning reaalarvu tüübiks on ujukomaarvud (ingl k. floating point number, lühendatult <code>float</code>). Reaalarvude
+    esituses kasutatakse koma asemel punkti. Näiteks täisarvud <code>7</code>, <code>-8</code> ja <code>20</code> või reaalarvud <code>4.5</code>, <code>5.0</code> ja <code>-11.09</code>.
+</p>
+<h4>Tekst ja sõnad ehk sõne <code>str</code></h4>
+<p>
+    Teksti ja sõnade jaoks on Pythonis olemas andmetüüp sõne (ingl k string, lühendatult <code>str</code>). Sõnu ja teksti piiritletakse
+    nii ühe- kui ka kahekordsete jutumärkidega. Näiteks <code>"koer"</code> või <code>'minu pere ja muud loomad'</code>.
+</p>
+<h4>Tõeväärtused <code>bool</code></h4>
+<p>
+    Tõeväärtuse andmetüübiks on Pythonis bool (lühend sõnast boolean) ning sellel on ainult kaks võimalikku väärtust: <code>True</code>
+    ja <code>False</code>.
+</p>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv1/05.html')" href="#jump_to">Järgmine teema</a>
+</div>

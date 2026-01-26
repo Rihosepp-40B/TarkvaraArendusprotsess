@@ -1,0 +1,103 @@
+<h2>Koodistiil</h2>
+<p>
+    Igas programmeerimiskeeles on pisut erinev koodistiil, seega asudes uut keelt õppima tuleb vaadata üle ka selle
+    koodistiil. Pythoni koodistiili võtmenimeks on "PEP 8" ning <i>docstring</i>'ide koodistiilil "PEP 257".
+</p>
+<h3>Mis on koodistiil ja milleks?</h3>
+<ul>
+    <li>Kood on korraldused arvutile</li>
+    <li>Arvuti jaoks pole koodistiilil vahet</li>
+    <li>Koodi on vaja hiljem hallata ja täiendada</li>
+    <li>Koodistiil on oluline arendajale</li>
+</ul>
+<p>
+    Jälgides koodistiili, muudame oma koodi paremini loetavamaks. See võimaldab hiljem endal või teistel paremini aru saada,
+    mida mingi koodi osa teeb.
+</p>
+<h3>Muutujate nimetamine</h3>
+<ul>
+    <li>Muutuja nimi väikeste tähtedega</li>
+    <li>Sõnade eraldajana kasutada alakriipsu <code>_</code></li>
+    <li>Näiteks: <code>best_score, temperature</code></li>
+    <li>Mitte kasutada lühendeid näide <code>temp, a, b</code></li>
+</ul>
+<h3>Funktsioon</h3>
+<ul>
+    <li>Nimi väikeste tähtedega</li>
+    <li>Sõnade eraldajana kasutada alakriipsu <code>_</code></li>
+    <li>Funktsiooni parameetrite arv võiks olla kuni 4</li>
+    <li>Funktsiooni nimi peaks arusaadavalt kirjeldama, mida funktsioon teeb.</li>
+    <li>Pikkus tavaliselt kuni 20 rida</li>
+</ul>
+<h3>Tühikute kasutamine</h3>
+<ul>
+    <li>Operaatori ees ja järel tühik</li>
+    <ul>
+        <li><code>3 + 4 * 12</code></li>
+        <li>age = 18 + additional_years</li>
+    </ul>
+    <li>Funktsiooni väljakutsel sulu ees tühikut ei ole</li>
+    <ul>
+        <li><code>do_something(12), print(1)</code></li>
+    </ul>
+</ul>
+<h3>Docstring</h3>
+<p>
+    Docstring on kommentaar funktsiooni, meetodi, klassi või mooduli (faili) kohta. Kirjeldatakse kolmekordsete jutumärkide
+    <code>""" """</code>. Eesmärk on kirjeldada funktsionaalsust, võib olla ühe- või mitmerealine. Kasutatakse täislauseid,
+    mis lõppevad punktiga.
+</p>
+<h4>Docstring faili (mooduli) alguses</h4>
+<p>
+    Sellega kirjeldatakse ära, mida see fail teeb. Mitmerealise docstringi puhul on esimene rida kokkuvõte, millele järgneb
+    tühi rida.
+</p>
+<p class="näide">
+    <code>
+        """<br/>
+        Collection of helper functions for string operations.<br/><br/>
+        Most of the functions work with only ascii strings.<br/>
+        Check the docstrings for more information.<br/>
+        """
+    </code>
+</p>
+<h4>Üherealine docstring</h4>
+<p>Võib kasutada, kui kirjeldus on lühike. Lause peab lõppema punktiga.</p>
+<p class="näide">
+    <code>"""String helper functions."""</code>
+</p>
+<h4>Funktsiooni docstring</h4>
+<p>Kirjutatakse peale funktsiooni definitsiooni:</p>
+<p class="näide">
+    <code>
+        def absmax(a: int, b: int) -> int:
+            <span>"""<br/>
+            Return a max value of two inputs.<br/><br/>
+            Absolute values of the inputs are used when comparing.<br/>
+            Returns original (non-absolute) value.<br/>
+            """<br/>
+            return max((a, b), key=abs)</span> 
+    </code>
+</p>
+<p>Üherealine peab mahtuma ühele reale koos jutumärkidega.</p>
+<h4>Docstring stiil</h4>
+<p>
+    Sisu peab olema täislaustena ja esimene sõna käskivas kõneviisis.
+</p>
+<ul>
+    <li>Ei sobi: <code>Returns sum.</code> </li>
+    <li>Sobib: <code>Return sum.</code></li>
+</ul>
+<h3>Üldised stiilinõuded</h3>
+<ul>
+    <li>Faili lõpus peab olema tühi rida</li>
+    <li>Funktsiooni ees peab olema 2 tühja rida</li>
+    <li>Mitmerealise docstring'i esimese ja ülejäänud ridade vahel peab olema tühi rida</li>
+    <li>Rea lõpus ei tohi olla üleliigseid tühikuid</li>
+</ul>
+<h2>Dokumenteerimine: kommentaar</h2>
+<p>Kommentaarid on koodikirjeldused, mida kompilaator koodilugemisel eirab. Kommentaarid peaksid olema täislaused ning algama suure algustähega. Kommentaare defineeritakse sümboli # abil. Lisades # rea algusesse, eiratakse tervet koodirida. Kui sümbol ei paikne rea alguses, loetakse sellele eelnev kood ikkagi sisse. Kommentaar algab tühikuga ning kui kommentaar rea keskele lisada, peab koodi lõpu ning # sümboli vahele jätma vähemalt 2 tühikut.</p>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/03.html')" href="#jump_to">Järgmine teema</a>
+</div>
