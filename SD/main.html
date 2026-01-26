@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarkvara arendusprotsessi ainemapp</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../pildid/Draakon-logo.svg" type="image/svg+xml">
+    <script src="../js/page_load.js"></script>
+    <script src="../js/page_change.js"></script>
+    <script src="../js/pic_zoom.js"></script>
+</head>
+<body>            
+    <div class="bottom-bar">
+        <img src="../pildid/lohepea.svg" alt="scrolling image" class="scroll-image">
+    </div> 
+    <div class="top-bar">
+        <a href="../index.html#main=.%2Fmultimedia%2Findex.html">Tagasi esilehele</a>
+    </div>
+    <div id="overlay" onclick="closeImg()">
+        <img id="overlayImg">
+    </div>
+    <h1 id="jump_to">Tarkvara arendusprotsessi ainemapp</h1>
+    <div class="sticky">
+        <div class="dropdown" style="width: 100%;">
+            <button style="font-size: 2ch; width: 100%;">SISUKORD</button>
+            <div class="dropdown-content" style="text-align: center; width: 100%;"> 
+                <div class="dropdown" style="width: 100%;">
+                    <a onclick="loadMain2('./SDLC/.index.html')" href="#jump_to">Tarkvaraarenduse Elutsükkel</a>
+                    <div class="dropdown-content">
+                        <a onclick="loadMain2('./SDLC/.index.html')" href="#jump_to">Tarkvaraarenduse Elutsükkel</a>
+                        <a onclick="loadMain2('./SDLC/waterfall.html')" href="#jump_to">Waterfall</a>
+                        <a onclick="loadMain2('./SDLC/incremental.html')" href="#jump_to">Inkrementaalne</a>
+                        <a onclick="loadMain2('./SDLC/spiral.html')" href="#jump_to">Spiraalmudel</a>
+                        <a onclick="loadMain2('./SDLC/spiral.html')" href="#jump_to">Prototüüpimine</a>
+                        <a onclick="loadMain2('./SDLC/prototyping.html')" href="#jump_to">Agiilne arendusmudel</a>
+                        <a onclick="loadMain2('./SDLC/Bigbang.html')" href="#jump_to">Big Bang</a>
+                        <a onclick="loadMain2('./SDLC/DevOps.html')" href="#jump_to">DevOps</a>
+                        <a onclick="loadMain2('./SDLC/xp.html')" href="#jump_to">Extreme Programming</a>
+                        <a onclick="loadMain2('./SDLC/V-Shape.html')" href="#jump_to">V-shape</a>
+                    </div>
+                </div>
+                <div class="dropdown" style="width: 100%;">
+                    <a onclick="loadMain2('./CASE/index.html')" href="#jump_to">CASE-vahend</a>
+                    <div class="dropdown-content">
+                        <a onclick="loadMain2('./CASE/index.html')" href="#jump_to">CASE-vahend</a>
+                        <a onclick="loadMain2('./CASE/upper-CASE.html')" href="#jump_to">Upper-CASE-vahendid</a>
+                        <a onclick="loadMain2('./CASE/lower-CASE.html')" href="#jump_to">Lower-CASE-vahendid</a>
+                    </div>
+                </div>
+                <a onclick="loadMain2('./UML/')" href="#jump_to">Unified Modeling Language</a>
+                <a onclick="loadMain2('./DOCS/')" href="#jump_to">Dokumentatsioon</a>
+                <hr>
+                <hr>
+                <a onclick="loadMain2('./BTC/')" href="#jump_to">Bitcoin kalkulaator</a>
+                <a onclick="loadMain2('./PROJ/')" href="#jump_to">Projekt Project Libre'ga</a>
+                <hr>
+                <hr>
+                <hr>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div id="content2"></div>
+<br><br>
+    <script src="../js/moving_dragon.js"></script>
+</body>
+</html>

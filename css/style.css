@@ -63,7 +63,8 @@
 /* Position the nested dropdown to the right */
 .dropdown-content .dropdown > .dropdown-content {
     top: 100%;
-    left: 25%;
+    right: 25%;
+    box-shadow: 0px 20px 100px rgba(224, 191, 184, 0.9);
 }
 
 table, td, th {
