@@ -1,0 +1,73 @@
+<h2>Hulk</h2>
+<p>
+    Hulk (<code>set</code>) on järjestamata elementide kollektsioon. Selles ei ole kordusi. Elemente ei saa indeksi järgi
+    pärida. Hulga elemendid peavad olema muutumatud (immutable). Ta ise on muutuv (elemente saab lisada, eemaldada). Hulgaga
+    saab teostada matemaatilisi hulga operatsioone.
+</p>
+<h3>Hulga loomine</h3>
+<p>
+    Hulga tähistamiseks kasutatakse loogelisisulge <code>{}</code>, kuid tühja hulga saab luua ainult korraldusega
+    <code>set()</code>. Selle abil saab luua hulka ka olemasolevatest järjenditest (hulka jäävad ainult unikaalsed
+    väärtused, korduvaid väärtusi pole).
+</p>
+<p class="näide">
+    <code>
+        my_set = {1, 2, 3}  # => {1, 2, 3}<br/>
+        empty_set = set()  # => set()<br/>
+        <br/>
+        numbers = [1, 2, 3, 1]<br/>
+        numbers_set = set(numbers)  # => {1, 2, 3}
+    </code>
+</p>
+<p>
+    Hulka ei saa panna muutuvaid objekte. See annab vea: "TypeError: unhashable type: 'list'". List võib programmi jooksul
+    muutuda, seepärast seda hulgas ei saa kasutada. Kasutada saab: sõne, arvud, tõeväärtus, ennik, None jt.
+</p>
+<h3>Töövahendid hulgaga</h3>
+<ul>
+    <li><code>hulk.add(väärtus)</code> elemendi lisamine.</li>
+    <li><code>hulk.update([väärtus1, väärtus2])</code> mitme elemendi lisamine.</li>
+    <li><code>hulk.discard(väärtus)</code> elemendi eemaldamine, ignoreerib puuduvat väärtust.</li>
+    <li><code>hulk.remove(väärtus)</code> elemendi eemaldamine, annab vea teate puuduva väärtuse korral</li>
+    <li><code>hulk.pop()</code> suvalise elemndi eemaldamine ja tagastamine, kuna hulga puhul ei ole indeksit, siis võtab
+        see korraldus suvalise elemendi.</li>
+    <li><code>for</code> tsükliga saab elemendid kätte.</li>
+</ul>
+<p class="näide">
+    <code>
+        numbers = {4, 1, 6}<br/>
+        for number in numbers:
+            <span>print(number) &nbsp;# => 1, 4, 6</span>
+    </code>
+    Saadavate elementide järjekord ei ole garanteeritud.
+</p>
+<ul>
+    <li><code>hulk_a.union(hulk_b)</code> ühend - kõik elemendid, mis kuuluvad ühte või teise hulka või mõlemasse. Saab ka
+        nii: <code>hulk_a | hulk_b</code></code></li>
+    <li><code>hulk_a.intersection(hulk_b)</code> ühisosa - kõik elemendid, mis kuuluvad mõlemasse hulka. Saab ka nii:
+        <code>hulk_a & hulk_b</code></li>
+    <li><code>hulk_a.difference(hulk_b)</code> vahe - kõik elemendid, mis kuuluvad esimesse hulka, aga ei kuulu teise hulka.
+        Saab ka nii: <code>hulk_a - hulk_b</code></li>
+    <li><code>hulk_a.symmetric_difference(hulk_b)</code> sümmeetriline vahe - kõik elemendid, mis kuuluvad esimesse või
+        teise hulka, aga ei kuulu mõlemasse. Saab ka nii: <code>hulk_a ^ hulk_b</code></li>
+    <li><code>len(hulk)</code> hulga pikkus.</li>
+    <li>Sõne tähed hulgaks: <code>my_set = set("hello")</code> annab hulga <code>{'l', 'o', 'e', 'h'}</code></li>
+    <li>Kas element on hulgas: <code>'h' in my_set</code> annab <code>True</code></li>
+</ul>
+<p class="näide">
+    <code>
+        a = {1, 2, 3}
+        b = {2, 3, 4, 5}
+        print(a | b) &nbsp;# {1, 2, 3, 4, 5}
+        print(a & b)  # {2, 3}
+        print(a - b)  # {1}
+        print(a ^ b)  # {1, 4, 5}
+    </code>
+</p><br/>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/13_Hulk">Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/12.html')" href="#jump_to">Järgmine teema</a>
+</div>

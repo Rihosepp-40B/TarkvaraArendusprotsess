@@ -1,0 +1,71 @@
+<h2>Ennik</h2>
+<p>
+    Ennik (<code>tuple</code>) on järjestatud muutumatu andmehulk. Seda saab kasutada sarnaselt listiga (muutmisoperatsioone
+    pole). Kasutatakse Pythonis funktsioonidest mitme väärtuse tagastamiseks.
+</p>
+<p class="näide">
+    <code>
+        def example():
+            <span>return 1, 2, 4</span>
+    </code>
+</p>
+<h3>Enniku loomine</h3>
+<p>
+    Enniku saab luua kasutades tavalisi sulge <code>()</code>. Saab luua ka sulgudeta kuid loetavuse mõttes mõistlik siiski
+    teha sulgudega.
+</p>
+<p class="näide">
+    <code>
+        elements = (1, 2, 3)<br/>
+        empty_tuple = ()<br/>
+        one_element_tuple = (1, )<br/>
+        <br/>
+        elements = 1, 2, 3<br/>
+        one_element = 1, &nbsp;# use of comma!
+    </code>
+</p>
+<h3>Ennik ja järjend</h3>
+<p>
+    Ennikut saaab muuta järjendiks kasutades <code>list()</code> korraldust. Järjendit saab muuta ennikuks kasutades <code>tuple()</code> korraldust.
+</p>
+<h3>Operatsioonid ennikuga</h3>
+<ul>
+    <li><code>ennik[0]</code> elemendi lugemine indeksi abil.</li>
+    <li><code>ennik[:3]</code> lõik ennikust (töötab sarnaselt järjendi lõigule).</li>
+    <li><code>3 in ennik</code> elemendi esinemine ennikus.</li>
+    <li><code>tuple("hello") => ('H', 'e', 'l', 'l', 'o')</code> sõne ennikus.</li>
+    <li><code>(1, 2) + (3,) => (1, 2, 3)</code> enniku liitmine.</li>
+</ul>
+<h3>Enniku kasutus</h3>
+<ul>
+    <li>Ennikut kasutatakse väärtuste pakkimiseks.</li>
+</ul>
+<p class="näide">
+    <code>
+        elements = 1, 2, 3<br/>
+        a, b, c = elements<br/>
+        a, b, c = (4, 5, 6)
+</code>
+</p>
+<ul>
+    <li>Sarnaselt töötab näiteks <code>enumerate</code> ja <code>dict.items()</code>.</li>
+    <li>Funktsiooni väärtused saab lahti pakkida.</li>
+</ul>
+<p class="näide">
+    <code>
+        def hello():
+            <span>return "Hello", "Tom"</span>
+        <br/>
+        greeting, name = hello() &nbsp;# "Hello", "Tom"
+    </code>
+</p>
+<ul>
+    <li>Kuna ennik on muutumatu (immutable) andmetüüp, saab seda kasutada sõnastiku võtmena (järjend ei sobi).</li>
+</ul>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/12_Ennik">Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/11.html')" href="#jump_to">Järgmine teema</a>
+</div>

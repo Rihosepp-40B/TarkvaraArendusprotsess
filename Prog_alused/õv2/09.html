@@ -1,2 +1,62 @@
 <h2>Sõnastik</h2>
-<p>Tund pole veel toimunud</p>
+<p>
+    Kui järjendil on elemendid järjestikus arvudega positsioonil, siis sõnastikus (<code>dict</code>) kasutatakse
+    positsiooniks võtit (<code>key</code>). Võti võib olla nii sõne kui ka arv (kõik muutumatud andmetüübid sobivad). Võtme
+    abil leitakse sõnastikust üles kaasnevad väärtused (<code>value</code>). 
+</p>
+<p>
+    Väärtused võivad olla lisaks sõnedele ja numbritele omakorda järjendid või sõnastikud. Ühe võtme kohta on üks väärtus
+    (ei saa olla mitu sõne, järjendit jms ühe võtme all).
+</p>
+<h3>Sõnastiku loomine</h3>
+<p>
+    Sõnastiku loomiseks kasutatakse loogelisisulge <code>{}</code> (kasutatakse ka enniku (<code>tuple</code>) loomiseks).
+    Lisaks on võimalik kasutada käsku <code>dict()</code>. Sõnastikus nimetatakse võti ja sellele omistatakse väärtus. Koos
+    on need üks element (koosnevad ennikust (<code>tuple</code>)). Esimesel kohal on alati võti, teisel väärtus.
+</p>
+<p class="näide">
+    <code>
+        a = dict(one=1, two=2, three=3)<br/>
+        b = dict([('two', 2), ('three', 3), ('one', 1)])<br/>
+        d = {'three': 3, 'one': 1, 'two': 2}<br/>
+        tühi_sõnastik = {}
+    </code>
+</p>
+<h3>Töövahendid sõnastikuga</h3>
+<ul>
+    <li><code>len(sõnastik)</code> sõnastiku pikkuse saamiseks (loeb võtmed kokku).</li>
+    <li><code>dict["võti"]</code> konkreetse elemendi poole pöördumine.</li>
+    <li><code>dict["võti"] = "väärtus"</code> olemas oleva võtme väärtuse muutmine või uue võtme loomine.</li>
+</ul>
+<p class="näide">
+    <code>
+        print(d['one']) &nbsp;# => 1<br/>
+        d['one'] = 5 &nbsp;# value for key 'one' will become 5
+    </code>
+</p>
+<ul>
+    <li><code>key in dict</code> kas selline võti on olemas (tagastab tõene või väär).</li>
+    <li><code>dict.keys()</code> tagastab võtmete nimekirja.</li>
+    <li><code>dict.values()</code> tagastab väärtuste nimekirja.</li>
+    <li><code>dict.items()</code> tagastab võtme ja väärtuse paaride nimekirja.</li>
+    <li><code>for</code> tsükkel:</li>
+</ul>
+<p class="näide">
+    võti-väärtus paarid<br/>
+    <code>
+        for name, phonenr in phones.items():
+            <span>print(name, phonenr)</span>
+    </code>
+    tsükkel üle sõnastiku annab kõik võtmed:<br/>
+    <code>
+        for name in phones:
+            <span>print(name, phones[name])</span>
+    </code>
+</p><br/>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/11_Sõnastik">Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/10.html')" href="#jump_to">Järgmine teema</a>
+</div>
