@@ -102,13 +102,22 @@
     <li>Loogeliste sulgude vahel võib kasutada ka muutujaid</li>
     <li><code>f"name: {name}" => "name: Ago"</code></li>
     <li>Varasemalt liites sõnale arvu, tuli see muuta sõneks, f-sõne teeb seda automaatselt</li>
+</ul>
 <h4>Vormindamine</h4>
-    <li>F-sõne saab kasutada vormindamiseks:</li>
+<ul>
+    <li>F-sõne saab kasutada vormindamiseks. Vormindamiseks pannakse loogeliste sulgude vahel oleva muutuja taha koolon ja tingimused.</li>
     <ul>
         <li><code>f"{nr:04}" => "0012"</code></li>
-        <li><code>nr</code> on muutuja</li>
-        <li><code>0</code> näitab mida lisme muutuja ette</li>
-        <li><code>4</code> tähistab tulemuse pikkust</li>
+        <ul>
+            <li><code>nr</code> on muutuja</li>
+            <li><code>0</code> näitab mida lisame muutuja ette</li>
+            <li><code>4</code> tähistab tulemuse pikkust</li>
+        </ul>
+        <li><code>f"{float:.2f}" => "12.26"</code></li>
+        <ul>
+            <li>float = komakohaga arv näiteks <code>12.256</code></li>
+            <li><code>.2f</code> vormindab komakoha kuni sajandikuni</li>
+        </ul>
     </ul>
 </ul>
 <h4>Joondamine</h4>

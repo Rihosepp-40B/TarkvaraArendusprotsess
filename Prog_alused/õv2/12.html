@@ -1,0 +1,131 @@
+<h2>Töö tekstfailidega</h2>
+<p>
+	Pythonis on võimalik kasutada tekstifaile (.txt) informatsiooni talletamiseks, lugemiseks ja analüüsimiseks.
+</p>
+<h3>Faili avamine ja sulgemine</h3>
+<p>
+	Faili töötlemiseks on vajalik kasutatava faili avamine <code>open()</code>.
+</p>
+<p class="näide">
+	<code>f = open("failinimi.txt", "r")</code><br />
+	f on muutuja, "r" on opereerimise meetod. Peale sellist avamist on vaja ka fail sulgeda <code>.close()</code>.<br />
+	<code>f.close()</code>
+</p>
+<p>
+	Parem praktika on kasutada <code>with</code>, mis töötab faili all olevas plokis ning plokist väljumisel sulgeb ise
+    faili.
+</p>
+<p class="näide">
+	<code>with open("failinimi.txt", "r") as f:<br />
+		<span># faili toimngu koodid</span></code>
+</p>
+
+<h3>Failide opereerimise meetodid</h3>
+<ul>
+    <li><code>"r"</code> avab faili lugemiseks (read), see on ka vaikimisi väärtus.</li>
+    <li><code>"w"</code> avab faili kirjutamiseks (write), kirjutab faili üle, faili puudumisel loob selle.</li>
+    <li><code>"a"</code> avab faili muutmiseks (append), lisab faili lõppu sisestatud väärtuse.</li>
+</ul>
+<h3>Faili sisu lugemine</h3>
+<ul>
+    <li><code>f.read(x)</code> loeb faili sisu x väärtuses tähti/kohti, x tühi, siis loeb terve faili.</li>
+    <li><code>f.readline(x)</code> loeb faili sisu rea, kuid mitte rohkem kui x kogus tähti, tagastab sõnena.
+    <ul>
+        <li>Samas plokis iga järgnev jätkab sealt kust eelmine pooleli jäi.</li>
+        <li>Rea alla loetakse ka reavahetus (<code>\n</code>).</li>
+    </ul></li>
+    <li><code>f.readlines()</code> loeb faili sisu read järjendiks (iga rida on element), tagastab loendina, elemendi osaks
+        on ka <code>\n</code>.</li>
+</ul>
+<h3>Faili sisu kirjutamine</h3>
+<p>
+    Kui opereeritakse "w", siis kirjutamine tühjendab olemasoleva faili ja kirjutab üle. "a" puhul lisatakse viimase rea
+    lõppu.
+</p>
+<ul>
+    <li><code>f.write("Tekst")</code> kirjutab faili sisestatud teksti.</li>
+    <li><code>f.writeline(järjend)</code> kirjutab järjendi sisu üksteise järgi.</li>
+</ul>
+<h3>CSV fail</h3>
+<p>
+    CSV fail on tabeli fail teksti kujul, kus erinevad veerud on eraldatud mingi märgiga, tavaliselt komade või semikooloniga,
+    ning rida on rida. CSV põhiste toimingute jaoks tuleb teha <code>import csv</code>.
+</p>
+<h4>CSV lugemine</h4>
+<p>
+    CSV faili lugemiseks tuleb kasutada funktsiooni <code>csv.reader(fail, delimiter=",")</code>. Delimiteri abil täpsustame
+    kirjavahemärki, et programm teaks kuidas lugeda veerge.
+</p>
+<p class="näide">
+    <code>
+        import csv<br /><br />
+
+        with open('file.txt') as csv_file:<br />
+        <span>csv_reader = csv.reader(csv_file, delimiter=',')</span>
+    </code>
+</p>
+<h4>CSV kirjutamine</h4>
+<p>
+    Nii nagu enne, tuleb fail avada kirjutamiseks "w" või "a". Siis luua CSV kirjutaja failist
+    (<code>csv.writer(fail, delimiter=";")</code>). Kuna <code>csv.writer</code> lisab ise reavahetuse rea lõpus, siis faili
+    avamisel tuleks lisada täpsustav abifunktsioon <code>newline=""</code>, et vältida topelt reavahetust.
+</p>
+<p class="näide">
+    <code>
+        import csv<br /><br />
+
+        data = [<br />
+            <span>['John Smith', 'Accounting', 'November'],<br />
+            ['Erica Meyers', 'IT', 'March']</span>
+        ]<br />
+        with open('file.csv', 'w', newline='') as csv_file:
+            <span>csv_writer = csv.writer(csv_file, delimiter=";")<br />
+            # header<br />
+            csv_writer.writerow(['Name', 'Department', 'Birthday month'])<br />
+            for row in data:
+                <span># write list of values<br />
+                csv_writer.writerow(row)</span></span>
+    </code>
+    Tulemus:<br />
+    <code>
+        Name;Department;Birthday month<br />
+        John Smith;Accounting;November<br />
+        Erica Meyers;IT;March
+    </code>
+</p>
+<h4>Veel CSV failidest</h4>
+<p>
+    <code>csv.writer</code> tahab, et kasutatakse järjendit. Selle modifikatsioon <code>csv.DictWriter</code> tahab saada sõnastike. Sarnaselt on olemas ka lugemiseks <code>csv.DictReader</code>. Täpsemalt lugemiseks: <a href="https://docs.python.org/3/library/csv.html">python.org</a> ja <a href="https://pydoc.pages.taltech.ee/input_output/write_to_file/writing-csv-dict.html">PyDoc TalTech</a>
+</p>
+<p>
+    <code>csv.DictWriter</code> tahab <code>csv.writeheader</code> meetodit väljakutsudes ka ilmtingimata näha pealkirjad <code>fieldnames</code> argumendina. Ülejäänud read kirjutatakse kasutades meetodit <code>writer.writerows(data)</code> (seda saab kasutada ka <code>csv.writer</code> koosseisus).
+</p>
+<p class="näide">
+    <code>
+        import csv<br /><br />
+
+        data = [
+            <span>
+                {'model name': 'Ferrari Daytona', 'tank size': '829', 'liters': '86', 'horsepower': '829', 'cost (dollars)': '2226935'},<br />
+                {'model name': 'Ferrari Testarossa', 'tank size': '115', 'liters': '115', 'horsepower': '385', 'cost (dollars)': '1355014'},<br />
+                {'model name': 'Ferrari LaFerrari', 'tank size': '949', 'liters': '86', 'horsepower': '949', 'cost (dollars)': '3104231'},
+        </span>
+        ]<br /><br />
+
+        with open('ferrari.csv', 'w', newline='') as csvfile:
+            <span>
+                fieldnames = ['model name', 'tank size', 'litres', 'horsepower', 'cost (dollars)']<br />
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)<br />
+                writer.writeheader()<br />
+                writer.writerows(data)
+            </span>
+        </code>
+</p><br/>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/14_Faili_operatsioonid">Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/13.html')" href="#jump_to">Järgmine teema</a>
+</div>
+

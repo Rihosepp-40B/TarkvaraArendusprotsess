@@ -1,0 +1,41 @@
+<h2>Tips and tricks</h2>
+<p>
+    <code>global</code> see võtmesõna muudab muutuja funktsiooni sees kasutatavaks väljaspool seeda funktsiooni (muudab ka juba globaalset samanimelist muutujat).
+</p>
+<p class="näide">
+    <code>
+        x = "awesome"<br /><br />
+
+        print("Python is " + x) &nbsp;# = Python is awesome<br /><br />
+
+        def myfunc():
+            <span>
+                print("Python is " + x) &nbsp;# = Python is awesome
+            </span><br /><br />
+
+
+        def myfunc1():
+            <span>
+                global x<br />
+                x = "great"<br />
+                print("Python is " + x) &nbsp;# = Python is great
+            </span><br /><br />
+
+
+        def myfunc2():
+            <span>
+                print("Python is " + x) &nbsp;# = Python is great
+            </span><br /><br />
+
+
+        def myfunc2():
+            <span>
+                x = "ok"<br />
+                print("Python is " + x) &nbsp;# = Python is ok
+            </span><br /><br />
+
+
+        print("Python is " + x) &nbsp;# = Python is great
+    </code>
+
+</p>
