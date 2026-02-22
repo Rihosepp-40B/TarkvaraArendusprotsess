@@ -16,8 +16,10 @@
     faili.
 </p>
 <p class="näide">
-	<code>with open("failinimi.txt", "r") as f:<br />
-		<span># faili toimngu koodid</span></code>
+	<code>
+        with open("failinimi.txt", "r") as f:<br />
+		<span># faili toimngu koodid</span>
+    </code>
 </p>
 
 <h3>Failide opereerimise meetodid</h3>
@@ -37,6 +39,14 @@
     <li><code>f.readlines()</code> loeb faili sisu read järjendiks (iga rida on element), tagastab loendina, elemendi osaks
         on ka <code>\n</code>.</li>
 </ul>
+<p>
+    Täpitähtede lugemiseks tuleb faili avamisel anda lisa argument <code>encoding="UTF-8"</code>, muidu ei loe python neid korrektselt.
+</p>
+<p class="näide">
+    <code>
+        with open("failinimi.txt", "r", encoding="UTF-8") as f:
+    </code>
+</p>
 <h3>Faili sisu kirjutamine</h3>
 <p>
     Kui opereeritakse "w", siis kirjutamine tühjendab olemasoleva faili ja kirjutab üle. "a" puhul lisatakse viimase rea
@@ -68,7 +78,7 @@
 <p>
     Nii nagu enne, tuleb fail avada kirjutamiseks "w" või "a". Siis luua CSV kirjutaja failist
     (<code>csv.writer(fail, delimiter=";")</code>). Kuna <code>csv.writer</code> lisab ise reavahetuse rea lõpus, siis faili
-    avamisel tuleks lisada täpsustav abifunktsioon <code>newline=""</code>, et vältida topelt reavahetust.
+    avamisel tuleks lisada täpsustav argument <code>newline=""</code>, et vältida topelt reavahetust.
 </p>
 <p class="näide">
     <code>
