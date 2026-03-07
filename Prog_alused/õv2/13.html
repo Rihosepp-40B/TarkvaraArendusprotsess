@@ -1,1 +1,145 @@
-SISU VEEL TÜHI
+<h2>Erind (exception)</h2>
+<p>
+	Erind on mingi eriolukord, mis programmi töö jooksul ilmneb. Üldjuhul programmi töö seiskub erindi töttu. Selleks, et
+    programmi töö ootamatult ei lõppeks, tuleb erindeid töödelda, ehk programmile öelda, mida erindi puhul ette võtta.
+</p>
+<h3>Erindite töötlemine</h3>
+<p>
+    Erindeid on võimalik "kinni püüda" ja määrata programmi edasine käitumine. Seda nimetatakse erinditega tegelemisesks
+    (exception handling). Tegelemiseks kasutatakse kahte koodiplokki, <code>try</code> ja <code>except</code>.
+</p>
+<p>
+    <code>try</code> osas lisatakse kood, mis võib tekitada viga. Vea tekkimisel käivitatakse tegevus, mis kirjutatakse
+    <code>except</code> ossa. Juhul kui viga ei teki, siis <code>try</code> osas täidetakse kogu kood. Veel võib lisada
+    ka <code>finally</code> ploki, ei ole kohustuslik, see osa käivitub igaljuhul.
+</p>
+<p class="näide">
+    <code>
+        try:<br>
+            # Try to to something, which may cause an error<br><br>
+
+        except &lt;Name of the error class><br>
+            # If what you tried caused an error, this code block is executed<br>
+            # If the error was not thrown, this code block is ignored<br><br>
+
+        finally:<br>
+            # This code block is executed anyway
+    </code>
+</p>
+<p>
+    Ilma erindeid "kinni püüdmata" peaksime iga võimalike olukorra määratlema tingimuslausetega. Kood oleks pikk ja
+    raskesti loetav. Kasutades erindeid muutub kood paindlikumaks ja paremini loetavaks.
+</p>
+<h3>Erindite tõstatamine programmi töö juhtimiseks</h3>
+<p>
+    Erindite tõstatamine on kasulik siis, kui mingil konkreetsel juhul tuleb kohe programmi töö lõpetada ja näidata
+    kasutajale vea põhjust ja kohta. Tõstatamine käib korraldusega <code>raise</code> millele lisatakse täpsustatud tegevus:
+</p>
+<ul>
+    <li><code>SystemExit</code> lõpetab programmi töö</li>
+    <li>Kutsutakse esile mingi vea teade näiteks: <code>ValueError("This is not a word")</code></li>
+</ul>
+<p class="näide">
+    <code>
+        user_input = input("Please input a word: ")<br><br>
+
+        # If the input is a number<br>
+        if word.isdigit():
+            <span>
+                raise ValueError("This is not a word!") # Throw an error with specified message
+            </span><br>
+
+        # This will never be printed in case of error<br>
+        print(f"The word is '{user_input}'")<br><br>
+    </code>
+
+    kirjutades väärtuse 12 saame:<br><br>
+    <code>
+        Traceback (most recent call last):<br>
+            <span>File "C:/Users/user/PycharmProjects/project/ex.py", line 4, in &lt;module><br>
+                <span>raise ValueError("This is not a word!")</span></span>
+        ValueError: This is not a word!<br>
+    </code>
+</p>
+<h3>Kasutaja loodud erinditüübid</h3>
+<p>
+    Erind on objekt, mis kannab endaga kaasas täiendavat infot:
+</p>
+<ul>
+    <li>klassi nimi - see annab juba infot, mis probleem võis tekkida (nt IndexError)</li>
+    <li>erindi teade (teade, tekkepõhjus, täpsustus vms)</li>
+    <li>erindi tekkimise koht (fail, rida)</li>
+    <li>kogu eelnenud programmi kutsungite ahel (mis meetod kutsus välja meetodi, kus erind tekkis jne) (stack trace)</li>
+</ul>
+<p class="näide">
+    <code>
+        # Define Python user-defined exceptions<br>
+        class Error(Exception):<br>
+            <span>"""Base class for other exceptions"""<br>
+            pass</span>
+        <br>
+        <br>
+        class ValueTooSmallError(Error):<br>
+            <span>"""Raised when the input value is too small"""<br>
+            pass</span>
+        <br>
+        <br>
+        class ValueTooLargeError(Error):<br>
+            <span>"""Raised when the input value is too large"""<br>
+            pass</span>
+        <br>
+        <br>
+        # You need to guess this number<br>
+        number = 10<br>
+        <br>
+        # User guesses a number until he/she gets it right<br>
+        while True:<br>
+            <span>try:
+                <span>i_num = int(input("Enter a number: "))
+                    <span>if i_num < number:
+                        <span>raise ValueTooSmallError</span>
+                    elif i_num > number:<br>
+                        <span>raise ValueTooLargeError</span>
+                    break</span></span>
+            except ValueTooSmallError:
+                <span>print("This value is too small, try again!")</span>
+            except ValueTooLargeError:
+                <span>print("This value is too large, try again!")</span></span>
+        <br>
+        print("Congratulations! You guessed it correctly.")
+    </code><br><br>
+
+    Võimalikud väljundid:<br><br>
+
+    <code>
+        Enter a number: 12<br>
+        This value is too large, try again!<br><br>
+
+        Enter a number: 0<br>
+        This value is too small, try again!<br><br>
+
+        Enter a number: 8<br>
+        This value is too small, try again!<br><br>
+
+        Enter a number: 10<br>
+        Congratulations! You guessed it correctly.
+    </code>
+</p>
+<p>
+    Nii luuakse uus alamklass <code>Error</code>(mis laiendab sisseehitatud <code>Exception</code> klassi) ning uut tüüpi
+    erindid <code>ValueTooSmallError</code> ja <code>ValueTooLargeError</code>, mis laiendavad meie loodud
+    <code>Error</code> klassi. Loodud uuele tüübile me mingit sisu lisada ei taha (ta pärib kõik <code>Exception</code>
+    klassi meetodid ja muutujad). Kuna Pythonis me klassi kirjeldust tühjaks ei saa jätta, lisame sinna võtmesõna
+    <code>pass</code>.
+</p>
+<p>
+    See on tavapärane viis Pythoni programmeerimiskeeles määratleda kasutaja poolt loodud erindeid, kuid neid võimalusi on
+    veelgi (lisada argumente, sõnumeid ja muud).
+</p>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/15_Erindid">Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/14.html')" href="#jump_to">Järgmine teema</a>
+</div>

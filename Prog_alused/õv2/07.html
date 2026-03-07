@@ -72,14 +72,25 @@
 <h4>Veel sõne operatsioone</h4>
 <ul>
     <li><code>.lower()</code> / <code>.upper()</code> esitab sõne väikeste / suurte tähtedega</li>
-    <li><code>.startswith()</code> annab tõeväärtuse sõne kohta vastavalt sisestatud tingimusele</li>
-    <li><code>.index()</code> annab sisestatud "otsitava" väärtuse asukoha sõnes</li>
-    <li><code>.count()</code> loeb kokku otsitava väärtuse kordumise sõnes</li>
+    <li><code>.startswith("a")</code> annab tõeväärtuse sõne kohta vastavalt sisestatud tingimusele</li>
+    <li><code>.index("a")</code> annab sisestatud "otsitava" vasakult esimese väärtuse asukoha sõnes</li>
+    <li><code>.count("a")</code> loeb kokku otsitava väärtuse kordumise sõnes</li>
     <li><code>.replace()</code> asendab sõnes otsitava väärtuse uue väärtusega</li>
 </ul>
 <p>
     Sõne operatsioonid loovad vajadusel uue sõne. Näiteks <code>.replace()</code> asendab tähe, aga teeb selle jaoks uue
-    sõne. Selleks, et algset muutujat "muuta", kirjutame loodud sõne algsesse muutujasse tagasi
+    sõne. Selleks, et algset muutujat "muuta", kirjutame loodud sõne algsesse muutujasse tagasi. Lisaks saab paljudel
+    operatsioonidel täpsustada kordusi või asukohta (algust jas lõppu) kus operatsioon teostada.
+</p>
+<h4>Veel operatsioone sõnega</h4>
+<ul>
+    <li><code>.strip()</code> eemaldab sõne algusest ja lõpust tühikud</li>
+    <li><code>.split()</code> eraldab lause järjendiks, iga sõna on eraldi element.</li>
+    <li><code>list(sõne)</code> muudab sõne järjendiks kus iga sümbol on eraldi element.</li>
+</ul>
+<p>
+    <code>.split()</code> vaikimisi eraldaja on tühik, aga võib eraldamiseks anda täpsustavaid väärtusi
+    <code>.split(",", 1)</code> "," lisab tühiku ette eraldaja, 1 ütleb mitu korda teha eraldamist.
 </p>
 <p class="näide">
     <code>
