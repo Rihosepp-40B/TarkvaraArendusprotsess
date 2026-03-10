@@ -1,1 +1,66 @@
-SEDA TEEMAT EI OLE VEEL
+<h2>Rekursioon</h2>
+<p>
+    Rekursioon on olukord, kus defineeritud funktsioon kutsub iseennast välja, et lahendada funktsioonile antud probleemi
+    kergem variant.
+</p>
+<p>
+    Funktsioonis on sabarekursioon siis, kui selle sama funktsiooni väljakutse on viimane tegevus. Iteratiivne meetod
+    tähendab, et kasutatakse tsükleid. Rekursiivset funktsiooni on alati võimalik ümber kirjutada nii, et see oleks
+    iteratiivne.
+</p>
+<p>
+    Rekursioon kirjeldab lasuse: "Rekursioon on rekursioon". Programmeerimises: probleemi lahendamiseks kutsub funktsioon ennast välja.
+</p>
+<p class="näide">
+    <code>
+        def empty_vase(flowers_count):​
+            <span>if flowers_count <= 0:​
+                <span>print("Done!")</span>
+            # else:​<br>
+            empty_vase(flowers_count - 1)</span>
+    </code>
+</p>
+<p class="näide">
+    <code>
+        def count_elements(list_of_elements):​
+        <span>if len(list_of_elements) == 0:​
+            <span>return 0​</span>
+            return 1 + count_elements(list_of_elements[1:])</span>
+    </code>
+</p>
+<p class="näide">
+    <code>
+        def count_a(text):​
+        <span>if len(text) == 0:​
+            <span>return 0​</span>
+            first_char = text[0]​​<br>
+            rest_of_the_text = text[1:]​​<br>
+            first_char_result = 0​​<br>
+            if first_char == 'a':​
+            <span>first_char_result = 1​</span>
+            return first_char_result + \
+            <span>count_a(rest_of_the_text)</span></span>
+    </code>​<br>
+    Sama tulemus:​<br>​<br>
+    <code>
+        def count_a(text):​
+        <span>if len(text) == 0: return 0​​<br>
+            return (1 if text[0] == 'a' else 0) + \
+            <span>count_a(text[1:])</span></span>
+    </code>
+</p>
+<h3>Rekursioon:</h3>
+<ul>
+    <li>Funktsioon kutsub ennast välja</li>
+    <li>Funktsioonil peab olema lõpetamistingimus</li>
+    <li>Probleem jagatakse väiksemateks (alam)ülesanneteks</li>
+    <li>Kõiki rekursiivseid probleeme saab lahendada iteratiivselt (ja vastupidi)</li>
+</ul>
+<h3>Faktoriaal</h3>
+<p>Faktoriaal arvust on kõikide arvude korrutis alates 1-st kuni selle arvuni.
+    <img src="../Pildid/Faktoriaal.png" alt="">
+</p>
+<img src="../Pildid/Faktoriaal.png" class="thumb" onclick="openImg(this.src)">
+<img src="../Pildid/Faktoriaal.png" alt="">
+
+SEE TEEMA ON POOLELI
