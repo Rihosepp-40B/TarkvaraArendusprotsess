@@ -58,7 +58,58 @@
 </ul>
 <h3>Faktoriaal</h3>
 <p>Faktoriaal arvust on kõikide arvude korrutis alates 1-st kuni selle arvuni.</p>
-<img src="../Pildid/Faktoriaal.png" class="thumb" onclick="openImg(this.src)">
+<img src="./Pildid/Faktoriaal.png" class="thumb" onclick="openImg(this.src)">
 
+<h3>Sabarekursioon</h3>
+<p>
+    Sabarekursioon (tail recursion) - funktsioon tagastab rekursiivse väljakutse tulemuse (see on viimane samm).
+</p>
+<p class="näide">
+    Rekursioon:
+    <code>
+        def fibo(n):
+            <span>
+                if n < 3:
+                return 1
+            return fibo(n - 1) + fibo(n - 2)
+        </span>
+
+        print(fibo(11))
+    </code>
+
+    Iteratiivne lahendus:​​<br>
+    <code>
+        def fibo_iterative(n):​
+        <span>
+            fib = 1​​​<br>
+            prev = 1​​​<br>
+            for _ in range(n - 2):​
+                <span>
+                    fib += prev​​​<br>
+                    prev = fib - prev​
+                </span>
+            return fib​
+        </span>​<br>
+        print(fibo_iterative(11))  # 89
+    </code>​​<br>​<br>
+    Sabarekursioon:​​<br>
+    <code>
+        def fibo_tail(n, fib, prev):​
+            <span>
+                if n == 1: return prev​​<br>
+                return fibo_tail(n - 1, fib + prev, fib)
+            ​</span>​<br>​<br>
+        print(fibo_tail(11, 1, 1))&nbsp; # 89
+    </code>
+    Sabarekursioonil asendada 11 arvuga 1000 annab tulemus errori. Tavaline rekursioon võtab kauem aega.
+</p>
+
+<h3>Kokkuvõte</h3>
+<ul>
+    <li>Rekursiivne funktsioon kutsub ennast välja</li>
+    <li>Rekursiooni sammu jooksul lahendatakse alamülesanne</li>
+    <li>Rekursioonil peab olema lõpetamistingimus</li>
+    <li>Kõiki rekursiivseid programme saab kirjutada ka iteratiivselt (ja vastupidi)</li>
+</ul>
 
 SEE TEEMA ON POOLELI

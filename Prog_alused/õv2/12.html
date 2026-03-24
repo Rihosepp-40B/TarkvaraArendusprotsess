@@ -40,7 +40,8 @@
         on ka <code>\n</code>.</li>
 </ul>
 <p>
-    Täpitähtede lugemiseks tuleb faili avamisel anda lisa argument <code>encoding="UTF-8"</code>, muidu ei loe python neid korrektselt.
+    Täpitähtede lugemiseks tuleb faili avamisel anda lisa argument <code>encoding="UTF-8"</code>, muidu ei loe python neid
+    korrektselt.
 </p>
 <p class="näide">
     <code>
@@ -105,10 +106,15 @@
 </p>
 <h4>Veel CSV failidest</h4>
 <p>
-    <code>csv.writer</code> tahab, et kasutatakse järjendit. Selle modifikatsioon <code>csv.DictWriter</code> tahab saada sõnastike. Sarnaselt on olemas ka lugemiseks <code>csv.DictReader</code>. Täpsemalt lugemiseks: <a href="https://docs.python.org/3/library/csv.html">python.org</a> ja <a href="https://pydoc.pages.taltech.ee/input_output/write_to_file/writing-csv-dict.html">PyDoc TalTech</a>
+    <code>csv.writer</code> tahab, et kasutatakse järjendit. Selle modifikatsioon <code>csv.DictWriter</code> tahab saada
+    sõnastike. Sarnaselt on olemas ka lugemiseks <code>csv.DictReader</code>. Täpsemalt lugemiseks:
+    <a href="https://docs.python.org/3/library/csv.html">python.org</a> ja
+    <a href="https://pydoc.pages.taltech.ee/input_output/write_to_file/writing-csv-dict.html">PyDoc TalTech</a>
 </p>
 <p>
-    <code>csv.DictWriter</code> tahab <code>csv.writeheader</code> meetodit väljakutsudes ka ilmtingimata näha pealkirjad <code>fieldnames</code> argumendina. Ülejäänud read kirjutatakse kasutades meetodit <code>writer.writerows(data)</code> (seda saab kasutada ka <code>csv.writer</code> koosseisus).
+    <code>csv.DictWriter</code> tahab <code>csv.writeheader</code> meetodit väljakutsudes ka ilmtingimata näha pealkirjad
+    <code>fieldnames</code> argumendina. Ülejäänud read kirjutatakse kasutades meetodit <code>writer.writerows(data)</code>
+    (seda saab kasutada ka <code>csv.writer</code> koosseisus).
 </p>
 <p class="näide">
     <code>
@@ -116,9 +122,12 @@
 
         data = [
             <span>
-                {'model name': 'Ferrari Daytona', 'tank size': '829', 'liters': '86', 'horsepower': '829', 'cost (dollars)': '2226935'},<br />
-                {'model name': 'Ferrari Testarossa', 'tank size': '115', 'liters': '115', 'horsepower': '385', 'cost (dollars)': '1355014'},<br />
-                {'model name': 'Ferrari LaFerrari', 'tank size': '949', 'liters': '86', 'horsepower': '949', 'cost (dollars)': '3104231'},
+                {'model name': 'Ferrari Daytona', 'tank size': '829', 'liters': '86', 'horsepower': '829',
+                'cost (dollars)': '2226935'},<br />
+                {'model name': 'Ferrari Testarossa', 'tank size': '115', 'liters': '115', 'horsepower': '385',
+                'cost (dollars)': '1355014'},<br />
+                {'model name': 'Ferrari LaFerrari', 'tank size': '949', 'liters': '86', 'horsepower': '949',
+                'cost (dollars)': '3104231'},
         </span>
         ]<br /><br />
 
