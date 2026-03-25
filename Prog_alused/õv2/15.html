@@ -3,8 +3,55 @@
     Selleks, et tagada koodi ja süsteemi töökindlus, tuleks seda testida.
 </p>
 <p>
-    Testide kirjutamiseks tuleb eelkõige kindlaks teha, mida peab testitav funktsioon tegema ja mida see peab erinevate argumentide korral tagastama.
+    Testide kirjutamiseks tuleb eelkõige kindlaks teha, mida peab testitav funktsioon tegema ja mida see peab erinevate
+    argumentide korral tagastama.
 </p>
+<h3>Miks testida?</h3>
+<ul>
+    <li>Leiame olukorrad, kus kood ei tööta korrektselt</li>
+    <li>Tagab, et ühe vea parandamisel ei teki uut viga mujale</li>
+    <li>Aitab verifitseerida koodi korrektsus/vastavust nõuetele</li>
+</ul>
+<h3>Mida testida?</h3>
+<ul>
+    <li>Tüüpolukorrad (9 / 2 == 4.5)</li>
+    <li>Piirjuhud (9 / 0 == ?)</li>
+    <li>Absurdsed olukorrad (9 / a == ?)</li>
+    <li>Algoritmi efektiivsus
+        <ul>
+            <li>Kas on piisavalt kiire</li>
+            <li>Kas kasutatakse õiget andmestruktuuri</li>
+        </ul>
+    </li>
+    <li>Erindi- või veatöötlus</li>
+</ul>
 <p>
-    
+    Testimisel tehakse funktsioonid, mis kasutab käsklust <code>assert</code>. Selle abil testitakse kas funktsioon annab
+    oodatud tulemuse. Ühe test funktsiooni all võib olla mitu <code>assert</code> käsklust. Antud käsklus vaatab, kas
+    tulemus on <code>True</code> või <code>False</code>. Teise puhul annab veateate "AssertionError".
 </p>
+<ol>
+    Testid:
+    <li>test mis õnnestub</li>
+    <li>test komaga lahendused</li>
+    <li>üks lahend</li>
+    <li>lahend puudub</li>
+    <li>nulliga jagamine</li>
+    <li>Kas lahend on puudu?</li>
+</ol>
+<p class="näide">
+    <code>
+        from quadratic_equation import solve_quadratic_equation as solve​<br>​<br>
+
+        def test_integer_values():
+            <span>assert solve(1, -3,2) == (1, 2)</span>
+    </code>
+</p><br/>
+<div class="button">
+    <a href="https://github.com/Rihosepp-40B/TARge25_programmeerimise_alused/tree/main/1_%C3%95V2-Algoritmid_ja_andmestruktuurid/17_Testimine_ja_silumine">
+        Harjutuste kaust GitHub repos</a>
+</div>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a onclick="loadMain2('./õv2/15.html')" href="#jump_to">Sulge</a>
+</div>
