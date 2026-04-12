@@ -1,0 +1,78 @@
+<h2>Abstraktsioon</h2>
+<p>
+    Abstraktsioon (ingl k abstraction) on keerulise reaalse probleemi lihtsustamine modelleerides probleemile vastavaid klasse
+    ning probleemile vastaval pärimisastmel.
+</p>
+<p>
+    Abstraktsiooni kasutatakse selleks, et peita funktsiooni sisemine funktsionaalsus kasutajate eest. Kasutajad suhtlevad
+    funktsiooniga, kuid selle sisemine töö on peidetud - kasutaja teab, mida funktsioon teeb, kuid ei tea kuidas see toimib.
+</p>
+<p>
+    Vaikimisi ei paku Python abstraktseid klasse. Pythoniga on kaasas moodul ABC, mis annab baasi abstraktsete baasklasside
+    defineerimiseks. Juhul kui defineeritakse alamklass baasklassist, pole meil vaja klassi eraldi registreerida.
+</p>
+<p class="näide">
+    <code>
+        from abc import ABC<br /><br />
+
+        class Animal(ABC):<br /><br />
+
+            <span>def sleep(self):
+                <span>print("I am going to sleep.")</span><br />
+
+            @abstractmethod &nbsp;# see sunnib defineerima iga klassi all def speak
+            def speak(self):
+                <span>pass</span></span><br />
+
+        class Human(Animal):<br /><br />
+
+            <span>def speak(self):
+                <span>print("I can talk.")</span></span><br />
+
+        class Snake(Animal):<br /><br />
+
+            <span>def speak(self):
+                <span>print("I can hiss.")</span></span><br />
+
+        class Dog(Animal):<br /><br />
+
+            <span>def speak(self):
+                <span>print("I can bark.")</span></span><br />
+
+        class Lion(Animal):<br /><br />
+
+            <span>def speak(self):
+                <span>print("I can roar.")</span></span><br />
+
+        human = Human()<br />
+        human.speak()<br /><br />
+
+        snake = Snake()<br />
+        snake.speak()<br /><br />
+
+        dog = Dog()<br />
+        dog.speak()<br /><br />
+
+        lion = Lion()<br />
+        lion.speak()
+    </code><br /><br />
+    Koodi käivitamisel:<br /><br />
+    <code>
+        I can talk.<br />
+        I can hiss.<br />
+        I can bark.<br />
+        I can roar.
+    </code>
+</p>
+<p>
+    Ülaltoodud näites on näha, et meil on loodud abstraktne klass Animal ning see on klasside Human, Snake, Dog ning Lion
+    ülemklassiks. Abstraktsel klassil saavad olla nii abstraktsed kui ka mitteabstraktsed meetodid. Mitteabstraktne meetod
+    on meie näites näiteks sleep() ning meetod speak() on abstraktne. See tähendab seda, et abstraktses baasklassis olev
+    meetod sleep() on sama kõikidele alamklassidele - seetõttu ei defineeri me seda abtraktse meetodina, et vältida koodi
+    kordamist. Kuna meetod speak() on kõikides alamklassides erinev, on see igas alamklassis eraldi defineeritud. Alamklasse
+    initsialiseerides saame ligi nii abstraktsetele kui ka mitteabstraktsetele meetoditele.
+</p>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a style="width: 100%;" onclick="loadMain2('./õv3/06.html')" href="#jump_to">Järgmine teema</a>
+</div>

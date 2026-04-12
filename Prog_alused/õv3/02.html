@@ -1,0 +1,31 @@
+<h2>Pärimine</h2>
+<p>
+    Pärilikkus (ingl k inheritance) on ühe klassi (laps(child) ka alamklass) võime tuletada või pärida omadused teiselt klassilt (vanem (parent) ka ülemklass). Laps klass omandab kõik vanema klassi omadused, võib muuta omandatud väärtust (polümorfism) ning lisab täiendavaid omadusi (laiendab (extends)).
+</p>
+<p class="näide">
+    <code>
+        class Parent():
+            <span>
+                def greet(self):
+                <span>print("Hello")</span>
+            </span> <br />
+        class Child(Parent):
+            <span>
+                def jumparound(self):
+                <span>print("*Jump-jump-jump*")</span>
+            </span>
+    </code><br />
+    Vanem klass omab funktsiooni <code>greet</code>, laps klass pärib selle omaduse ning lisab funktsiooni <code>jumparound</code><br /><br />
+    <code>
+        vanem = Parent() &nbsp;# loome objekti vanem<br />
+        laps = Child() &nbsp;# loome objekti laps<br /><br />
+        vanem.greet() &nbsp;# prindib "Hello"<br />
+        laps.greet() &nbsp;# prindib "Hello", kuna pärsi selle omaduse<br />
+        vanem.jumparound() &nbsp;# AttributeError: kuna sellel objektil ei ole seda omadust<br />
+        laps.jumparound() &nbsp;# prindib "*Jump-jump-jump*"    
+    </code>
+</p>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a style="width: 100%;" onclick="loadMain2('./õv3/03.html')" href="#jump_to">Järgmine teema</a>
+</div>

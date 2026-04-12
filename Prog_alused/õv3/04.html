@@ -1,0 +1,38 @@
+<h2>Polümorfism</h2>
+<p>
+    Polümorfism (ingl k polymorphism) on olukord, mille korral käitub meetod sõltuvalt klassist erinevalt.
+</p>
+<p>
+    Polümorfism esineb siis, kui alamklass kasutab superklassis defineeritud meetodit teisel moel. Teiste sõnadega: kui
+    superklassil ja alamklassil on olemas sama nimega meetodid, millel on sama palju argumente, ning mis teevad erinevat asja,
+    siis on tegemist polümorfismiga.
+</p>
+<p class="näide">
+    <code>
+        class Parent():
+            <span>
+                def greet(self):
+                <span>print("Hello")</span>
+            </span><br />
+        class Child(Parent):
+            <span>
+                def greet(self):
+                <span>print("Hi! I am jumping around!")</span><br />
+                def jumparound(self):
+                <span>print("*Jump-jump-jump*")</span>
+            </span>
+    </code><br />
+    Laps muudab vanemalt päritud funktsiooni <code>greet</code>
+    <code>
+        vanem = Parent() &nbsp;# loome objekti vanem<br />
+        laps = Child() &nbsp;# loome objekti laps<br /><br />
+        vanem.greet() &nbsp;# prindib "Hello"<br />
+        laps.greet() &nbsp;# prindib "Hi! I am jumping around!"<br />
+        vanem.jumparound() &nbsp;# AttributeError: kuna sellel objektil ei ole seda omadust<br />
+        laps.jumparound() &nbsp;# prindib "*Jump-jump-jump*"    
+    </code>
+</p>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a style="width: 100%;" onclick="loadMain2('./õv3/05.html')" href="#jump_to">Järgmine teema</a>
+</div>

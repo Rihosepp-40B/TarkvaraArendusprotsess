@@ -1,0 +1,178 @@
+<h2>Objektorienteeritud programeerimise (OOP) põhimõtted, klassid ja objektid</h2>
+<p>
+    OOP on programeerimise stiil, mis kasutab objekte. Python on OOP keel. Kõik asjad Pythonis on objektid.
+</p>
+<h3>Objekt</h3>
+<p>
+    Objekt kirjeldab ära konkreetse loogilse kogumi. See koosneb tavaliselt mitmest väärtusest. Näiteks nagu auto: värv,
+    mark, mudel, pikkus, registrimass jne.
+</p>
+<p>
+    Sõne on objekt. Kui luua uus sõne või muuta sõne väärtus, siis luuakse uus objekt, mille tüüp on <code>str</code>. Sõne "funktsioone" kutsutakse
+    meetoditeks. Klassis kirjeldatud funktsioonid on meetodid.
+</p>
+<p>
+    Järjend on objekt. Muutes järjendi sisu või andes muutujale teise muutuja väärtus, siis jääb objekt samaks.
+</p>
+<h3>Klass</h3>
+<p>
+    Klass kirjeldab struktuuri. See (üldiselt) ei sisalda andmeid. Klass on andmetüüp. Samatüüpi andmed pärinevad
+    ühest klassist. Näiteks maailmas on erinevaid autosi (objekt), kõik kuuluvad ühte klassi "auto": punane auto on auto,
+    roheline auto on auto.
+</p>
+<p>
+    Iga klass on andmetüüp. Näiteks on Pythonis klass <code>str</code>. Iga konkreetne sõne (näiteks "tere") on selle klassi
+    objekt (ehk isend või instants). Ühest klassist saab luua lõpmata palju objekte. 
+</p>
+<p>Klassi tegemine:</p>
+<p class="näide">
+    <code>
+        class Student:
+            <span>pass</span>
+    </code>
+</p>
+<p>
+    Objektide võrdlemine tehakse <code>==</code> võrdlusega. See kontrollib vaikimisi seda, kas nad viitavad samale
+    objektile. Sõne puhul kontrollitakse, kas sisu (sümbolid) on samad.
+</p>
+<p class="näide">
+    <code>
+        s1 = Student()<br />
+        s2 = Student()<br />
+        s3 = s1<br /><br />
+
+        print(s1 == s2) &nbsp;# False<br />
+        print(s1 == s3) &nbsp;# True<br />
+        print(s2 == s3) &nbsp;# False<br />
+    </code>
+</p>
+
+<h3>Meetod</h3>
+<p>
+    Klassis sisalduvaid funktsioone nimetatakse meetoditeks. Kõik objekti meetodid sisaldavad esimest parameetrit
+    <code>self</code>. See viitab isendile.
+</p>
+<p class="näide">
+    <code>self</code> ja parameetrid:<br />
+    <code>
+        class Student:
+            <span>def greet_friend(self, friend_name):
+                <span>print(f"Hello, {friend_name}")</span></span><br />
+
+        s = Student()<br />
+        s.greet_friend("Kaia")
+    </code><br />
+</p>
+<h3>Konstruktor</h3>
+<p>
+    Objekti loomisel pannakse käima eriline meetod ehk konstruktor. Meetod kirjeldatakse: <code>__init__(self)</code>. See
+    meetod pannakse käima üks kord objekti loomisel. Konstruktori kirjeldamine ei ole kohustuslik.
+</p>
+<p>
+    Konstruktor peab tagastama <code>None</code> (eraldi <code>return</code> lauset ei kirjutata).
+</p>
+<p>
+    Seda kirjeldataqkse nagu tavaline meetod. Eraldi pole vaja välja kutsuda.
+</p>
+<p class="näide">
+    <code>
+        class Student:
+            <span>def __init__(self):
+                <span>print("Initializing student..")</span></span><br />
+
+        s = Student()  # Initializing student..
+    </code><br /><br />
+    <code>Student()</code> kutsub <code>Student</code> klassi konstruktori välja.
+</p>
+<h4>Objekti muutujad</h4>
+<p>
+    <code>self</code> viitab loodavale/loodud objektile. Konstruktorisse saab kaasa anda argumente (nagu tavaline funktsioon).
+    Esimene parameeter on alati <code>self</code>. Objekti muutujad on seotud ühe konkreetse objektiga (isendiga). Objekti
+    muutujaid väärtustatakse: <code>self.name = ...</code>. Tavaliselt luuakse konstruktoris vajalikud väljad ära. Objekti muutujaid
+    saab teistes objekti meetodites kasutada.
+</p>
+<p class="näide">
+    <code>
+        class Student:
+            <span>def __init__(self, name, title):
+                <span>self.name = name<br />
+                self.title = title</span></span><br />
+
+        ago = Student("Ago", "Sir")<br />
+        print(ago.name)<br /><br />
+
+        leela = Student("Leela", "Captain")<br />
+        print(leela.title)
+    </code><br /><br />
+    Konstruktori parameeter <code>self</code> viitab loodavale objektile. Parameetrid <code>name</code> ja <code>title</code>
+    salvestatakse objekti muutujateks: <code>self.name</code> ja <code>self.title</code>.
+</p>
+<h3>Erilised meetodid</h3>
+<p>
+    Python võimaldab klassis ära kirjeldada objekti käitumist erinevates olukordades. Näiteks <code>__eq__</code> meetodit
+    kasutatakse selleks, et võrrelda objekte <code>==</code> võrdlusega. <code>__str__</code> meetodit kasutatakse, et saada
+    objektist sõne kuju. Lisaks näiteks <code>__add__(self, other)</code> objektide liitmiseks jne.
+    <code>__lt__(self, other)</code> väikem-kui võrdluseks.
+</p>
+<p>
+    Pythonis on eriline meetod <code>__repr__</code>, mille eesmärk on tagastada üheselt mõistetav sõne.
+</p>
+<h3>Klassi muutujad</h3>
+<p>
+    Klassi muutuja kirjeldatakse klassi sees väljaspool meetodeid. Klassi muutujal on üks väärtus läbi terve programmi. Sõltumata sellest, mitu objekti klassist luuakse, klassi muutujal on üks ühine väärtus.
+</p>
+<p class="näide">
+    <code>
+        class Doorbell:
+        <span>click_count = 0<br /><br />
+
+        def __init__(self):
+            <span>self.click_count = 0</span><br />
+
+        def ring(self):
+            <span>print("Ringing..")<br />
+            self.click_count += 1<br />
+            Doorbell.click_count += 1</span></span>
+    </code>
+    ---------------------------
+    <code>
+        d1 = Doorbell()<br />
+        d2 = Doorbell()<br /><br />
+
+        for _ in range(10): d1.ring()<br />
+        for _ in range(4): d2.ring()<br />
+        print(d1.click_count) &nbsp;# 10<br />
+        print(d2.click_count) &nbsp;# 4<br />
+        print(Doorbell.click_count) &nbsp;# 14
+    </code>
+</p>
+<h3>Objekti väärtuste pärimine/muutmine</h3>
+<p>
+    Kapseldamise eesmärk on peita objekti olek maailma eest ning lubada selle muutmine vaid läbi teatud meetodite. Objekti
+    väärtuste muutmiseks kasutatakse tavaliselt getter ja setter meetodeid. See annab võimaluse kontrollida, mida ja kuidas
+    tagastatakse/muudetakse.
+</p>
+<p class="näide">
+    <code>
+        class Student:
+            <span>def __init__(self, name):
+                <span>self.name = name</span><br />
+
+            def set_name(self, name):
+                <span>self.name = name</span><br />
+
+            def get_name(self):
+                <span>return self.name</span></span>
+    </code>
+</p>
+<h3>OOP tehnikad</h3>
+<ul>
+    <li>Pärimine (inheritance) - alamklass pärib omadused ja meetodid.</li>
+    <li>Kapseldamine (encapsulation) - funktsionaalsus peidetakse.</li>
+    <li>Polümorfism (polymorphism) - alamklass saab meetodeid üle kirjutada.</li>
+    <li>Modulaarsus (modularity) - programm jagatakse iseseisvateks tükkideks.</li>
+</ul>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a style="width: 100%;" onclick="loadMain2('./õv3/02.html')" href="#jump_to">Järgmine teema</a>
+</div>

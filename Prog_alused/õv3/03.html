@@ -1,0 +1,71 @@
+<h2>Kapseldamine</h2>
+<p>
+    Kapseldamine (encapsulation) on objektorienteeritud programmeerimise põhimõte, mille eesmärk on peita andmed ja
+    kontrollida nendele ligipääsu läbi meetodite.
+</p>
+<ul>
+    <li>Andmed (atribuutid) peidetakse klassi sisse.</li>
+    <li>Ligipääs toimub kindlate meetodite (funktsioonide) kaudu.</li>
+</ul>
+<p>
+    Pythonis andmete peitmiseks kasutatakse muutuja ees kahte alakriipsu <code>__</code>. Selle abil muudetakse muutuja ligpääsematuks otsesele päringule või muutmisele.
+</p>
+<p class="näide">
+    <code>
+        class Privacy:
+        <span>
+            def __init__(self):
+                <span>
+                    self._warning = 1<br />
+                    self.public = 2<br />
+                    self.__private = 3
+                </span>
+        </span><br /><br />
+        a = Privacy()
+        print(a._warning) &nbsp;# prindib väärtuse 1, IDA annab arendajale hoiatuse, et tegu on kaitstud muutujaga. Ehk üks
+        _ on märk arendajale, mitte puutuda.
+        print(a.public) &nbsp;# prindib väärtuse 2
+        print(a.__private) &nbsp;# annab AttributeError, kuna see muutuja on väljaspool klassi vrajatud.
+    </code>
+</p>
+<p>
+    See hoiab ära andmete otsese muutmise ning seda põhimõtet nimetatakse kapseldamiseks. Andmetele ligipääs tehakse läbi
+    kindlate meetodite.
+</p>
+<p class="näide">
+    Kasutame eelmist näidet ja lisame sellele meetodeid: <br />
+    <code>
+        class Privacy:
+        <span>
+            ...<br /><br />
+
+            def get_private(self):
+                <span>return self.__private</span><br />
+
+            def get_warning(self):
+                <span>return self._warning</span><br />
+
+            def get_public(self):
+                <span>return self.public</span><br />
+
+            def set_private(self, private):
+                <span>self.__private = private</span><br /><br />
+            a = Privacy()<br />
+            print(a.get_warning()) &nbsp;# prindib vaikeväärtuse 1<br />
+            print(a.get_public()) &nbsp;# prindib vaikeväärtuse 2<br />
+            print(a.get_private()) &nbsp;# prindib vaikeväärtuse 3<br />
+            a._warning = 10<br />
+            a.public = 20<br />
+            a.__private = 30<br />
+            print(a.get_warning()) &nbsp;# prindib uue väärtuse 10<br />
+            print(a.get_public()) &nbsp;# prindib uue väärtuse 20<br />
+            print(a.get_private()) &nbsp;# prindib vaikeväärtuse 3<br />
+            a.set_private(30)<br />
+            print(a.get_private()) &nbsp;# prindib uue väärtuse 30               
+        </span>
+    </code>
+</p>
+<br/><br/><br/>
+<div class="button" style="width: 100%; text-align: center;">
+    <a style="width: 100%;" onclick="loadMain2('./õv3/04.html')" href="#jump_to">Järgmine teema</a>
+</div>
