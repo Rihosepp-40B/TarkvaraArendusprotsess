@@ -1,0 +1,50 @@
+<h2>Valgusfoor</h2>
+<h3>Uuritud funktsioonid</h3>
+<ul>
+    <li>
+        <code>pinMode(1, OUTPUT)</code> - nii nagu ütleb funktsioni nimi peas(pin) meetod (Mode). Siin ka sulgudes esimene
+        osa defineerib mis pesa ja teine osa töömeetodi.
+    </li>
+    <li>
+        <code>digitalWrite(1, HIGH)</code> - digitaalne lüliti, esmine osa jälle osutab pesa, teine osa ütleb, kas sees (HIGH)
+        või väljas (LOW).
+    </li>
+    <li>
+        <code>delay()</code> - viivitus märgitakse millisekundites (1000 = 1 sek).
+    </li>
+    <li>
+        <code>for (statement 1, statement 2, statement 3)</code> - C++ for tsükkel. Esimne osa on väärtus, teine tingimus,
+        kolmas tegevus tsükli lõppedes.
+    </li>
+</ul>
+<h3>Töö kirjeldus</h3>
+<p>Vaja luua valgusfoori (auto ja jalakäija) tsükkel, millel on päeva ja öö reziimid.</p>
+<h4>Kasutatud komponendid</h4>
+<ul>
+    <li>Arduino UNO plaat - 1tk</li>
+    <li>Arendusplaat - 1tk</li>
+    <li>Juhtmed - 6tk</li>
+    <li>Takisti - 5tk (220Ω)</li>
+    <li>LED roheline - 2tk</li>
+    <li>LED kollane - 1tk</li>
+    <li>LED punane - 2tk</li>
+</ul>
+<h3>Töö protsess</h3>
+<p>
+    Kood Tinkercad'is valmis ja testitud. Ühendasin dioodid, takistid ja juhtmed. Ühendasin Arduino plaadi arvutiga ning
+    laadisin progammi üles.
+</p>
+<p>
+    Päevareziim - kui autofooris põleb punane LED, siis inimestele roheline LED. Rohelised tuled enne kustumist vilguvad ja
+    punane tuli läheb põlema peale rohelise kustumist (autofooris enne punast põleb kollane korraks).
+</p>
+<p>
+    Ööreziim - Valgusfoor teeb läbi kaks päevareziimi tsüklit. Peale seda lülitub ööreziimile. Siin vilgub ainult kollane LED
+    ja teised on kustus.
+</p>
+<h3>Ühendamise skeem</h3>
+<img src="./aruanded/pildid/Trafficlight.png" class="thumb" onclick="openImg(this.src)">
+<h3>Programm</h3>
+<iframe class="code" src="./aruanded/valgusfoor.txt"></iframe>
+<h3>Video</h3>
+<iframe src="https://drive.google.com/file/d/1X4RTbdpDBP6yIWhqMasIgUsB3axA0eO2/preview" width="640" height="900"></iframe>

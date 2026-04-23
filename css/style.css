@@ -284,3 +284,12 @@ code {
   max-width: 90%;
   max-height: 90%;
 }
+
+iframe {
+    width: 100%;
+}
+
+iframe.code {
+    height: 300px;
+    background-color: light-dark(rgb(200, 200, 200), rgb(18, 18, 18))
+}

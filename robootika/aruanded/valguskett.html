@@ -1,0 +1,52 @@
+<h2>Valguskett</h2>
+<h3>Uuritud funktsioonid</h3>
+<ul>
+    <li>
+        <code>sizeof()</code> - mõõdab paljui mälu kasutab muutuja või andmed. sellel harjutusel kasutatud selleks, arvutada välja järjendi pikkus <code>sizeof(led) / sizeof(led[0])</code>
+    </li>
+    <li>
+        <code>if (loogika)</code> - tingimuse kontroll, kui loogika on tõene, siis { tee midagi } <code>else</code> { tee midagi muud}.
+    </li>
+    <li>
+        <code>analogRead(A0)</code> - analoogse seadme lugemine, sulgudes väärtus viitab pesale kuhu on ühendatud.
+    </li>
+    <li>
+        <code>map(mida, väärtus1, väärtus2, uus1, uus2)</code> - selle abil saab leida mingid väärtuste vahemiku ja asendad need uutega.
+    </li>
+    <li>
+        <code>constrain(muutuja, 0, 4)</code> - piirab numbrid olema määratud vahemikus.
+    </li>
+</ul>
+<h3>Töö kirjeldus</h3>
+<p>Vaja luua valguskett 5 erineva reziimiga.</p>
+<h4>Kasutatud komponendid</h4>
+<ul>
+    <li>Arduino UNO plaat - 1tk</li>
+    <li>Arendusplaat - 1tk</li>
+    <li>Juhtmed - 17tk</li>
+    <li>Takisti - 6tk (220Ω)</li>
+    <li>Potentsiomeeter - 1tk</li>
+    <li>LED roheline - 2tk</li>
+    <li>LED kollane - 2tk</li>
+    <li>LED punane - 2tk</li>
+</ul>
+<h3>Töö protsess</h3>
+<p>
+    Kood Tinkercad'is valmis ja testitud. Ühendasin dioodid, takistid, potentsiomeetri ja juhtmed. Ühendasin Arduino plaadi arvutiga ning
+    laadisin progammi üles.
+</p>
+<p>
+    Tulede reziime kontrollib potentsiomeeter, mille skaala väärtustele on antud uued tähendused (0 kuni 4).
+</p>
+<ul>
+    <li>1.režiim - kõik tuled koos lülituvad sisse ja välja.</li>
+    <li>2.režiim - üks tuli korraga sisse välja.</li>
+    <li>3.režiim - kõik ühtevärvi tuled sisse ja välja.</li>
+    <li>4.režiim - küünlaefekt, juhuslikud tuled sisse välja.</li>
+    <li>5.režiim - valgus jookseb läbi.</li>
+</ul>
+<h3>Ühendamise skeem</h3>
+<img src="./aruanded/pildid/Valgusriba.png" class="thumb" onclick="openImg(this.src)">
+<h3>Programm</h3>
+<iframe class="code" src="./aruanded/valgusfoor.txt"></iframe>
+<h3>Video</h3>

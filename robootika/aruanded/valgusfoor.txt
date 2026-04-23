@@ -1,0 +1,76 @@
+void setup()
+
+{
+
+  // pinMode() määrab töörežiimi
+
+  pinMode(13, OUTPUT);   // 13-pini number, INPUT/OUTPUT(Sisend/Väljund).
+  pinMode(12, OUTPUT);   // 12-pini number, INPUT/OUTPUT(Sisend/Väljund).
+  pinMode(11, OUTPUT);   // 11-pini number, INPUT/OUTPUT(Sisend/Väljund).
+  
+  pinMode(6, OUTPUT);   // 6-pini number, INPUT/OUTPUT(Sisend/Väljund).
+  pinMode(5, OUTPUT);   // 5-pini number, INPUT/OUTPUT(Sisend/Väljund).
+}
+
+void loop()  // valgusfoori töö tsükkel
+
+{  // Valgusfoori päevareziimi tsükkel
+    for (int daymode = 0; daymode <= 1; daymode++) {
+    
+      digitalWrite(12, LOW); // Kollane tuli välja
+      digitalWrite(13, HIGH);  // Punane tuli sisse
+
+      delay(1000);              // Ootab 1 sek
+
+      digitalWrite(6, LOW);  // Jalakäija punane tuli välja
+      digitalWrite(5, HIGH);  // Jalakäija roheline tuli sisse
+
+      delay(2000);  // Oota 2 sek
+
+      for (int i = 0; i <= 3; i++) {  // Tsükkel jalakäija rohelise tule vilkumiseks
+        digitalWrite(5, LOW);
+        delay(500);
+        digitalWrite(5, HIGH);
+        delay(500);
+      }
+
+      digitalWrite(5, LOW);  // Jalakäija roheline tuli välja
+      digitalWrite(6, HIGH);  // Jalakäija punane tuli sisse
+
+      delay(1000);
+
+      digitalWrite(13, LOW);  // Punane tuli välja
+      digitalWrite(12, HIGH);  // Kollane tuli sisse
+
+      delay(1000);
+
+      digitalWrite(12, LOW);  // Kollane tuli välja
+      digitalWrite(11, HIGH);  // Roheline tuli sisse
+
+      delay(2000);  // oota 2 sek
+
+      for (int i = 0; i <= 3; i++) {  // Tsükkel rohelise tule vilkumiseks
+        digitalWrite(11, LOW);
+        delay(500);
+        digitalWrite(11, HIGH);
+        delay(500);
+      }
+
+      digitalWrite(11, LOW);  // Roheline tuli välja
+      digitalWrite(12, HIGH);  // Kollane tuli sisse
+
+      delay(1000);
+  }
+  
+  // Valgusfoori ööreziimi tsükkel
+  for (int darkmode = 0; darkmode <= 0; darkmode++) {
+    digitalWrite(6, LOW);  // Jalakäia roheline tuli sisse
+    for (int i = 0; i <= 10; i++) {  // Tsükkel jalakäia rohelise tule vilkumiseks
+      digitalWrite(12, LOW);
+      delay(500);
+      digitalWrite(12, HIGH);
+      delay(500);
+    }
+    digitalWrite(6, HIGH);
+  }
+}

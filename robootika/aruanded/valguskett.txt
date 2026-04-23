@@ -1,0 +1,125 @@
+int led[] = {13, 12, 11, 10, 9, 8};
+int arrayLength = sizeof(led) / sizeof(led[0]);
+
+void setup() {
+  for (int i = 0; i < arrayLength; i++) {
+    pinMode(led[i], OUTPUT);
+  }
+}
+
+void red_on()  // kõik punased sisse
+{
+  digitalWrite(led[0], HIGH);
+  digitalWrite(led[3], HIGH);
+}
+
+void red_off()  // kõik punased välja
+{
+  digitalWrite(led[0], LOW);
+  digitalWrite(led[3], LOW);
+}
+
+void green_on()  // kõik rohelised sisse
+{
+  digitalWrite(led[1], HIGH);
+  digitalWrite(led[4], HIGH);
+}
+
+void green_off()  // kõik rohelised välja
+{
+  digitalWrite(led[1], LOW);
+  digitalWrite(led[4], LOW);
+}
+
+void yellow_on()  // kõik kollased sisse
+{
+  digitalWrite(led[2], HIGH);
+  digitalWrite(led[5], HIGH);
+}
+
+void yellow_off()  // kõik kollased välja
+{
+  digitalWrite(led[2], LOW);
+  digitalWrite(led[5], LOW);
+}
+
+void single_blink()  // for loop'iga lülituvad üks-haaval tuled sisse välja
+{
+  for (int i = 0; i < arrayLength; i++) {
+    digitalWrite(led[i], HIGH);
+    delay(500);
+    digitalWrite(led[i], LOW);
+  }
+}
+
+void candleEffect() { // küünla effekt, tuled lülituvad sisse-välja juhuslikult
+  for (int i = 0; i < arrayLength; i++) {
+    int flickerChance = random(0, 10); // 0–9
+    if (flickerChance < 3) { // Umbes 30% tõenäosus, et LED vilgub
+      digitalWrite(led[i], HIGH);
+      delay(random(100, 300)); // juhuslik vilkumise kestus
+      digitalWrite(led[i], LOW);
+      delay(random(10, 50));  // juhuslik paus
+    }
+  }
+}
+
+void runningLight() {  // jooksev tuli
+  for (int i = 0; i < arrayLength; i++){
+    digitalWrite(led[i], HIGH);
+    if ((i-3) < 0)
+    	{digitalWrite(led[arrayLength+(i-3)], LOW);}
+    else
+    	{digitalWrite(led[i-3], LOW);}
+    delay(150);
+  }
+    
+}
+
+void loop() {
+  
+  int potValue = analogRead(A0);
+  int mode = map(potValue, 0, 1023, 0, 4); // 0–4 = viis režiimi
+  mode = constrain(mode, 0, 4);
+  
+  if (mode == 0)  // mode 0 kõik tuled sisse välja
+  {    
+    red_on();
+    green_on();
+    yellow_on();
+    delay(300);
+    red_off();
+    green_off();
+    yellow_off();
+    delay(300);
+  }
+  if (mode == 1)  // mode 1 tuled üksikult
+  {
+    single_blink();
+  }
+  
+  if (mode == 2)  // mode 2 kõik ühte värvi sisse- välja korda mõõda.
+  {
+    red_on();
+    delay(200);
+    red_off();
+    delay(200);
+    green_on();
+    delay(200);
+    green_off();
+    delay(200);
+    yellow_on();
+    delay(200);
+    yellow_off();
+    delay(200);
+  }
+  if (mode==3)  // mode 3 juhuslikud tulukesed sisse välja.
+  {
+    candleEffect();
+  }
+  if (mode==4)  // mode 4 jooksev tuli
+  {
+    runningLight();
+  }
+}
+   
