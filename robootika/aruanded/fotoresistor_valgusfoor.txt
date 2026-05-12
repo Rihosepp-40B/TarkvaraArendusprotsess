@@ -1,0 +1,101 @@
+const int c_red = 13;
+const int c_yel = 12;
+const int c_gre = 11;
+
+const int p_red = 6;
+const int p_gre = 5;
+
+const int sensorPin = A0;
+
+int lightLevel;
+const int threshold = 100;
+
+void setup()
+{
+  // pinMode() määrab töörežiimi
+  pinMode(c_red, OUTPUT);   // 13-pini number, INPUT/OUTPUT(Sisend/Väljund).
+  pinMode(c_yel, OUTPUT);   // 12-pini number, INPUT/OUTPUT(Sisend/Väljund).
+  pinMode(c_gre, OUTPUT);   // 11-pini number, INPUT/OUTPUT(Sisend/Väljund).
+  
+  pinMode(p_red, OUTPUT);   // 6-pini number, INPUT/OUTPUT(Sisend/Väljund).
+  pinMode(p_gre, OUTPUT);   // 5-pini number, INPUT/OUTPUT(Sisend/Väljund).
+  
+  Serial.begin(9600);
+}
+
+void day() 
+{// Valgusfoori päevareziimi  
+  digitalWrite(p_red, HIGH);
+  digitalWrite(c_yel, LOW); // Kollane tuli välja
+  digitalWrite(c_red, HIGH);  // Punane tuli sisse
+
+  delay(1000);              // Ootab 1 sek
+
+  digitalWrite(p_red, LOW);  // Jalakäija punane tuli välja
+  digitalWrite(p_gre, HIGH);  // Jalakäija roheline tuli sisse
+
+  delay(3000);  // Oota 2 sek
+
+  for (int i = 0; i <= 3; i++) {  // Tsükkel jalakäija rohelise tule vilkumiseks
+    digitalWrite(p_gre, LOW);
+    delay(500);
+    digitalWrite(p_gre, HIGH);
+    delay(500);
+  }
+
+  digitalWrite(p_gre, LOW);  // Jalakäija roheline tuli välja
+  digitalWrite(p_red, HIGH);  // Jalakäija punane tuli sisse
+
+  delay(1000);
+
+  digitalWrite(c_yel, HIGH);  // Kollane tuli sisse    
+
+  delay(1000);
+
+  digitalWrite(c_red, LOW);  // Punane tuli välja
+  digitalWrite(c_yel, LOW);  // Kollane tuli välja
+  digitalWrite(c_gre, HIGH);  // Roheline tuli sisse
+
+  delay(3000);  // oota 2 sek
+
+  for (int i = 0; i <= 3; i++) {  // Tsükkel rohelise tule vilkumiseks
+    digitalWrite(c_gre, LOW);
+    delay(500);
+    digitalWrite(c_gre, HIGH);
+    delay(500);
+  }
+
+  digitalWrite(c_gre, LOW);  // Roheline tuli välja
+  digitalWrite(c_yel, HIGH);  // Kollane tuli sisse
+
+  delay(1000);
+}
+
+void night()  // valgusfoori töö tsükkel
+
+{  
+  // Valgusfoori ööreziim
+  digitalWrite(c_red, LOW);
+  digitalWrite(c_gre, LOW);
+  digitalWrite(p_red, LOW);
+  digitalWrite(p_gre, LOW);
+  
+  digitalWrite(c_yel, LOW);
+  delay(500);
+  digitalWrite(c_yel, HIGH);
+  delay(500);
+}
+  
+void loop()
+{
+  lightLevel = analogRead(sensorPin); 
+  
+  Serial.print("Valgustase: ");
+  Serial.println(lightLevel);
+  if (lightLevel > threshold) {
+    night();
+  } else {
+    day();
+  }  
+}
+  

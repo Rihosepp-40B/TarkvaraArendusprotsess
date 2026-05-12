@@ -1,0 +1,51 @@
+<h2>Fotoresistoriga valgusfoor</h2>
+<h3>Uuritud funktsioonid</h3>
+<ul>
+    <li>
+        <code>analogRead()</code> - loeb analoogsisendit määratud asukohast. 
+    </li>
+    <li>
+        <code>Serial.begin(9600)</code> - Serial, ühendab Androido ja arvuti USB kaudu, begin alustab suhtlust, number on andmeedastus kiiirus.
+    </li>
+    <li>
+        <code>Serial.print()</code> - kuvab väärtuse serial monitoris.
+    </li>
+    <li>
+        <code>Serial.printIn()</code> - kuvab samamoodi väärtuse, aga lisablõppu uue rea.
+    </li>
+</ul>
+<h3>Töö kirjeldus</h3>
+<p>Vaja luua valgusfoori tsükkel, millel on päeva ja öö reziimid. Reziimide vahetus sõltub valgusest (fotoresistor).</p>
+<h4>Kasutatud komponendid</h4>
+<ul>
+    <li>Arduino UNO plaat - 1tk</li>
+    <li>Arendusplaat - 1tk</li>
+    <li>Juhtmed - 10tk</li>
+    <li>Takisti - 5tk ja 1tk (220Ω ja 10kΩ)</li>
+    <li>LED roheline - 2tk</li>
+    <li>LED kollane - 1tk</li>
+    <li>LED punane - 2tk</li>
+    <li>Fotoresistor - 1tk</li>
+</ul>
+<h3>Töö protsess</h3>
+<p>
+    Kood Tinkercad'is valmis ja testitud. Ühendasin dioodid, takistid, fororesistori ja juhtmed. Ühendasin Arduino plaadi
+    arvutiga ning laadisin progammi üles.
+</p>
+<p>
+    Kui fororesistoril on piisavalt valgust, töötab päeva režiim. Muul juhul päeva tsükkli lõpus alustab tegevust ööreziim
+</p>
+<p>
+    Päevareziim - kui autofooris põleb punane LED, siis inimestele roheline LED. Rohelised tuled enne kustumist vilguvad ja
+    punane tuli läheb põlema peale rohelise kustumist (autofooris enne punast põleb kollane korraks).
+</p>
+<p>
+    Ööreziim - Valgusfoor teeb läbi kaks päevareziimi tsüklit. Peale seda lülitub ööreziimile. Siin vilgub ainult kollane LED
+    ja teised on kustus.
+</p>
+<h3>Ühendamise skeem</h3>
+<img src="./aruanded/pildid/Autom_valgusfoor.png" class="thumb" onclick="openImg(this.src)">
+<h3>Programm</h3>
+<iframe class="code" src="./aruanded/fotoresistor_valgusfoor.txt"></iframe>
+<h3>Video</h3>
+<iframe src="https://drive.google.com/file/d/1XzMdRnse2i9OoEF_aZ59D3EH7wIWTdBh/preview" width="640" height="900"></iframe>
