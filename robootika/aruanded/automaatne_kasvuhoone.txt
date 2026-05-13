@@ -1,0 +1,66 @@
+#include <Servo.h>
+
+const int temperaturePin = 1;
+const int ledPin = 9;
+Servo mootor;
+
+const int sensorPin = 0;
+int currentAngle = 0;
+int targetAngle = 180;
+
+
+void setup()
+{
+  Serial.begin(9600);
+  mootor.attach(13);
+  mootor.write(currentAngle);
+  pinMode(ledPin, OUTPUT);
+}
+
+float tempC()
+{  
+  float voltage, degreesC;
+  
+  voltage = getVoltage(temperaturePin);
+  degreesC = (voltage - 0.5) * 100.0;
+  
+  Serial.print("voltage: ");
+  Serial.print(voltage);
+  
+  Serial.print(" deg C: ");
+  Serial.println(degreesC);
+  
+  return degreesC;
+}
+
+void light()
+{
+  int lightLevel = analogRead(sensorPin);
+  if (lightLevel > 500) {  // kui pime
+  digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+}
+
+void loop()
+{
+  light();
+  float temperature = tempC();
+    
+  int targetAngle = map(temperature, 20, 30, 0, 180);  // temperatuuri vahemiku seadistamine
+  targetAngle = constrain(targetAngle, 0, 180);
+  
+  if (currentAngle < targetAngle) {
+  currentAngle++;
+  } else if (currentAngle > targetAngle) {
+    currentAngle--;
+  }
+  mootor.write(currentAngle);
+  delay(15); // sujuv liikumine
+}
+
+float getVoltage(int pin)
+{
+  return (analogRead(pin) * 0.004882814);
+}

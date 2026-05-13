@@ -1,0 +1,42 @@
+<h2>Fotoresistoriga valgusfoor</h2>
+<h3>Uuritud funktsioonid</h3>
+<ul>
+    <li>
+        <code>#include &ltServo.h></Servo.h></code> - servo mootori sõnastiku lisamine.
+    </li>
+    <li>
+        <code>.attach()</code> - ühendab nimetatud vahendi väljund asukohaga plaadil.
+    </li>
+    <li>
+        <code>return</code> - tagastab funktsiooni väärtuse kasutamiseks.
+    </li>
+</ul>
+<h3>Töö kirjeldus</h3>
+<p>Luua automatiseeritud miniatuurne kasvuhoonesüsteem, mis reageerib ümbritsevale temperatuurile ja valgusele.</p>
+<p>Süsteem peab suutma juhtida servomootorit temperatuurimuutuse alusel ning lülitada valguse sisse või välja vastavalt
+valgustugevusele, kasutades fototakistit.</p>
+<h4>Kasutatud komponendid</h4>
+<ul>
+    <li>Arduino UNO plaat - 1tk</li>
+    <li>Arendusplaat - 1tk</li>
+    <li>Juhtmed - 12tk</li>
+    <li>Takisti - 1tk ja 1tk (220Ω ja 10kΩ)</li>
+    <li>LED kollane - 1tk</li>
+    <li>Fotoresistor - 1tk</li>
+    <li>Servo mootor - 1tk</li>
+    <li>Temperatuuriandur - 1tk</li>
+</ul>
+<h3>Töö protsess</h3>
+<p>
+    Kood Tinkercad'is valmis ja testitud. Ühendasin komponendid ning seejärel Arduino plaadi
+    arvutiga ja laadisin progammi üles.
+</p>
+<p>
+    Kui fororesistoril on piisavalt valgust on led tuli väljas, muidu lülitub sisse. Temperatuur vahemikus 20-30 seab serv0 mootri asendi nurka. Kõik 20 ja alla on see 0 asendis ning 30 ja üle 180 kraadi asendis. 
+</p>
+<h3>Ühendamise skeem</h3>
+<img src="./aruanded/pildid/Automatiseeritud_kasvuhoone.png" class="thumb" onclick="openImg(this.src)">
+<h3>Programm</h3>
+<iframe class="code" src="./aruanded/automaatne_kasvuhoone.txt"></iframe>
+<h3>Video</h3>
+<iframe src="https://drive.google.com/file/d/10-Zv85Vo5pgRi7_4prtUK5VijLZAoDIX/preview" width="640" height="900"></iframe>
