@@ -1,0 +1,182 @@
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+const int tempPin = 1;
+const int photoPin = 0;
+int switchPin = A2;
+int buzzer = 9;
+
+bool systemOn = false;
+
+byte deg[8] = {0b00110,0b01001,0b01001,0b00110,0b00000,0b00000,0b00000,0b00000};
+
+// muusika seaded
+const int toneLength = 18;
+char notes[] = "cdfda ag cdfdg gf ";
+int beats[] = {1,1,1,1,1,1,4,4,2,1,1,1,1,1,1,4,4,2}; 
+int tempo = 150;
+
+// SOS alarmi seaded
+int alarmPattern[] = {1,0,1,0,1,0, 3, 2,0,2,0,2,0, 3, 1,0,1,0,1,0, 4};
+const int alarmPatternLength = 22;
+int alarmStep = 0;
+
+// ajastamise seaded
+unsigned long lastTime = 0;
+const long loopTime = 500;
+
+unsigned long lastToneUpdate = 0;
+long toneDuration = 0;
+int toneStep = 0;
+bool tonePlays = false;
+
+void setup() {
+  
+  Serial.begin(9600);
+  pinMode(buzzer, OUTPUT);
+  lcd.begin(16, 2);
+  
+  lcd.createChar(9, deg);
+  
+  lcd.clear();
+  lcd.setCursor(15, 0);
+  lcd.print("C");
+  lcd.setCursor(14, 0);
+  lcd.write(9);
+}
+
+
+float tempC()
+{  
+  float voltage, degreesC;
+  char tempString[10];
+  
+  voltage = analogRead(tempPin) * 0.004882814;
+  degreesC = (voltage - 0.5) * 100.0;
+  dtostrf(degreesC, 5, 1, tempString);
+  
+  lcd.setCursor(3, 0);
+  lcd.print("Temp: ");
+  lcd.print(tempString);
+  return degreesC;
+}
+
+int light()
+{
+  int lightLevel = analogRead(photoPin);
+  char lightString[10];
+  
+  dtostrf(lightLevel, 3, 0, lightString);
+  lcd.setCursor(3, 1);
+  lcd.print("Valgus: ");
+  lcd.print(lightString);
+  
+  return lightLevel;
+}
+
+int frequency(char note) 
+{
+  const int numNotes = 8;
+  char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' };
+  int frequencies[] = {262, 294, 330, 349, 392, 440, 494, 523};
+  for (int i = 0; i < numNotes; i++) {
+    if (names[i] == note) return(frequencies[i]);    
+  }
+  return(0); 
+}
+
+void buzzerTune()
+{
+  if (millis() - lastToneUpdate >= toneDuration) {
+    noTone(buzzer);
+    
+    int duration = beats[toneStep] * tempo;
+    char note = notes[toneStep];
+    
+    if (note != ' ') {
+      tone(buzzer, frequency(note));
+    }
+    
+    lastToneUpdate = millis();
+    toneDuration = duration + (tempo / 10);
+    
+    toneStep++;
+    if (toneStep >= toneLength) {
+      toneStep = 0;
+    }
+  }
+}
+
+void buzzerAlarm() {
+  if (millis() - lastToneUpdate >= toneDuration) {
+    noTone(buzzer);
+    
+    int state = alarmPattern[alarmStep];
+    lastToneUpdate = millis();
+    
+    if (state == 1) {
+      tone(buzzer, 1000);
+      toneDuration = 100;
+    } else if (state == 2) {
+      tone(buzzer, 1000);
+      toneDuration = 300;
+    } else if (state == 0) {
+      toneDuration = 100;
+    } else if (state == 3) {
+      toneDuration = 300;
+    } else if (state == 4) {
+      toneDuration = 1000;
+    }
+    
+    alarmStep++;
+      if (alarmStep >= alarmPatternLength) {
+      alarmStep = 0;
+    }
+  }
+}
+
+void loop() {
+  unsigned long currentTime = millis();
+  
+  int controlValue = analogRead(switchPin);
+  systemOn = controlValue < 500;
+  
+  if (!systemOn)
+  {
+  	noTone(buzzer);
+    
+    toneStep = 0;
+    alarmStep = 0;
+    toneDuration = 0;
+    return;
+  }
+  
+  static float currentTemp = 20.0;
+  static int lightlevel = 0;
+  
+  if (currentTime - lastTime >= loopTime) {
+    lastTime = currentTime;
+    currentTemp = tempC();
+    lightlevel = light();
+  }
+  
+  if (currentTemp >= 27 || lightlevel <= 500 || currentTemp <= 0) 
+  {
+    if (tonePlays) {
+      noTone(buzzer);
+      alarmStep = 0;
+      toneDuration = 0;
+      tonePlays = false;
+    }
+    buzzerAlarm();
+  } else {
+    if (!tonePlays) {
+      noTone(buzzer);
+      toneStep = 0;
+      toneDuration = 0;
+      tonePlays = true;
+    }
+    buzzerTune();
+  }
+}

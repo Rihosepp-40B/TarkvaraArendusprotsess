@@ -1,0 +1,67 @@
+<h2>Ilmajaam</h2>
+<h3>Uuritud funktsioonid</h3>
+<ul>
+    <li>
+        <code>#include &ltLiquidCrystal.h>#</code> - lcd ekraani sõnastiku lisamine.
+    </li>
+    <li>
+        <code>byte nimi[8] = {0b00100, ...}</code> - saab ise luua sümboli.
+    </li>
+    <li>
+        <code>const char* sky[] = {...}</code> - massiivide tegemine.
+    </li>
+    <li>
+        <code>lcd.begin(16, 2)</code> - seadistab LCD ekraani.
+    </li>
+    <li>
+        <code>lcd.print("")</code> - prindib LCD ekraanile teksti jätkab seal kus kursor on.
+    </li>
+    <li>
+        <code>lcd.setCursor(4, 1)</code> - seab LCD ekraanil kursori asukoha (veerg, rida).
+    </li>
+    <li>
+        <code>lcd.clear()</code> - tühjendab LCD ekraani.
+    </li>
+    <li>
+        <code>lcd.write(2)</code> - kirjutab sümboli kursori asukohta.
+    </li>
+    <li>
+        <code>millis()</code> - jälgib aega, palju on mõõdunud käivitamisest.
+    </li>
+    <li>
+        <code>dtostrf(sisend, mitu kohta, komakohti, mis nimeks)</code> - teeb komakohaga arvud tekstiks
+    </li>
+    <li>
+        <code>sprintf(nimetus, vormistus, element1, elememt2,...)</code> - vormistab int stringiks.
+    </li>
+</ul>
+<h3>Töö kirjeldus</h3>
+<p>Luua automatiseeritud miniatuurne kasvuhoonesüsteem, kujundatud mini-ilmajaam, mis kuvab andmete põhjal teavet LCD-ekraanil.</p>
+<p>Süsteem peab muutma ekraani infot andurite sisendite põhjal (temperatuur ja valgus).</p>
+<h4>Kasutatud komponendid</h4>
+<ul>
+    <li>Arduino UNO plaat - 1tk</li>
+    <li>Arendusplaat - 1tk (ehitamisel mugavuse pärast 2tk)</li>
+    <li>Juhtmed - 21tk</li>
+    <li>Takisti - 1tk ja 1tk (220Ω ja 10kΩ)</li>
+    <li>Potetsiomeeter - 1tk</li>
+    <li>Fotoresistor - 1tk</li>
+    <li>Temperatuuriandur - 1tk</li>
+</ul>
+<h3>Töö protsess</h3>
+<p>
+    Kood Tinkercad'is valmis ja testitud. Ühendasin komponendid ning seejärel Arduino plaadi
+    arvutiga ja laadisin progammi üles.
+</p>
+<p>
+    Süsteemi sisselülitamisel kuvab ekraanile jaama nime. Peale seda kuvab ekraanile infot sümbolite ja tekstiga. Info vahetub iga veidikese aja tagant. Pimeduse ja temperatuuri näidud sõltuvad reaalaja andmetest.
+</p>
+<p>
+    Kui valgust piisavalt kuvatakse ekraanil päike ja tekst "On valge", muidu kuu ja "On pime". Temperatuuri andur mõjutab temperatuuri näitu ning lisab teksti (külm ja soe).
+</p>
+<h3>Ühendamise skeem</h3>
+<img src="./aruanded/pildid/Ilmajaam.png" class="thumb" onclick="openImg(this.src)">
+<h3>Programm</h3>
+<iframe class="code" src="./aruanded/ilmajaam.txt"></iframe>
+<h3>Video</h3>
+<iframe width="640" height="900" src="https://www.youtube.com/embed/wDt-avo9S08" title="Ilmajaam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

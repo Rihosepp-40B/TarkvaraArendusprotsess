@@ -1,0 +1,161 @@
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+unsigned long lastTime = 0;
+const long loopTime = 3000;
+
+const int tempPin = 1;
+const int lightPin = 0;
+
+int i_index = 6;
+
+String weatherT = "";
+String lightT = "";
+
+byte minusC[8] = {0b00100,0b01110,0b11011,0b01110,0b00100,0b00011,0b11010,0b00011};
+byte sun[8] = {0b10101,0b01110,0b11111,0b01110,0b10101,0b00000,0b00000,0b00000};
+byte raining[8] = {0b01110,0b11111,0b11111,0b01110,0b10001,0b00100,0b10001,0b00100};
+byte cloudy[8] = {0b01110,0b11111,0b11111,0b01110,0b00000,0b00000,0b00000,0b00000};
+byte lightning[8] = {0b00011,0b00110,0b01100,0b11000,0b01100,0b00110,0b00100,0b01000};
+byte moon[8] = {0b00000,0b01110,0b11100,0b11000,0b11000,0b11100,0b01110,0b00000};
+byte clear[8] = {0b00000,0b00000,0b00000,0b00000,0b00000,0b00000,0b00000,0b00000};
+byte deg[8] = {0b00110,0b01001,0b01001,0b00110,0b00000,0b00000,0b00000,0b00000};
+
+const byte skyByte[] = {
+  8, 5, 5, 5, 4, 4, 6
+};
+
+const byte skyByte2[] = {
+  8, 4, 8, 6, 4, 6, 6
+};
+
+const char* sky[] = {
+  "Selge taevas!",
+  "V6ib sadada!",
+  "Pilvine!",
+  "Aikese oht!",
+  "Valjas sajab!",
+  "Sajab & aike!",
+  "Aikese torm \x06\x06"
+};
+
+void setup() {
+
+  Serial.begin(9600);
+  
+  lcd.begin(16, 2);
+  
+  lcd.print("Ilmajaam:");
+  lcd.setCursor(4, 1);
+  lcd.print("ThunderGod");
+
+  lcd.createChar(2, minusC);
+  lcd.createChar(3, sun);
+  lcd.createChar(4, raining);
+  lcd.createChar(5, cloudy);
+  lcd.createChar(6, lightning);
+  lcd.createChar(7, moon);
+  lcd.createChar(8, clear);
+  lcd.createChar(9, deg);
+  
+  delay(4000);
+  lcd.clear();
+  lcd.setCursor(14, 0);
+  lcd.write(9);
+  lcd.print("C");
+  lcd.write(skyByte[0]);
+  lcd.write(skyByte2[0]);
+}
+
+void tempC()
+{  
+  float voltage, degreesC;
+  
+  voltage = analogRead(tempPin) * 0.004882814;
+  degreesC = (voltage - 0.5) * 100.0;
+  Serial.println(degreesC);
+  
+  char tempString[10];
+  dtostrf(degreesC, 5, 1, tempString);
+  
+  lcd.setCursor(2, 0);
+  if (degreesC >= 0) {
+  lcd.write(8);
+    if (degreesC >= 17) {
+    weatherT = " & soe!";
+    } else {
+      weatherT = " & jahe!";
+    };
+  } else {
+  	lcd.write(2);
+    weatherT = " & kylm!";
+  };
+  lcd.setCursor(9, 0);
+  lcd.print(tempString);
+}
+
+void light()
+{
+  int lightLevel = analogRead(lightPin);
+  lcd.setCursor(0, 0);
+  if (lightLevel > 300) {
+  	lcd.write(7);
+ 
+    lightT = "On pime";
+  } else {
+	lcd.write(3);
+    lcd.setCursor(0, 1);
+    lightT ="On valge";
+  };
+  Serial.println(lightLevel);
+  Serial.println(lightT);
+}
+
+void emptyLine() {
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
+  lcd.setCursor(0, 1);
+}
+
+void loop() {
+  unsigned long currentTime = millis();
+
+  unsigned long seconds = currentTime / 1000;
+  unsigned int hours = seconds / 3600;
+  unsigned int minutes = (seconds % 3600) / 60;
+  unsigned int sec = seconds % 60;
+  
+  char time[9];
+  sprintf(time, "%02d:%02d:%02d", hours, minutes, sec);
+
+  light();
+  tempC();
+  
+  
+  if (currentTime - lastTime >= loopTime) {
+    lastTime = currentTime;
+    i_index++;
+    emptyLine();
+    if (i_index > 9) {
+      i_index = 0;
+    }
+    if (i_index <= 6) {
+      lcd.print(lightT);
+      lcd.print(weatherT);
+      lcd.setCursor(4, 0);
+      lcd.write(skyByte[i_index]);
+      lcd.write(skyByte2[i_index]);
+      delay(2000);
+      emptyLine();
+      lcd.print(sky[i_index]);
+    } else if (i_index == 7) {
+      lcd.print(lightT);
+      lcd.print(weatherT);
+    }
+  };
+  if (i_index > 7) {
+    lcd.setCursor(0, 1);
+    lcd.print(time);
+  }
+}
