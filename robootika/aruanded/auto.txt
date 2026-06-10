@@ -1,0 +1,163 @@
+// ================= DISTANCE VARIABLES =================
+const int trigPin = 3;
+const int echoPin = 2;
+
+int dist_check1, dist_check2, dist_check3;
+long duration;
+int distance;
+int dist_result;
+
+// ================= MOTOR VARIABLES =================
+const int mot1f = 6;
+const int mot1b = 5;
+const int mot2f = 11;
+const int mot2b = 10;
+
+int mot_speed = 225;
+
+// ================= LOGIC VARIABLES =================
+const int dist_stop = 25;
+const int max_range = 800;
+const int min_range = 1;
+
+const int errorLED = 13;
+
+// ================= SETUP =================
+void setup() {
+
+  Serial.begin(9600);
+
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+
+  pinMode(errorLED, OUTPUT);
+
+  pinMode(mot1f, OUTPUT);
+  pinMode(mot1b, OUTPUT);
+  pinMode(mot2f, OUTPUT);
+  pinMode(mot2b, OUTPUT);
+
+  motors_stop();
+}
+
+// ================= DISTANCE FUNCTION =================
+int ping() {
+
+  int sum = 0;
+
+  for (int i = 0; i < 3; i++) {
+
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(2);
+
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+
+    digitalWrite(trigPin, LOW);
+
+    duration = pulseIn(echoPin, HIGH, 30000);
+
+    if (duration == 0) {
+      return max_range + 1;
+    }
+
+    distance = duration / 58;
+    sum += distance;
+
+    delay(10);
+  }
+
+  dist_result = sum / 3;
+  return dist_result;
+}
+
+// ================= MAIN LOOP =================
+void loop() {
+
+  int result = ping();
+
+  Serial.print("Distance: ");
+  Serial.print(result);
+  Serial.println(" cm");
+
+  // vigane mõõtmine
+  if (result <= min_range || result > max_range) {
+
+    digitalWrite(errorLED, HIGH);
+
+    motors_stop();
+    delay(100);
+
+    return;
+  }
+
+  digitalWrite(errorLED, LOW);
+
+  // takistus ees
+  if (result <= dist_stop) {
+
+    motors_back();
+    delay(1000);
+
+    motors_stop();
+    delay(200);
+
+    motors_left();
+    delay(400);
+
+    motors_stop();
+    delay(200);
+  }
+  else {
+
+    motors_forward();
+  }
+
+  delay(50);
+}
+
+// ================= MOTOR FUNCTIONS =================
+
+void motors_forward() {
+
+  analogWrite(mot1f, mot_speed);
+  analogWrite(mot2f, mot_speed);
+
+  digitalWrite(mot1b, LOW);
+  digitalWrite(mot2b, LOW);
+}
+
+void motors_back() {
+
+  digitalWrite(mot1f, LOW);
+  digitalWrite(mot2f, LOW);
+
+  analogWrite(mot1b, mot_speed);
+  analogWrite(mot2b, mot_speed);
+}
+
+void motors_stop() {
+
+  digitalWrite(mot1f, LOW);
+  digitalWrite(mot2f, LOW);
+  digitalWrite(mot1b, LOW);
+  digitalWrite(mot2b, LOW);
+}
+
+void motors_left() {
+
+  analogWrite(mot1f, mot_speed);
+  digitalWrite(mot1b, LOW);
+
+  digitalWrite(mot2f, LOW);
+  analogWrite(mot2b, mot_speed);
+}
+
+void motors_right() {
+
+  digitalWrite(mot1f, LOW);
+  analogWrite(mot1b, mot_speed);
+
+  analogWrite(mot2f, mot_speed);
+  digitalWrite(mot2b, LOW);
+}

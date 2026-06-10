@@ -1,0 +1,40 @@
+#include <Servo.h>
+
+#define ECHO_PIN 8
+
+#define TRIG_PIN 7
+
+Servo mootor;
+
+int currentAngle = 90;
+int targetAngle = 0;
+
+int measure()
+{
+  digitalWrite(TRIG_PIN,HIGH);
+  digitalWrite(TRIG_PIN,LOW);
+  int distance=pulseIn(ECHO_PIN, HIGH)/50;
+  Serial.println(distance);
+  return constrain(distance,1,300);
+}
+
+void setup()
+{
+  pinMode(ECHO_PIN, INPUT);
+
+  pinMode(TRIG_PIN, OUTPUT);
+  Serial.begin(9600);
+  mootor.attach(13);
+}
+
+void loop()
+{
+  Serial.println(measure());
+  if (measure() >= 5 && measure() <= 15) {
+    mootor.write(targetAngle);
+  } else {
+    mootor.write(currentAngle);
+  }
+    
+  delay(2000);
+}
